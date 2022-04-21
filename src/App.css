@@ -21,11 +21,33 @@
 }
 
 .myMenu-margin{
-  margin-right: 12px;
+  margin-right: 20px;
 }
 
 .logo{
   display: block;
   margin: 0 auto;
   cursor: pointer;
+}
+
+.menus{
+  max-width: 1140px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.menus ul{
+  width: 850px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.menus ul li{
+  color: #555;
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+.menus ul li:first-child{
+  margin-left: 0;
 }
