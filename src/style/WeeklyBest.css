@@ -1,0 +1,58 @@
+.Container{
+  width: 100%;
+  background-color: #f8f8f8;
+  height: 700px;
+}
+
+.WeeklyBest{
+  max-width: 1250px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.WeeklyBest-Top{
+  padding-top: 120px;
+}
+
+.WeeklyBest-Top-title{
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+.WeeklyBest-Top-info{
+  text-align: center;
+  color: #aaa;
+  margin-bottom: 50px;
+}
+
+.WeeklyBest-main-menus{
+  width: 960px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.WeeklyBest-main-menu{
+  line-height: 50px;
+  width: 120px;
+  height: 50px;
+  background-color: #fff;
+  text-align: center;
+  cursor: pointer;
+  color: #999;
+}
+
+.WeeklyBest-main-menus div:first-child{
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.WeeklyBest-main-menus div:last-child{
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.WeeklyBest-selected{
+  color: #fff;
+  background-color: #ad9377;
+}
