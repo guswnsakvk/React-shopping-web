@@ -1,11 +1,11 @@
 import '../style/Home.css';
 import WeeklyBest from './WeeklyBest.js';
 
-function Home(props){
+function Home(){
   return (
     <div>
       <div className='event'></div>
-      <WeeklyBest WeeklyBestSelected={props.WeeklyBestSelected} WeeklyBestSelectedChange={props.WeeklyBestSelectedChange}></WeeklyBest>
+      <WeeklyBest></WeeklyBest>
     </div>
   );
 }

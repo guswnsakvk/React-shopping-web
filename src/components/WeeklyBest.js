@@ -1,15 +1,16 @@
 import '../style/WeeklyBest.css';
 
-function WeeklyBest(props){
-  const WeeklyBestMunus = document.querySelectorAll(".WeeklyBest-main-menu")
+function WeeklyBest(){
 
   function WeeklyBestClick(e){
-    props.WeeklyBestSelectedChange(e.target.innerText)
-    console.log(WeeklyBestMunus)
-    for(let i=0;i<WeeklyBestMunus.length;i++){
-      console.log(i)
-    }
-    console.log(props.WeeklyBestSelected)
+    const main_menus = document.querySelectorAll(".WeeklyBest-main-menu")
+    main_menus.forEach((main_menu) => {
+      if (main_menu.innerText === e.target.innerText){
+        main_menu.classList.add("WeeklyBest-selected")
+      } else{
+        main_menu.classList.remove("WeeklyBest-selected")
+      }
+    })
   }
 
   return(

@@ -7,7 +7,7 @@ import Home from './components/Home.js';
 import React, { useState } from 'react';
 
 function App() {
-  let [WeeklyBestSelected, WeeklyBestSelectedChange] = useState('운동화')
+  
 
   return (
     <div>
@@ -39,7 +39,7 @@ function App() {
           <li>샌들</li>
         </ul>
       </div>
-      <Home WeeklyBestSelected={WeeklyBestSelected} WeeklyBestSelectedChange={WeeklyBestSelectedChange}></Home>
+      <Home></Home>
     </div>
   );
 }
