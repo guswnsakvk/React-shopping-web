@@ -1,5 +1,4 @@
 import '../style/WeeklyBest.css';
-import test from '../image/product1.jpg';
 
 function WeeklyBest(props){
 
@@ -40,14 +39,25 @@ function WeeklyBest(props){
 function Carousel(props){
   return(
     <div className='carousel'>
-      <div className='item'></div>
+      {
+        props.WeeklyBestList.map((a, i) => {
+          return(
+            <div className='item' key={i}>
+              <img className='itemImg' src={require(`../image/product${a.id + 1}.jpg`)}></img>
+            </div>
+          )
+        })
+      }
+      {/* <div className='item' key={i}>
+        <img className='itemImg' src={require(`../image/product${props.WeeklyBestList[0].id + 1}.jpg`)}></img>
+      </div>
       <div className='item'></div>
       <div className='item'></div>
       <div className='item'></div>
       <div className='item'></div> 
       <div className='item'></div>
       <div className='item'></div>
-      <div className='item'></div>
+      <div className='item'></div> */}
     </div>
   )
 }

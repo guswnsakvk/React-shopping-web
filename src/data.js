@@ -7,6 +7,7 @@ export default [
     quick: 'X',
     best: 'O',
     BlackFriday: 'X',
+    Img: "../image/product1.jpg"
   },
   {
     id: 1,
