@@ -1,6 +1,7 @@
 import '../style/WeeklyBest.css';
+import test from '../image/product1.jpg';
 
-function WeeklyBest(){
+function WeeklyBest(props){
 
   function WeeklyBestClick(e){
     const main_menus = document.querySelectorAll(".WeeklyBest-main-menu")
@@ -31,8 +32,24 @@ function WeeklyBest(){
           <div onClick={WeeklyBestClick} className='WeeklyBest-main-menu'>샌들</div>
         </div>
       </div>
+      <Carousel WeeklyBestList={props.WeeklyBestList}></Carousel>
     </div>
   );
+}
+
+function Carousel(props){
+  return(
+    <div className='carousel'>
+      <div className='item'></div>
+      <div className='item'></div>
+      <div className='item'></div>
+      <div className='item'></div>
+      <div className='item'></div> 
+      <div className='item'></div>
+      <div className='item'></div>
+      <div className='item'></div>
+    </div>
+  )
 }
 
 export default WeeklyBest;

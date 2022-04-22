@@ -1,13 +1,15 @@
-.Container{
-  width: 100%;
+body{
   background-color: #f8f8f8;
-  height: 700px;
+}
+
+.Container{
+  height: 1000px;
 }
 
 .WeeklyBest{
-  max-width: 1250px;
-  width: 100%;
+  width: 1200px;
   margin: 0 auto;
+  margin-bottom: 30px;
 }
 
 .WeeklyBest-Top{
@@ -55,4 +57,20 @@
 .WeeklyBest-selected{
   color: #fff;
   background-color: #ad9377;
+}
+
+.carousel{
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item{
+  box-sizing: border-box;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  width: 270px;
+  height: 400px;
+  background-color: red;
 }

@@ -4,10 +4,23 @@ import './App.css';
 import { Reset } from 'styled-reset';
 import logo from './image/logo.png';
 import Home from './components/Home.js';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import ShoesData from './data.js';
 
 function App() {
-  
+  let [Shoes, ShoesChange] = useState(ShoesData)
+  let [WeeklyBestList, WeeklyBestListChange] = useState([])
+
+  useEffect(() => {
+    let copy = []
+    Shoes.forEach((product)=>{
+      if(product.best === 'O'){
+        copy.push(product)
+      }
+    })
+    WeeklyBestListChange(copy)
+    console.log(WeeklyBestList)
+  }, [])
 
   return (
     <div>
@@ -39,7 +52,7 @@ function App() {
           <li>샌들</li>
         </ul>
       </div>
-      <Home></Home>
+      <Home WeeklyBestList={WeeklyBestList}></Home>
     </div>
   );
 }
