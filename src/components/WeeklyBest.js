@@ -24,8 +24,6 @@ function WeeklyBest(props){
           <div onClick={WeeklyBestClick} className='WeeklyBest-main-menu WeeklyBest-selected'>운동화</div>
           <div onClick={WeeklyBestClick} className='WeeklyBest-main-menu'>캔버스</div>
           <div onClick={WeeklyBestClick} className='WeeklyBest-main-menu'>워킹화</div>
-          <div onClick={WeeklyBestClick} className='WeeklyBest-main-menu'>슬립온 슈즈</div>
-          <div onClick={WeeklyBestClick} className='WeeklyBest-main-menu'>로퍼</div>
           <div onClick={WeeklyBestClick} className='WeeklyBest-main-menu'>부츠</div>
           <div onClick={WeeklyBestClick} className='WeeklyBest-main-menu'>구두</div>
           <div onClick={WeeklyBestClick} className='WeeklyBest-main-menu'>샌들</div>
@@ -48,16 +46,6 @@ function Carousel(props){
           )
         })
       }
-      {/* <div className='item' key={i}>
-        <img className='itemImg' src={require(`../image/product${props.WeeklyBestList[0].id + 1}.jpg`)}></img>
-      </div>
-      <div className='item'></div>
-      <div className='item'></div>
-      <div className='item'></div>
-      <div className='item'></div> 
-      <div className='item'></div>
-      <div className='item'></div>
-      <div className='item'></div> */}
     </div>
   )
 }

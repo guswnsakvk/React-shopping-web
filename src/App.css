@@ -32,22 +32,22 @@
 }
 
 .menus{
-  width: 1200px;
+  width: 1000px;
   margin: 0 auto;
+  text-align: center;
+  display: flex;
 }
 
 .menus ul{
-  width: 850px;
-  display: flex;
+  display: inline-block;
   margin: 0 auto;
   flex-wrap: wrap;
 }
 
 .menus ul li{
   color: #555;
-  margin-left: 30px;
-  margin-top: 30px;
-  margin-bottom: 25px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   cursor: pointer;
 }
 

@@ -38,17 +38,42 @@ function App() {
         </div>
       </header>
       <div className='menus'>
-        <ul>
+        {/* <ul>
           <li>Black Friday</li>
           <li>Best</li>
           <li>당일 배송</li>
           <li>운동화</li>
           <li>캔버스</li>
           <li>워킹화</li>
-          <li>슬립온 슈즈</li>
-          <li>로퍼</li>
           <li>부츠</li>
           <li>구두</li>
+          <li>샌들</li>
+        </ul> */}
+        <ul>
+          <li>Black Friday</li>
+        </ul>
+        <ul>
+          <li>Best</li>
+        </ul>
+        <ul>
+          <li>당일 배송</li>
+        </ul>
+        <ul>
+          <li>운동화</li>
+        </ul>
+        <ul>
+          <li>캔버스</li>
+        </ul>
+        <ul>
+          <li>워킹화</li>
+        </ul>
+        <ul>
+          <li>부츠</li>
+        </ul>
+        <ul>
+          <li>구두</li>
+        </ul>
+        <ul>
           <li>샌들</li>
         </ul>
       </div>
