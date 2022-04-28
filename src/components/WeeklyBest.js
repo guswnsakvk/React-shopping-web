@@ -1,3 +1,5 @@
+/*eslint-disable*/
+
 import '../style/WeeklyBest.css';
 
 function WeeklyBest(props){
@@ -16,7 +18,7 @@ function WeeklyBest(props){
   return(
     <div className='Container'>
       <div className='WeeklyBest'>
-        <div className='WeeklyBest-Top'>
+        <div>
           <p className='WeeklyBest-Top-title'>Weekly Best</p>
           <p className='WeeklyBest-Top-info'>이 주의 가장 핫한 인기상품입니다</p>
         </div>
@@ -36,17 +38,27 @@ function WeeklyBest(props){
 
 function Carousel(props){
   return(
-    <div className='carousel'>
+    <>
+    <div className='item-container'>
       {
-        props.WeeklyBestList.map((a, i) => {
+        props.WeeklyBestList.map((BestList) => {
           return(
-            <div className='item' key={i}>
-              <img className='itemImg' src={require(`../image/product${a.id + 1}.jpg`)}></img>
+            <div className='item-carousel' key={BestList}>
+              {
+                BestList.map((Best) => {
+                  return(
+                    <div className='item-area' key={Best}>
+                      <img className='item-Img' src={require(`../image/product${Best.id + 1}.jpg`)}></img>
+                    </div>
+                  )
+                })
+              }
             </div>
           )
         })
       }
     </div>
+    </>
   )
 }
 

@@ -12,14 +12,31 @@ function App() {
   let [WeeklyBestList, WeeklyBestListChange] = useState([])
 
   useEffect(() => {
-    let copy = []
+    let copy = [[],[],[],[],[],[]]
     Shoes.forEach((product)=>{
       if(product.best === 'O'){
-        copy.push(product)
+        if(product.type === '운동화'){
+          copy[0].push(product)
+        }
+        else if(product.type === '캔버스'){
+          copy[1].push(product)
+        }
+        else if(product.type === '워킹화'){
+          copy[2].push(product)
+        }
+        else if(product.type === '부츠'){
+          copy[3].push(product)
+        }
+        else if(product.type === '구두'){
+          copy[4].push(product)
+        }
+        else{
+          copy[5].push(product)
+        }
       }
     })
+    console.log(copy)
     WeeklyBestListChange(copy)
-    console.log(WeeklyBestList)
   }, [])
 
   return (
@@ -38,17 +55,6 @@ function App() {
         </div>
       </header>
       <div className='menus'>
-        {/* <ul>
-          <li>Black Friday</li>
-          <li>Best</li>
-          <li>당일 배송</li>
-          <li>운동화</li>
-          <li>캔버스</li>
-          <li>워킹화</li>
-          <li>부츠</li>
-          <li>구두</li>
-          <li>샌들</li>
-        </ul> */}
         <ul>
           <li>Black Friday</li>
         </ul>

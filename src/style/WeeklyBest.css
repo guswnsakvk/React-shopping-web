@@ -1,15 +1,16 @@
+body{
+  background-color: #f8f8f8;
+}
+
 .Container{
   height: 1000px;
+  padding-top: 120px;
 }
 
 .WeeklyBest{
   width: 1200px;
   margin: 0 auto;
   margin-bottom: 30px;
-}
-
-.WeeklyBest-Top{
-  padding-top: 120px;
 }
 
 .WeeklyBest-Top-title{
@@ -55,14 +56,19 @@
   background-color: #ad9377;
 }
 
-.carousel{
+
+.item-container{
   width: 1200px;
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
 }
 
-.item{
+.item-carousel{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.item-area{
   box-sizing: border-box;
   margin-right: 30px;
   margin-bottom: 30px;
@@ -70,7 +76,7 @@
   height: 400px;
 }
 
-.itemImg{
+.item-Img{
   width: 100%;
   height: 100%;
 }

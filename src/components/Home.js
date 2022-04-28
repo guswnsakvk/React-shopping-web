@@ -1,3 +1,5 @@
+/*eslint-disable*/
+
 import '../style/Home.css';
 import WeeklyBest from './WeeklyBest.js';
 

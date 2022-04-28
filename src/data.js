@@ -85,7 +85,7 @@ export default [
     price: 42000,
     size: [220,230,240,250,260,270,280,290],
     quick: 'X',
-    best: 'X',
+    best: 'O',
     BlackFriday: 'O',
     type: '운동화',
   },
