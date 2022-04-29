@@ -2,23 +2,23 @@
 
 import '../style/WeeklyBest.css';
 
-function WeeklyBest(props){
+function WeeklyBest(props) {
 
-  function WeeklyBestClick(e){
+  function WeeklyBestClick(e) {
     const main_menus = document.querySelectorAll(".WeeklyBest-main-menu")
     const lists = document.querySelector(".best-carousel-container")
     const id = e.target.attributes[0].value
     main_menus.forEach((main_menu) => {
-      if (main_menu.innerText === e.target.innerText){
+      if (main_menu.innerText === e.target.innerText) {
         main_menu.classList.add("WeeklyBest-selected")
-      } else{
+      } else {
         main_menu.classList.remove("WeeklyBest-selected")
       }
     })
     lists.style.transform = `translateX(-${1200 * id}px)`
   }
 
-  return(
+  return (
     <div className='Container'>
       <div className='WeeklyBest'>
         <div>
@@ -39,19 +39,28 @@ function WeeklyBest(props){
   );
 }
 
-function BestCarousel(props){
-  return(
+function BestCarousel(props) {
+  return (
     <div className='best-carousel'>
       <div className='best-carousel-container'>
         {
           props.WeeklyBestList.map((BestList) => {
-            return(
+            return (
               <div className='best-carousel-items' key={BestList}>
                 {
                   BestList.map((Best) => {
-                    return(
+                    return (
                       <div className='best-carousel-item' key={Best}>
-                        <img className='best-carousel-item-img' src={require(`../image/product${Best.id + 1}.jpg`)}></img>
+                        <div className='best-carousel-item-img' style={{ backgroundImage: `url(${require(`../image/product${Best.id + 1}.jpg`)})`, backgroundSize: "270px 400px" }}>
+                          <div className='best-carousel-item-info'>
+                            <p className='best-carousel-item-name'>{Best.name}</p>
+                            {
+                              Best.BlackFriday === 'O'
+                              ? <p><span className='line'>{Best.price}원</span> → {Best.price / 2}원</p>
+                              : <p>{Best.price}원</p>
+                            }
+                          </div>
+                        </div>
                       </div>
                     )
                   })

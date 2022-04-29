@@ -57,6 +57,12 @@ body{
 }
 
 
+.best-carousel{
+  width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
 .best-carousel-container{
   width: 100%;
   height: 950px;
@@ -82,10 +88,30 @@ body{
 .best-carousel-item-img{
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
-.best-carousel{
-  width: 1200px;
-  margin: 0 auto;
-  overflow: hidden;
+.best-carousel-item-info{
+  width: 100%;
+  height: 30%;
+  background-color: rgba(255,255,255,.7);
+  position: absolute;
+  bottom: 0;
+  box-sizing: border-box;
+  padding: 25px;
+  opacity: 0;
+  transition: .5s;
+}
+
+.best-carousel-item-img:hover .best-carousel-item-info{
+  opacity: 1;
+}
+
+.best-carousel-item-name{
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.line{
+  text-decoration: line-through;
 }
