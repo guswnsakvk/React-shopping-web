@@ -57,18 +57,21 @@ body{
 }
 
 
-.item-container{
-  width: 1200px;
-  margin: 0 auto;
+.best-carousel-container{
+  width: 100%;
+  height: 950px;
+  display: flex;
+  transition: 1s;
 }
 
-.item-carousel{
+.best-carousel-items{
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  min-width: 1200px;
+  height: 500px;
 }
 
-.item-area{
+.best-carousel-item{
   box-sizing: border-box;
   margin-right: 30px;
   margin-bottom: 30px;
@@ -76,7 +79,13 @@ body{
   height: 400px;
 }
 
-.item-Img{
+.best-carousel-item-img{
   width: 100%;
   height: 100%;
+}
+
+.best-carousel{
+  width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
 }
