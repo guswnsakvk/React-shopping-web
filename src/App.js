@@ -10,33 +10,41 @@ import ShoesData from './data.js';
 function App() {
   let [Shoes, ShoesChange] = useState(ShoesData)
   let [WeeklyBestList, WeeklyBestListChange] = useState([])
+  let [QuickList, QuickListChange] = useState([])
 
   useEffect(() => {
-    let copy = [[],[],[],[],[],[]]
+    let weekly = [[],[],[],[],[],[]]
+    let quick = []
     Shoes.forEach((product)=>{
       if(product.best === 'O'){
         if(product.type === '운동화'){
-          copy[0].push(product)
+          weekly[0].push(product)
         }
         else if(product.type === '캔버스'){
-          copy[1].push(product)
+          weekly[1].push(product)
         }
         else if(product.type === '워킹화'){
-          copy[2].push(product)
+          weekly[2].push(product)
         }
         else if(product.type === '부츠'){
-          copy[3].push(product)
+          weekly[3].push(product)
         }
         else if(product.type === '구두'){
-          copy[4].push(product)
+          weekly[4].push(product)
         }
         else{
-          copy[5].push(product)
+          weekly[5].push(product)
         }
       }
     })
-    console.log(copy)
-    WeeklyBestListChange(copy)
+
+    Shoes.forEach((product) => {
+      if(product.quick === 'O'){
+        quick.push(product)
+      }
+    })
+    WeeklyBestListChange(weekly)
+    QuickListChange(quick)
   }, [])
 
   return (
@@ -83,7 +91,7 @@ function App() {
           <li>샌들</li>
         </ul>
       </div>
-      <Home WeeklyBestList={WeeklyBestList}></Home>
+      <Home WeeklyBestList={WeeklyBestList} QuickList={QuickList}></Home>
     </div>
   );
 }

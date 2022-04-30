@@ -1,0 +1,16 @@
+.quick{
+  height: 1200px;
+  padding-top: 120px;
+}
+
+.quick-top-title{
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+.quick-top-info{
+  text-align: center;
+  color: #aaa;
+  margin-bottom: 50px;
+}
