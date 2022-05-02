@@ -1,10 +1,11 @@
 .header{
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .headerTop{
   height: 30px;
+  width: 100%;
   line-height: 30px;
   position: relative;
   margin-bottom: 15px;
@@ -32,16 +33,17 @@
 }
 
 .menus{
-  width: 1000px;
+  max-width: 900px;
   margin: 0 auto;
   text-align: center;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .menus ul{
+  width: 100px;
   display: inline-block;
   margin: 0 auto;
-  flex-wrap: wrap;
 }
 
 .menus ul li{

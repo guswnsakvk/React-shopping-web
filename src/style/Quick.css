@@ -35,7 +35,7 @@
   width: 100%;
   height: 100%;
   position: relative;
-  background-size: 270px 400px;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   cursor: pointer;
 }
@@ -60,4 +60,49 @@
 
 .line{
   text-decoration: line-through;
+}
+
+.price{
+  font-size: 16px;
+}
+
+@media screen and (max-width: 1200px){
+  .showQuick-items{
+    width: 800px;
+    height: 400px;
+  }
+  
+  .showQuick-item{
+    width: 236px;
+    height: 350px;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .showQuick-items{
+    width: 95%;
+    height: 150px;
+  }
+  
+  .showQuick-item{
+    box-sizing: border-box;
+    width: 18%;
+    height: 100%;
+    margin-right: 10px;
+  }
+
+  .showQuick-item-info-title{
+    font-size: 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  .split-line{
+    opacity: .3;
+    margin-bottom: 15px;
+  }
+
+  .price{
+    font-size: 12px;
+  }
 }

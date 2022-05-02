@@ -27,8 +27,11 @@ function ShowQuick(props){
                 <hr className='split-line'></hr>
                 {
                   quick.BlackFriday === 'O'
-                  ? <p><span className='line'>{quick.price}원</span> → {quick.price / 2}원</p>
-                  : <p>{quick.price}원</p>
+                  ? <div className='price'>
+                    <p className='line'>{quick.price}원</p>
+                    <p>{quick.price / 2}원</p>
+                  </div>
+                  : <p className='price'>{quick.price}원</p>
                 }
               </div>
             </div>

@@ -15,7 +15,12 @@ function WeeklyBest(props) {
         main_menu.classList.remove("WeeklyBest-selected")
       }
     })
-    lists.style.transform = `translateX(-${1200 * id}px)`
+    if(window.innerWidth > 1200){
+      lists.style.transform = `translateX(-${1200 * id}px)`
+    } else if(window.innerWidth > 768){
+      lists.style.transform = `translateX(-${800 * id}px)`
+    }
+    
   }
 
   return (
@@ -56,8 +61,11 @@ function BestCarousel(props) {
                             <p className='best-carousel-item-name'>{Best.name}</p>
                             {
                               Best.BlackFriday === 'O'
-                              ? <p><span className='line'>{Best.price}원</span> → {Best.price / 2}원</p>
-                              : <p>{Best.price}원</p>
+                              ? <div className='price'>
+                                  <p className='line'>{Best.price}원</p>
+                                  <p>{Best.price / 2}원</p>
+                                </div>
+                              : <p className='price'>{Best.price}원</p>
                             }
                           </div>
                         </div>
