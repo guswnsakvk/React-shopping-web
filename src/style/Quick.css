@@ -19,15 +19,45 @@
   display: flex;
   flex-wrap: wrap;
   width: 1200px;
+  height: 400px;
   margin: 0 auto;
 }
 
 .showQuick-item{
   box-sizing: border-box;
   margin-right: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 150px;
   width: 270px;
   height: 400px;
+}
+
+.showQuick-item-img{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-size: 270px 400px;
+  background-repeat: no-repeat;
   cursor: pointer;
-  background-color: red;
+}
+
+.showQuick-item-info{
+  width: 100%;
+  height: 80px;
+  box-sizing: border-box;
+  padding-top: 15px;
+}
+
+.showQuick-item-info-title{
+  font-size: 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.split-line{
+  opacity: .3;
+  margin-bottom: 15px;
+}
+
+.line{
+  text-decoration: line-through;
 }

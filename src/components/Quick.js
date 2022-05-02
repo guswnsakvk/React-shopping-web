@@ -18,8 +18,20 @@ function ShowQuick(props){
   return(
     <div className='showQuick-items'>
       {
-        props.QuickList.map((a) => {
-          return(<div className='showQuick-item'></div>
+        props.QuickList.map((quick) => {
+          return(
+            <div className='showQuick-item' >
+              <div className='showQuick-item-img' style={{ backgroundImage: `url(${require(`../image/product${quick.id + 1}.jpg`)})`}}></div>
+              <div className='showQuick-item-info'>
+                <p className='showQuick-item-info-title'>{quick.name}</p>
+                <hr className='split-line'></hr>
+                {
+                  quick.BlackFriday === 'O'
+                  ? <p><span className='line'>{quick.price}원</span> → {quick.price / 2}원</p>
+                  : <p>{quick.price}원</p>
+                }
+              </div>
+            </div>
           )
         })
       }
