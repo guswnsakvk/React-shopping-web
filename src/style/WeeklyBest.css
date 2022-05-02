@@ -80,12 +80,14 @@
   margin-bottom: 30px;
   width: 270px;
   height: 400px;
+  cursor: pointer;
 }
 
 .best-carousel-item-img{
   width: 100%;
   height: 100%;
   position: relative;
+  background-size: 270px 400px;
 }
 
 .best-carousel-item-info{

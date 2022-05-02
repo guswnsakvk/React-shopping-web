@@ -8,6 +8,7 @@ function Quick(props){
       <div className='quick'>
         <p className='quick-top-title'>당일 배송</p>
         <p className='quick-top-info'>서울 인근 3시전에 주문시 당일 배송</p>
+        <ShowQuick QuickList={props.QuickList}></ShowQuick>
       </div>
     </div>
   )
@@ -15,7 +16,14 @@ function Quick(props){
 
 function ShowQuick(props){
   return(
-    <div></div>
+    <div className='showQuick-items'>
+      {
+        props.QuickList.map((a) => {
+          return(<div className='showQuick-item'></div>
+          )
+        })
+      }
+    </div>
   )
 }
 

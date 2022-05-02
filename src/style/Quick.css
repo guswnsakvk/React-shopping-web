@@ -14,3 +14,20 @@
   color: #aaa;
   margin-bottom: 50px;
 }
+
+.showQuick-items{
+  display: flex;
+  flex-wrap: wrap;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.showQuick-item{
+  box-sizing: border-box;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  width: 270px;
+  height: 400px;
+  cursor: pointer;
+  background-color: red;
+}

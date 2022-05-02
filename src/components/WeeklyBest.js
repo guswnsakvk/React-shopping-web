@@ -51,7 +51,7 @@ function BestCarousel(props) {
                   BestList.map((Best) => {
                     return (
                       <div className='best-carousel-item' key={Best}>
-                        <div className='best-carousel-item-img' style={{ backgroundImage: `url(${require(`../image/product${Best.id + 1}.jpg`)})`, backgroundSize: "270px 400px" }}>
+                        <div className='best-carousel-item-img' style={{ backgroundImage: `url(${require(`../image/product${Best.id + 1}.jpg`)})`}}>
                           <div className='best-carousel-item-info'>
                             <p className='best-carousel-item-name'>{Best.name}</p>
                             {
