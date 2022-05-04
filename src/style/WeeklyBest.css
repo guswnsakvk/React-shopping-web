@@ -158,3 +158,18 @@
     font-size: 12px;
   }
 }
+
+@media screen and (max-width: 768px){
+  .WeeklyBest-main-menus{
+    max-width: 740px;
+    width: 90%;
+  }
+
+  .best-carousel{
+    width: 90%;
+  }
+
+  .best-carousel-items{
+    min-width: 100%;
+  }
+}
