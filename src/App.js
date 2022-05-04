@@ -91,7 +91,8 @@ function App() {
           <li>샌들</li>
         </ul>
       </div>
-      <Home WeeklyBestList={WeeklyBestList} QuickList={QuickList}></Home>
+      <hr className='hrTag'></hr>
+      <Home WeeklyBestList={WeeklyBestList} QuickList={QuickList} Shoes={Shoes}></Home>
     </div>
   );
 }

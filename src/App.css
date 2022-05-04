@@ -56,3 +56,9 @@
 .menus ul li:first-child{
   margin-left: 0;
 }
+
+.hrTag{
+  background-color: #aaa;
+  opacity: .3;
+  height: .1px;
+}

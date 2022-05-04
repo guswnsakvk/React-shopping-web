@@ -1,0 +1,79 @@
+.container{
+  width: 1200px;
+  margin: 0 auto;
+  margin-top: 70px;
+}
+
+.container-item{
+  width: 100%;
+  height: 700px;
+  display: flex;
+}
+
+.container-item-img{
+  width: 700px;
+  height: 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.container-item-info{
+  width: 500px;
+  height: 100%;
+  padding-left: 100px;
+}
+
+.container-item-info-title{
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+.hrTag{
+  background-color: #aaa;
+  height: .1px;
+  opacity: .3;
+  margin-bottom: 30px;
+}
+
+.container-item-info-detail{
+  width: 100%;
+  background-color: red;
+  height: 300px;
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.container-item-info-detail-left{
+  width: 150px;
+  height: 100px;
+  background-color: aqua;
+}
+
+.container-item-info-total{
+  text-align: right;
+  margin-bottom: 50px;
+}
+
+.container-item-info-btns{
+  display: flex;
+}
+
+.container-item-info-btns-buy{
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  background-color: #ad9377;
+  margin-right: 20px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.container-item-info-btns-cart{
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  border: 1px solid #aaa;
+  cursor: pointer;
+}
