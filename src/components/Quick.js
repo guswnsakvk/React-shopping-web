@@ -20,7 +20,7 @@ function ShowQuick(props){
       {
         props.QuickList.map((quick) => {
           return(
-            <div className='showQuick-item' >
+            <div className='showQuick-item' key={quick}>
               <div className='showQuick-item-img' style={{ backgroundImage: `url(${require(`../image/product${quick.id + 1}.jpg`)})`}}></div>
               <div className='showQuick-item-info'>
                 <p className='showQuick-item-info-title'>{quick.name}</p>

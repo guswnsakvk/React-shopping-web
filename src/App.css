@@ -58,6 +58,7 @@
 }
 
 .hrTag{
+  margin-bottom: 0;
   background-color: #aaa;
   opacity: .3;
   height: .1px;

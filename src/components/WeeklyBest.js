@@ -15,14 +15,7 @@ function WeeklyBest(props) {
         main_menu.classList.remove("WeeklyBest-selected")
       }
     })
-    if(window.innerWidth > 1200){
-      lists.style.transform = `translateX(-${1200 * id}px)`
-    } else if(window.innerWidth > 768){
-      lists.style.transform = `translateX(-${800 * id}px)`
-    } else if(window.innerWidth < 768){
-      lists.style.transform = `translateX(-${lists.clientWidth * id}px)`
-      console.log(lists.clientWidth)
-    }
+    lists.style.transform = `translateX(-${lists.clientWidth * id}px)`
   }
 
   return (
