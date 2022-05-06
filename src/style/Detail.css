@@ -52,6 +52,10 @@
   width: 20%;
 }
 
+.before-sale{
+  text-decoration: line-through;
+}
+
 .container-item-info-detail tr td{
   height: 50px;
 }
