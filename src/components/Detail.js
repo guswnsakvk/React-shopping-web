@@ -2,12 +2,14 @@
 
 import '../style/Detail.css'
 import {useParams} from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
 
 function Detail(props){
   let {id} = useParams()
   let findProduct = props.Shoes.find(function(product){
     return product.id == id
   })
+  let [cnt, cntChange] = useState(0)
 
   return(
     <div className='background'>
@@ -60,7 +62,7 @@ function Detail(props){
               </table>
             </div>
             <hr className='detail-hrTag'></hr>
-            <p className='container-item-info-total'>total: 0</p>
+            <p className='container-item-info-total'>total: 0({cnt})</p>
             <div className='container-item-info-btns'>
               <div className='container-item-info-btns-buy'>BUY NOW</div>
               <div className='container-item-info-btns-cart'>ADD TO CART</div>
