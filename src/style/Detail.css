@@ -28,24 +28,32 @@
   font-size: 24px;
 }
 
-.hrTag{
+.detail-hrTag{
   background-color: #aaa;
   height: .1px;
   opacity: .3;
+  margin-bottom: 30px;
 }
 
 .container-item-info-detail{
   width: 100%;
-  background-color: red;
-  height: 300px;
-  display: flex;
   margin-bottom: 30px;
 }
 
-.container-item-info-detail-left{
-  width: 150px;
-  height: 100px;
-  background-color: aqua;
+.container-item-info-detail table{
+  width: 100%;
+}
+
+.container-item-info-detail-td-select{
+  width: 100%;
+}
+
+.container-item-info-detail-td-title{
+  width: 20%;
+}
+
+.container-item-info-detail tr td{
+  height: 50px;
 }
 
 .container-item-info-total{
