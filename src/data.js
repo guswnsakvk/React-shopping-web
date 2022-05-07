@@ -1,4 +1,4 @@
-export default [
+const Data = [
   {
     id: 0,
     name: '운동화1',
@@ -800,3 +800,5 @@ export default [
     type: '샌들',
   },
 ]
+
+export default Data;

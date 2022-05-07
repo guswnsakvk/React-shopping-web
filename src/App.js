@@ -11,6 +11,7 @@ function App() {
   let [Shoes, ShoesChange] = useState(ShoesData)
   let [WeeklyBestList, WeeklyBestListChange] = useState([])
   let [QuickList, QuickListChange] = useState([])
+  let [cart, cartChange] = useState([])
 
   useEffect(() => {
     let weekly = [[],[],[],[],[],[]]
@@ -92,7 +93,7 @@ function App() {
         </ul>
       </div>
       <hr className='app-hrTag'></hr>
-      <Home WeeklyBestList={WeeklyBestList} QuickList={QuickList} Shoes={Shoes}></Home>
+      <Home WeeklyBestList={WeeklyBestList} QuickList={QuickList} Shoes={Shoes} cart={cart} cartChange={cartChange}></Home>
     </div>
   );
 }
