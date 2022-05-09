@@ -65,6 +65,41 @@
   height: 50px;
 }
 
+.detail-selected-hrTag{
+  background-color: #aaa;
+  height: .1px;
+  opacity: .3;
+  margin-bottom: 15px;
+}
+
+.container-item-info-detail-selected{
+  width: 100%;
+  height: 35px;
+}
+
+.container-item-info-detail-selected-title{
+  width: 45%;
+}
+
+.container-item-info-detail-td-selected-cnt{
+  width: 33%;
+  display: flex;
+}
+
+.container-item-info-detail-td-selected-cnt input{
+  width: 50px;
+  margin: 0 auto;
+  margin-right: 15px;
+}
+
+.container-item-info-detail-td-selected-cnt span{
+  cursor: pointer;
+}
+
+.container-item-info-detail-td-selected-price{
+  text-align: right;
+}
+
 .container-item-info-total{
   text-align: right;
   margin-bottom: 50px;

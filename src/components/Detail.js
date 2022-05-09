@@ -97,7 +97,23 @@ function Detail(props){
                 </tr>
               </table>
             </div>
-            <hr className='detail-hrTag'></hr>
+            <hr className='detail-selected-hrTag'></hr>
+            <table className='container-item-info-detail-selected'>
+              <tr>
+                <td className='container-item-info-detail-selected-title'>
+                  <p>{findProduct.name}</p>
+                  <p>230</p>
+                </td>
+                <td className='container-item-info-detail-td-selected-cnt'>
+                  <input type={"number"} min={1}></input>
+                  <span>X</span>
+                </td>
+                <td className='container-item-info-detail-td-selected-price'>
+                  {findProduct.price}
+                </td>
+              </tr>
+            </table>
+            <hr className='detail-selected-hrTag'></hr>
             <p className='container-item-info-total'>total: 0({cnt})</p>
             <div className='container-item-info-btns'>
               <div className='container-item-info-btns-buy'>BUY NOW</div>
