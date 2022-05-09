@@ -16,18 +16,25 @@ function Detail(props){
     if(e.target.value !== ""){
       let check = false
       let copy = [...select]
+      let data = {product_size : e.target.value, product_cnt : 1}
       for(let i=0;i<select.length;i++){
-        if(select[i] === e.target.value){
+        if(select[i].product_size === e.target.value){
           check = true
           break
         }
       }
       if(!check){
-        copy.push(e.target.value)
+        copy.push(data)
         console.log(copy)
         selectChange(copy)
       }
     }
+  }
+
+  function setValue(params, e){
+    let copy = [...select]
+    copy[params].product_cnt = e.target.value
+    selectChange(copy)
   }
 
   function push_data_to_cart(e){
@@ -98,7 +105,31 @@ function Detail(props){
               </table>
             </div>
             <hr className='detail-selected-hrTag'></hr>
-            <table className='container-item-info-detail-selected'>
+            {
+              select.map((selected, i) => {
+                return(
+                  <>
+                    <table className='container-item-info-detail-selected'>
+                      <tr>
+                        <td className='container-item-info-detail-selected-title'>
+                          <p>{findProduct.name}</p>
+                          <p>{selected.product_size}</p>
+                        </td>
+                        <td className='container-item-info-detail-td-selected-cnt'>
+                          <input onChange={(e) => {setValue(i, e)}} type={"number"} min={1} value={selected.product_cnt}></input>
+                          <span>X</span>
+                        </td>
+                        <td className='container-item-info-detail-td-selected-price'>
+                          {findProduct.price * selected.product_cnt}
+                        </td>
+                      </tr>
+                    </table>
+                    <hr className='detail-selected-hrTag'></hr>
+                  </>
+                )
+              })
+            }
+            {/* <table className='container-item-info-detail-selected'>
               <tr>
                 <td className='container-item-info-detail-selected-title'>
                   <p>{findProduct.name}</p>
@@ -113,7 +144,7 @@ function Detail(props){
                 </td>
               </tr>
             </table>
-            <hr className='detail-selected-hrTag'></hr>
+            <hr className='detail-selected-hrTag'></hr> */}
             <p className='container-item-info-total'>total: 0({cnt})</p>
             <div className='container-item-info-btns'>
               <div className='container-item-info-btns-buy'>BUY NOW</div>
