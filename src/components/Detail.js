@@ -10,6 +10,25 @@ function Detail(props){
     return product.id == id
   })
   let [cnt, cntChange] = useState(0)
+  let [select, selectChange] = useState([])
+
+  function select_size(e){
+    if(e.target.value !== ""){
+      let check = false
+      let copy = [...select]
+      for(let i=0;i<select.length;i++){
+        if(select[i] === e.target.value){
+          check = true
+          break
+        }
+      }
+      if(!check){
+        copy.push(e.target.value)
+        console.log(copy)
+        selectChange(copy)
+      }
+    }
+  }
 
   function push_data_to_cart(e){
     let check = false
@@ -64,7 +83,7 @@ function Detail(props){
                 <tr>
                   <td className='container-item-info-detail-td-left'>사이즈</td>
                   <td>
-                    <select onChange={push_data_to_cart} name='size' className='container-item-info-detail-td-select'>
+                    <select onChange={select_size} name='size' className='container-item-info-detail-td-select'>
                       <option value={""}>- [필수] 사이즈 선택 -</option>
                       {
                         findProduct.size.map((shoes_size) => {
