@@ -3,25 +3,13 @@
 import '../style/Home.css';
 import WeeklyBest from './WeeklyBest.js'
 import Quick from './Quick.js'
-import Detail from './Detail.js'
-import {Link, Route, Switch} from 'react-router-dom'
-import React, { useState } from 'react';
 
 function Home(props){
-  
-  
   return (
     <div>
-      <Switch>
-        <Route exact path="/">
-          <div className='event'></div>
-          <WeeklyBest WeeklyBestList={props.WeeklyBestList}></WeeklyBest>
-          <Quick QuickList={props.QuickList}></Quick>
-        </Route>
-        <Route path="/detail/:id">
-          <Detail Shoes={props.Shoes} cart={props.cart} cartChange={props.cartChange}></Detail>
-        </Route>
-      </Switch>
+      <div className='event'></div>
+      <WeeklyBest WeeklyBestList={props.WeeklyBestList}></WeeklyBest>
+      <Quick QuickList={props.QuickList}></Quick>
     </div>
   );
 }

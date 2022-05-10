@@ -7,11 +7,16 @@ import Home from './components/Home.js';
 import React, { useEffect, useState } from 'react';
 import ShoesData from './data.js';
 
+import Detail from './components/Detail.js'
+import TypeProduct from './components/TypeProduct.js'
+import {Link, Route, Switch, NavLink} from 'react-router-dom'
+
 function App() {
   let [Shoes, ShoesChange] = useState(ShoesData)
   let [WeeklyBestList, WeeklyBestListChange] = useState([])
   let [QuickList, QuickListChange] = useState([])
   let [cart, cartChange] = useState([])
+  let [typeProductList, typeProductListChange] = useState([])
 
   useEffect(() => {
     let weekly = [[],[],[],[],[],[]]
@@ -48,6 +53,37 @@ function App() {
     QuickListChange(quick)
   }, [])
 
+  function set_typeList(e){
+    const selected_type = e.target.innerText
+    const typeList = []
+    if(selected_type === "Black Friday"){
+      Shoes.forEach((product) => {
+        if(product.BlackFriday === "O"){
+          typeList.push(product)
+        }
+      })
+    } else if(selected_type === "Best"){
+      Shoes.forEach((product) => {
+        if(product.best ==='O'){
+          typeList.push(product)
+        }
+      })
+    } else if(selected_type === "당일 배송"){
+        Shoes.forEach((product) => {
+          if(product.quick === 'O'){
+            typeList.push(product)
+          }
+        })
+    } else{
+        Shoes.forEach((product) => {
+          if(product.type === selected_type){
+            typeList.push(product)
+          }
+        })
+    }
+    typeProductListChange(typeList)
+  }
+
   return (
     <div>
       <Reset />
@@ -60,40 +96,54 @@ function App() {
           </ul>
         </div>
         <div>
-          <img src={logo} alt="#" className='logo'></img>
+          <NavLink to={"/"}>
+            <img src={logo} alt="#" className='logo'></img>
+          </NavLink>
         </div>
       </header>
       <div className='menus'>
         <ul>
-          <li>Black Friday</li>
+          <li onClick={set_typeList}><Link to={"/shoestype/BlackFriday"}>Black Friday</Link></li>
         </ul>
         <ul>
-          <li>Best</li>
+          <li onClick={set_typeList}>Best</li>
         </ul>
         <ul>
-          <li>당일 배송</li>
+          <li onClick={set_typeList}>당일 배송</li>
         </ul>
         <ul>
-          <li>운동화</li>
+          <li onClick={set_typeList}>운동화</li>
         </ul>
         <ul>
-          <li>캔버스</li>
+          <li onClick={set_typeList}>캔버스</li>
         </ul>
         <ul>
-          <li>워킹화</li>
+          <li onClick={set_typeList}>워킹화</li>
         </ul>
         <ul>
-          <li>부츠</li>
+          <li onClick={set_typeList}>부츠</li>
         </ul>
         <ul>
-          <li>구두</li>
+          <li onClick={set_typeList}>구두</li>
         </ul>
         <ul>
-          <li>샌들</li>
+          <li onClick={set_typeList}>샌들</li>
         </ul>
       </div>
       <hr className='app-hrTag'></hr>
-      <Home WeeklyBestList={WeeklyBestList} QuickList={QuickList} Shoes={Shoes} cart={cart} cartChange={cartChange}></Home>
+      <div>
+        <Switch>
+          <Route exact path="/">
+            <Home WeeklyBestList={WeeklyBestList} QuickList={QuickList}></Home>
+          </Route>
+          <Route path="/shoes_type/:id">
+            <TypeProduct typeProductList={typeProductList}></TypeProduct>
+          </Route>
+          <Route path="/detail/:id">
+            <Detail Shoes={Shoes} cart={cart} cartChange={cartChange}></Detail>
+          </Route>
+        </Switch>
+      </div>
     </div>
   );
 }
