@@ -24,6 +24,9 @@ function Detail(props){
         }
       }
       if(!check){
+        let product_count = cnt
+        product_count += 1
+        cntChange(product_count)
         copy.push(data)
         console.log(copy)
         selectChange(copy)
@@ -33,6 +36,9 @@ function Detail(props){
 
   function setValue(params, e){
     let copy = [...select]
+    let product_count = cnt
+    product_count += e.target.value - copy[params].product_cnt
+    cntChange(product_count)
     copy[params].product_cnt = e.target.value
     selectChange(copy)
   }
