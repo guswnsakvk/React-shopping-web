@@ -11,6 +11,7 @@ function Detail(props){
   })
   let [cnt, cntChange] = useState(0)
   let [select, selectChange] = useState([])
+  let [sum, sumChange] = useState(0)
 
   function select_size(e){
     if(e.target.value !== ""){
@@ -24,6 +25,14 @@ function Detail(props){
         }
       }
       if(!check){
+        let product_sum = sum
+        if(findProduct.BlackFriday === 'O'){
+          product_sum += findProduct.price / 2
+          sumChange(product_sum)
+        } else{
+          product_sum += findProduct.price
+          sumChange(product_sum)
+        }
         let product_count = cnt
         product_count += 1
         cntChange(product_count)
@@ -37,10 +46,27 @@ function Detail(props){
   function setValue(params, e){
     let copy = [...select]
     let product_count = cnt
+    let product_sum = sum
+
+    if(findProduct.BlackFriday === 'O'){
+      product_sum -= copy[params].product_cnt * (findProduct.price / 2)
+      sumChange(product_sum)
+    } else{
+      product_sum -= copy[params].product_cnt * findProduct.price
+      sumChange(product_sum)
+    }
     product_count += e.target.value - copy[params].product_cnt
     cntChange(product_count)
     copy[params].product_cnt = e.target.value
     selectChange(copy)
+
+    if(findProduct.BlackFriday === 'O'){
+      product_sum += copy[params].product_cnt * (findProduct.price / 2)
+      sumChange(product_sum)
+    } else{
+      product_sum += copy[params].product_cnt * findProduct.price
+      sumChange(product_sum)
+    }
   }
 
   function push_data_to_cart(e){
@@ -125,9 +151,17 @@ function Detail(props){
                           <input onChange={(e) => {setValue(i, e)}} type={"number"} min={1} value={selected.product_cnt}></input>
                           <span>X</span>
                         </td>
-                        <td className='container-item-info-detail-td-selected-price'>
-                          {findProduct.price * selected.product_cnt}
-                        </td>
+                        {
+                          findProduct.BlackFriday === 'O'
+                          ? 
+                          <td className='container-item-info-detail-td-selected-price'>
+                            {(findProduct.price / 2) * selected.product_cnt}
+                          </td>
+                          : 
+                          <td className='container-item-info-detail-td-selected-price'>
+                            {findProduct.price * selected.product_cnt}
+                          </td>
+                        }
                       </tr>
                     </table>
                     <hr className='detail-selected-hrTag'></hr>
@@ -135,23 +169,7 @@ function Detail(props){
                 )
               })
             }
-            {/* <table className='container-item-info-detail-selected'>
-              <tr>
-                <td className='container-item-info-detail-selected-title'>
-                  <p>{findProduct.name}</p>
-                  <p>230</p>
-                </td>
-                <td className='container-item-info-detail-td-selected-cnt'>
-                  <input type={"number"} min={1}></input>
-                  <span>X</span>
-                </td>
-                <td className='container-item-info-detail-td-selected-price'>
-                  {findProduct.price}
-                </td>
-              </tr>
-            </table>
-            <hr className='detail-selected-hrTag'></hr> */}
-            <p className='container-item-info-total'>total: 0({cnt})</p>
+            <p className='container-item-info-total'>total: {sum}({cnt})</p>
             <div className='container-item-info-btns'>
               <div className='container-item-info-btns-buy'>BUY NOW</div>
               <div className='container-item-info-btns-cart'>ADD TO CART</div>

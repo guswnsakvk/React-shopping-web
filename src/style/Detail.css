@@ -131,20 +131,21 @@
 
 @media screen and (max-width: 1200px){
   .container{
-    width: 800px;
+    width: 700px;
   }
 
   .container-item{
-    height: 500px;
+    height: 400px;
   }
 
   .container-item-img{
-    min-width: 500px;
+    max-width: 400px;
+    width: 100%;
   }
 
   .container-item-info{
     min-width: 300px;
-    padding-left: 50px;
+    padding-left: 40px;
   }
 
   .container-item-info-detail-td-left{
@@ -163,6 +164,8 @@
 
   .container-item-img{
     min-width: none;
+    max-width: 760px;
+    width: 100%;
   }
 
   .container-item-info{
@@ -173,5 +176,13 @@
 
   .container-item-info-detail-td-left{
     width: 25%;
+  }
+
+  .container-item-info-btns-buy{
+    width: 50%;
+  }
+
+  .container-item-info-btns-cart{
+    width: 50%;
   }
 }
