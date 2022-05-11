@@ -44,13 +44,9 @@
   width: 100px;
   display: inline-block;
   margin: 0 auto;
-}
-
-.menus ul li{
-  color: #555;
   margin-top: 20px;
   margin-bottom: 20px;
-  cursor: pointer;
+  
 }
 
 .menus ul li:first-child{
@@ -64,9 +60,16 @@
   height: .1px;
 }
 
-/* .event{
-  height: 500px;
-  background-image: url('./image/BlackFriday.png');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-} */
+.link{
+  cursor: pointer;
+  text-decoration: none;
+  color: #555;
+}
+
+.link:link{
+  color: #000;
+}
+
+.link:visited{
+  color: #000;
+}

@@ -9,7 +9,7 @@ import ShoesData from './data.js';
 
 import Detail from './components/Detail.js'
 import TypeProduct from './components/TypeProduct.js'
-import {Link, Route, Switch, NavLink} from 'react-router-dom'
+import {Link, Route, Routes, NavLink} from 'react-router-dom'
 
 function App() {
   let [Shoes, ShoesChange] = useState(ShoesData)
@@ -103,46 +103,43 @@ function App() {
       </header>
       <div className='menus'>
         <ul>
-          <li onClick={set_typeList}><Link to={"/shoestype/BlackFriday"}>Black Friday</Link></li>
+          <li onClick={set_typeList}><Link to={"/shoestype/Black_Friday"} className="link">Black Friday</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}>Best</li>
+          <li onClick={set_typeList}><Link to={"/shoestype/Best_Product"} className="link">Best</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}>당일 배송</li>
+          <li onClick={set_typeList}><Link to={"/shoestype/Quick_Product"} className="link">당일 배송</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}>운동화</li>
+          <li onClick={set_typeList}><Link to={"/shoestype/Type=운동화"} className="link">운동화</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}>캔버스</li>
+          <li onClick={set_typeList}><Link to={"/shoestype/Type=캔버스"} className="link">캔버스</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}>워킹화</li>
+          <li onClick={set_typeList}><Link to={"/shoestype/Type=워킹화"} className="link">워킹화</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}>부츠</li>
+          <li onClick={set_typeList}><Link to={"/shoestype/Type=부츠"} className="link">부츠</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}>구두</li>
+          <li onClick={set_typeList}><Link to={"/shoestype/Type=구두"} className="link">구두</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}>샌들</li>
+          <li onClick={set_typeList}><Link to={"/shoestype/Type=샌들"} className="link">샌들</Link></li>
         </ul>
       </div>
       <hr className='app-hrTag'></hr>
       <div>
-        <Switch>
-          <Route exact path="/">
-            <Home WeeklyBestList={WeeklyBestList} QuickList={QuickList}></Home>
+        <Routes>
+          <Route exact path="/" element={<Home WeeklyBestList={WeeklyBestList} QuickList={QuickList}></Home>}>
           </Route>
-          <Route path="/shoes_type/:id">
-            <TypeProduct typeProductList={typeProductList}></TypeProduct>
+          <Route path="/shoes_type/:id" element={<TypeProduct typeProductList={typeProductList}></TypeProduct>}>
           </Route>
-          <Route path="/detail/:id">
-            <Detail Shoes={Shoes} cart={cart} cartChange={cartChange}></Detail>
+          <Route path="/detail/:id" element={<Detail Shoes={Shoes} cart={cart} cartChange={cartChange}></Detail>}>
           </Route>
-        </Switch>
+        </Routes>
       </div>
     </div>
   );

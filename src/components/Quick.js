@@ -1,6 +1,7 @@
 /*eslint-disable*/
 
 import '../style/Quick.css'
+import {Link, Route, Routes, NavLink} from 'react-router-dom'
 
 function Quick(props){
   return(
@@ -21,9 +22,11 @@ function ShowQuick(props){
         props.QuickList.map((quick) => {
           return(
             <div className='showQuick-item' key={quick}>
-              <div className='showQuick-item-img' style={{ backgroundImage: `url(${require(`../image/product${quick.id + 1}.jpg`)})`}}></div>
+              <NavLink to={`/detail/${quick.id}`}>
+                <div className='showQuick-item-img' style={{ backgroundImage: `url(${require(`../image/product${quick.id + 1}.jpg`)})`}}></div>
+              </NavLink>
               <div className='showQuick-item-info'>
-                <p className='showQuick-item-info-title'>{quick.name}</p>
+                <p className='showQuick-item-info-title'><Link to={`/detail/${quick.id}`} className='link'>{quick.name}</Link></p>
                 <hr className='split-line'></hr>
                 {
                   quick.BlackFriday === 'O'

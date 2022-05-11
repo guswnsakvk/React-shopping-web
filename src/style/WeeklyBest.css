@@ -117,6 +117,18 @@
   margin-bottom: 5px;
 }
 
+.link{
+  text-decoration: none;
+}
+
+.link:link{
+  color: #000;
+}
+
+.link:visited{
+  color: #000;
+}
+
 @media screen and (max-width: 1200px){
   .Container{
     height: 800px;
