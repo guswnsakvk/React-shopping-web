@@ -20,7 +20,7 @@ function WeeklyBest(props) {
   }
 
   return (
-    <div className='Container'>
+    <div className='weeklyBest-container'>
       <div className='WeeklyBest'>
         <div>
           <p className='WeeklyBest-Top-title'>Weekly Best</p>

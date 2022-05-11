@@ -1,4 +1,4 @@
-.Container{
+.weeklyBest-container{
   height: 1100px;
   padding-top: 120px;
   background-color: #f8f8f8;
@@ -130,7 +130,7 @@
 }
 
 @media screen and (max-width: 1200px){
-  .Container{
+  .weeklyBest-container{
     height: 800px;
   }
 
@@ -201,7 +201,7 @@
     height: 300px;
   }
 
-  .Container{
+  .weeklyBest-container{
     height: 600px;
   }
 

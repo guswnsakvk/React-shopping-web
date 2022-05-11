@@ -87,8 +87,8 @@ function Detail(props){
   }
 
   return(
-    <div className='background'>
-      <div className='container'>
+    <div className='detail-background'>
+      <div className='detail-container'>
         <div className='container-item'>
           <div className='container-item-img' style={{backgroundImage: `url(${require(`../image/product${findProduct.id + 1}.jpg`)})`}}></div>
           <div className='container-item-info'>

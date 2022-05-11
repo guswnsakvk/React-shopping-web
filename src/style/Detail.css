@@ -1,9 +1,9 @@
-.background{
+.detail-background{
   background-color: #f8f8f8;
   padding-top: 70px;
 }
 
-.container{
+.detail-container{
   width: 1200px;
   margin: 0 auto;
 }
