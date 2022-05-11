@@ -93,12 +93,12 @@
 @media screen and (max-width: 768px){
   .showQuick-items{
     width: 95%;
-    height: 150px;
+    height: 120px;
   }
   
   .showQuick-item{
     box-sizing: border-box;
-    width: 18%;
+    width: 120px;
     height: 100%;
     margin-right: 10px;
   }

@@ -184,4 +184,32 @@
   .best-carousel-items{
     min-width: 100%;
   }
+
+  .best-carousel-item{
+    height: 150px;
+  }
+
+  .best-carousel-item-img{
+    height: 150px;
+  }
+
+  .best-carousel-item-info{
+    height: 50%;
+  }
+
+  .best-carousel-items{
+    height: 300px;
+  }
+
+  .Container{
+    height: 600px;
+  }
+
+  .price{
+    font-size: 10px;
+  }
+
+  .WeeklyBest-main-menu{
+    font-size: 14px;
+  }
 }

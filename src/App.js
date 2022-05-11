@@ -103,31 +103,31 @@ function App() {
       </header>
       <div className='menus'>
         <ul>
-          <li onClick={set_typeList}><Link to={"/shoestype/Black_Friday"} className="link">Black Friday</Link></li>
+          <li onClick={set_typeList}><Link to={"/shoes_type/Black_Friday"} className="link">Black Friday</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}><Link to={"/shoestype/Best_Product"} className="link">Best</Link></li>
+          <li onClick={set_typeList}><Link to={"/shoes_type/Best_Product"} className="link">Best</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}><Link to={"/shoestype/Quick_Product"} className="link">당일 배송</Link></li>
+          <li onClick={set_typeList}><Link to={"/shoes_type/Quick_Product"} className="link">당일 배송</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}><Link to={"/shoestype/Type=운동화"} className="link">운동화</Link></li>
+          <li onClick={set_typeList}><Link to={"/shoes_type/Type=운동화"} className="link">운동화</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}><Link to={"/shoestype/Type=캔버스"} className="link">캔버스</Link></li>
+          <li onClick={set_typeList}><Link to={"/shoes_type/Type=캔버스"} className="link">캔버스</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}><Link to={"/shoestype/Type=워킹화"} className="link">워킹화</Link></li>
+          <li onClick={set_typeList}><Link to={"/shoes_type/Type=워킹화"} className="link">워킹화</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}><Link to={"/shoestype/Type=부츠"} className="link">부츠</Link></li>
+          <li onClick={set_typeList}><Link to={"/shoes_type/Type=부츠"} className="link">부츠</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}><Link to={"/shoestype/Type=구두"} className="link">구두</Link></li>
+          <li onClick={set_typeList}><Link to={"/shoes_type/Type=구두"} className="link">구두</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}><Link to={"/shoestype/Type=샌들"} className="link">샌들</Link></li>
+          <li onClick={set_typeList}><Link to={"/shoes_type/Type=샌들"} className="link">샌들</Link></li>
         </ul>
       </div>
       <hr className='app-hrTag'></hr>

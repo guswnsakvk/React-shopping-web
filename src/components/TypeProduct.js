@@ -4,9 +4,7 @@ import '../style/TypeProduct.css'
 
 function TypeProduct(props){
   return(
-    <div>
-      123
-    </div>
+    <div>123</div>
   )
 }
 

@@ -51,23 +51,23 @@ function BestCarousel(props) {
                 {
                   BestList.map((Best) => {
                     return (
-                      <NavLink to={`/detail/${Best.id}`} className="link">
                         <div className='best-carousel-item' key={Best}>
-                          <div className='best-carousel-item-img' style={{ backgroundImage: `url(${require(`../image/product${Best.id + 1}.jpg`)})`}}>
-                            <div className='best-carousel-item-info'>
-                              <p className='best-carousel-item-name'>{Best.name}</p>
-                              {
-                                Best.BlackFriday === 'O'
-                                ? <div className='price'>
-                                    <p className='line'>{Best.price}원</p>
-                                    <p>{Best.price / 2}원</p>
-                                  </div>
-                                : <p className='price'>{Best.price}원</p>
-                              }
+                          <NavLink to={`/detail/${Best.id}`} className="link">
+                            <div className='best-carousel-item-img' style={{ backgroundImage: `url(${require(`../image/product${Best.id + 1}.jpg`)})`}}>
+                              <div className='best-carousel-item-info'>
+                                <p className='best-carousel-item-name'>{Best.name}</p>
+                                {
+                                  Best.BlackFriday === 'O'
+                                  ? <div className='price'>
+                                      <p className='line'>{Best.price}원</p>
+                                      <p>{Best.price / 2}원</p>
+                                    </div>
+                                  : <p className='price'>{Best.price}원</p>
+                                }
+                              </div>
                             </div>
-                          </div>
+                          </NavLink>
                         </div>
-                      </NavLink>
                     )
                   })
                 }
