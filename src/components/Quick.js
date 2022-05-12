@@ -5,7 +5,7 @@ import {Link, Route, Routes, NavLink} from 'react-router-dom'
 
 function Quick(props){
   return(
-    <div className='container'>
+    <div>
       <div className='quick'>
         <p className='quick-top-title'>당일 배송</p>
         <p className='quick-top-info'>서울 인근 3시전에 주문시 당일 배송</p>

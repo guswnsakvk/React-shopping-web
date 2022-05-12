@@ -135,11 +135,11 @@
   }
 
   .best-carousel{
-    width: 800px;
+    width: 740px;
   }
 
   .best-carousel-items{
-    min-width: 800px;
+    min-width: 740px;
     height: 500px;
   }
   
@@ -147,7 +147,7 @@
     box-sizing: border-box;
     width: 25%;
     height: 250px;
-    padding-right: 15px;
+    padding-right: 10px;
     margin-right: 0;
     margin-bottom: 15px;
   }

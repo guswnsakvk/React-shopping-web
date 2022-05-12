@@ -82,6 +82,8 @@ function App() {
         })
     }
     typeProductListChange(typeList)
+    console.log(typeList)
+    console.log(typeProductList)
   }
 
   return (
@@ -101,6 +103,7 @@ function App() {
           </NavLink>
         </div>
       </header>
+      <div className='mobile-menu'>
       <div className='menus'>
         <ul>
           <li onClick={set_typeList}><Link to={"/shoes_type/Black_Friday"} className="link">Black Friday</Link></li>
@@ -129,6 +132,7 @@ function App() {
         <ul>
           <li onClick={set_typeList}><Link to={"/shoes_type/Type=샌들"} className="link">샌들</Link></li>
         </ul>
+      </div>
       </div>
       <hr className='app-hrTag'></hr>
       <div>

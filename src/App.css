@@ -46,7 +46,6 @@
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 20px;
-  
 }
 
 .menus ul li:first-child{
@@ -72,4 +71,30 @@
 
 .link:visited{
   color: #000;
+}
+
+@media screen and (max-width: 1200px){
+  .menus{
+    width: 740px;
+  }
+  
+  .menus ul{
+    width: 80px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .menus{
+    flex-wrap: nowrap;
+  }
+
+  .menus ul{
+    font-size: 14px;
+  }
+
+  .mobile-menu{
+    width: 100%;
+    overflow: auto;
+  }
 }
