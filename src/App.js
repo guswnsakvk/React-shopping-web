@@ -115,22 +115,22 @@ function App() {
           <li onClick={set_typeList}><Link to={"/shoes_type/Quick_Product"} className="link">당일 배송</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}><Link to={"/shoes_type/Type=운동화"} className="link">운동화</Link></li>
+          <li onClick={set_typeList}><Link to={"/shoes_type/운동화"} className="link">운동화</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}><Link to={"/shoes_type/Type=캔버스"} className="link">캔버스</Link></li>
+          <li onClick={set_typeList}><Link to={"/shoes_type/캔버스"} className="link">캔버스</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}><Link to={"/shoes_type/Type=워킹화"} className="link">워킹화</Link></li>
+          <li onClick={set_typeList}><Link to={"/shoes_type/워킹화"} className="link">워킹화</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}><Link to={"/shoes_type/Type=부츠"} className="link">부츠</Link></li>
+          <li onClick={set_typeList}><Link to={"/shoes_type/부츠"} className="link">부츠</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}><Link to={"/shoes_type/Type=구두"} className="link">구두</Link></li>
+          <li onClick={set_typeList}><Link to={"/shoes_type/구두"} className="link">구두</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}><Link to={"/shoes_type/Type=샌들"} className="link">샌들</Link></li>
+          <li onClick={set_typeList}><Link to={"/shoes_type/샌들"} className="link">샌들</Link></li>
         </ul>
       </div>
       </div>

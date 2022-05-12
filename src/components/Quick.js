@@ -1,7 +1,7 @@
 /*eslint-disable*/
 
 import '../style/Quick.css'
-import {Link, Route, Routes, NavLink} from 'react-router-dom'
+import {Link, NavLink} from 'react-router-dom'
 
 function Quick(props){
   return(
