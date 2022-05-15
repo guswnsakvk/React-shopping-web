@@ -69,6 +69,23 @@ function Detail(props){
     }
   }
 
+  function delete_select(params){
+    let copy = [...select]
+    let product_count = cnt
+    let product_sum = sum
+    if(findProduct.BlackFriday === 'O'){
+      product_sum -= copy[params].product_cnt * (findProduct.price / 2)
+      sumChange(product_sum)
+    } else{
+      product_sum -= copy[params].product_cnt * findProduct.price
+      sumChange(product_sum)
+    }
+    product_count -= copy[params].product_cnt
+    copy.splice(params, 1)
+    selectChange(copy)
+    cntChange(product_count)
+  }
+
   function push_data_to_cart(e){
     let check = false
     console.log(check)
@@ -149,7 +166,7 @@ function Detail(props){
                         </td>
                         <td className='container-item-info-detail-td-selected-cnt'>
                           <input onChange={(e) => {setValue(i, e)}} type={"number"} min={1} value={selected.product_cnt}></input>
-                          <span>X</span>
+                          <span onClick={() => {delete_select(i)}}>X</span>
                         </td>
                         {
                           findProduct.BlackFriday === 'O'

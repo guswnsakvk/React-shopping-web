@@ -110,18 +110,18 @@
 }
 
 .container-item-info-btns-buy{
-  width: 200px;
+  width: 48%;
   height: 50px;
   text-align: center;
   line-height: 50px;
   background-color: #ad9377;
-  margin-right: 20px;
+  margin-right: 4%;
   color: #fff;
   cursor: pointer;
 }
 
 .container-item-info-btns-cart{
-  width: 150px;
+  width: 48%;
   height: 50px;
   text-align: center;
   line-height: 50px;
@@ -188,12 +188,4 @@
   .container-item-info-btns{
     width: 100%;
   }
-
-  .container-item-info-btns-buy{
-    width: 50%;
-  }
-
-  .container-item-info-btns-cart{
-    width: 50%;
-  } 
 }
