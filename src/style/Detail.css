@@ -1,5 +1,4 @@
 .detail-background{
-  background-color: #f8f8f8;
   padding-top: 70px;
 }
 
@@ -156,6 +155,7 @@
 @media screen and (max-width: 768px){
   .detail-background{
     padding-top: 35px;
+    height: 100%;
   }
 
   .detail-container{
