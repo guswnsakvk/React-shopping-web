@@ -108,6 +108,9 @@ function Detail(props){
         copy.push(select[index])
       }
     })
+    selectChange([])
+    sumChange(0)
+    cntChange(0)
     console.log(check)
     console.log(copy)
     props.cartChange(copy)
