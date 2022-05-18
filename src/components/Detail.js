@@ -88,6 +88,7 @@ function Detail(props){
   }
 
   function push_data_to_cart(){
+    const select_List = document.querySelector(".container-item-info-detail-td-select")
     let copy = [...props.cart]
     let check = []
     for(let i=0;i<select.length;i++){
@@ -111,6 +112,7 @@ function Detail(props){
     selectChange([])
     sumChange(0)
     cntChange(0)
+    select_List.children[0].setAttribute('selected', '')
     console.log(check)
     console.log(copy)
     props.cartChange(copy)
@@ -157,7 +159,7 @@ function Detail(props){
                       {
                         findProduct.size.map((shoes_size) => {
                           return(
-                            <option value={shoes_size} key="shoes_size">{shoes_size}</option>
+                            <option value={shoes_size} key={shoes_size}>{shoes_size}</option>
                           )
                         })
                       }
