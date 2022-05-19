@@ -209,18 +209,20 @@ function Detail(props){
           </div>
         </div>
       </div>
-      <div className='alert-box'>
-        <div className='alert-box-title'>
-          <span>ADD TO CART</span>
-          <span className='alert-box-hidden'>X</span>
-        </div>
-        <div className='alert-box-info'>
-          <p>상품이 카트에 담겼습니다.</p>
-          <p>바로 확인하시겠습니까?</p>
-        </div>
-        <div className='alert-box-btns'>
-            <div className='alert-box-btns-yes'>예</div>
-            <div className='alert-box-btns-no'>아니요</div>
+      <div className='alert-box-container'>
+        <div className='alert-box'>
+          <div className='alert-box-title'>
+            <span className='alert-box-title-text'>ADD TO CART</span>
+            <span className='alert-box-X-btn'>X</span>
+          </div>
+          <div className='alert-box-info'>
+            <p className='alert-box-info-state'>상품이 카트에 담겼습니다.</p>
+            <p className='alert-box-info-ask'>바로 확인하시겠습니까?</p>
+          </div>
+          <div className='alert-box-btns'>
+            <div className='alert-box-btn alert-box-btn-yes'>예</div>
+            <div className='alert-box-btn alert-box-btn-no'>아니요</div>
+          </div>
         </div>
       </div>
     </div>
