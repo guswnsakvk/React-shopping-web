@@ -135,6 +135,7 @@
   width: 100%;
   height: 200px;
   top: 200px;
+  display: none;
 }
 
 .alert-box{

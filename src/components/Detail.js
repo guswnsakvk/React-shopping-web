@@ -112,10 +112,21 @@ function Detail(props){
     selectChange([])
     sumChange(0)
     cntChange(0)
-    select_List.children[0].setAttribute('selected', '')
     console.log(check)
     console.log(copy)
     props.cartChange(copy)
+    alert_box_open()
+    select_List.children[0].selected = true
+  }
+
+  function alert_box_open(){
+    const alert_box = document.querySelector(".alert-box-container")
+    alert_box.style.display = "block"
+  }
+
+  function alert_box_close(){
+    const alert_box = document.querySelector(".alert-box-container")
+    alert_box.style.display = "none"
   }
 
   return(
@@ -213,7 +224,7 @@ function Detail(props){
         <div className='alert-box'>
           <div className='alert-box-title'>
             <span className='alert-box-title-text'>ADD TO CART</span>
-            <span className='alert-box-X-btn'>X</span>
+            <span className='alert-box-X-btn' onClick={alert_box_close}>X</span>
           </div>
           <div className='alert-box-info'>
             <p className='alert-box-info-state'>상품이 카트에 담겼습니다.</p>
@@ -221,7 +232,7 @@ function Detail(props){
           </div>
           <div className='alert-box-btns'>
             <div className='alert-box-btn alert-box-btn-yes'>예</div>
-            <div className='alert-box-btn alert-box-btn-no'>아니요</div>
+            <div className='alert-box-btn alert-box-btn-no' onClick={alert_box_close}>아니요</div>
           </div>
         </div>
       </div>
