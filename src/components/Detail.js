@@ -12,6 +12,7 @@ function Detail(props){
   let [cnt, cntChange] = useState(0)
   let [select, selectChange] = useState([])
   let [sum, sumChange] = useState(0)
+  let [pushBtn, pushBtnChange] = useState(0)
 
   function select_size(e){
     if(e.target.value !== ""){
@@ -88,45 +89,69 @@ function Detail(props){
   }
 
   function push_data_to_cart(){
-    const select_List = document.querySelector(".container-item-info-detail-td-select")
-    let copy = [...props.cart]
-    let check = []
-    for(let i=0;i<select.length;i++){
-      check.push(-1)
-    }
-    for(let i=0;i<select.length;i++){
-      for(let j=0;j<copy.length;j++){
-        if(select[i].product_id === copy[j].product_id && select[i].product_size === copy[j].product_size){
-          check[i] = j
-          break
+    if(pushBtn === 0){
+      const select_List = document.querySelector(".container-item-info-detail-td-select")
+      let copy = [...props.cart]
+      let check = []
+      for(let i=0;i<select.length;i++){
+        check.push(-1)
+      }
+      for(let i=0;i<select.length;i++){
+        for(let j=0;j<copy.length;j++){
+          if(select[i].product_id === copy[j].product_id && select[i].product_size === copy[j].product_size){
+            check[i] = j
+            break
+          }
         }
       }
+      check.map((duplicate, index) => {
+        if(duplicate !== -1){
+          copy[duplicate].product_cnt += select[index].product_cnt
+        } else{
+          copy.push(select[index])
+        }
+      })
+      selectChange([])
+      sumChange(0)
+      cntChange(0)
+      console.log(check)
+      console.log(copy)
+      props.cartChange(copy)
+      alert_box_open()
+      select_List.children[0].selected = true
+      pushBtnChange(1)
     }
-    check.map((duplicate, index) => {
-      if(duplicate !== -1){
-        copy[duplicate].product_cnt += select[index].product_cnt
-      } else{
-        copy.push(select[index])
-      }
-    })
-    selectChange([])
-    sumChange(0)
-    cntChange(0)
-    console.log(check)
-    console.log(copy)
-    props.cartChange(copy)
-    alert_box_open()
-    select_List.children[0].selected = true
   }
 
   function alert_box_open(){
     const alert_box = document.querySelector(".alert-box-container")
+    const select_size_list = document.querySelector(".container-item-info-detail-td-select")
+    select_size_list.disabled = true
     alert_box.style.display = "block"
   }
 
   function alert_box_close(){
     const alert_box = document.querySelector(".alert-box-container")
+    const select_size_list = document.querySelector(".container-item-info-detail-td-select")
+    select_size_list.disabled = false
     alert_box.style.display = "none"
+    pushBtnChange(0)
+  }
+
+  function select_box_focus(){
+    const select_box = document.querySelector(".container-item-info-detail-td-select")
+    select_box.size = 5
+  }
+
+  function select_box_onblur(){
+    const select_box = document.querySelector(".container-item-info-detail-td-select")
+    select_box.size = 1
+  }
+
+  function select_box_onchange(){
+    const select_box = document.querySelector(".container-item-info-detail-td-select")
+    select_box.size = 1
+    select_box.blur()
   }
 
   return(
@@ -165,7 +190,7 @@ function Detail(props){
                 <tr>
                   <td className='container-item-info-detail-td-left'>사이즈</td>
                   <td>
-                    <select onChange={select_size} name='size' className='container-item-info-detail-td-select'>
+                    <select onChange={select_size} name='size' onInput={select_box_onchange} onFocus={select_box_focus} onBlur={select_box_onblur} className='container-item-info-detail-td-select'>
                       <option value={""}>- [필수] 사이즈 선택 -</option>
                       {
                         findProduct.size.map((shoes_size) => {
