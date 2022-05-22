@@ -9,6 +9,7 @@ import ShoesData from './data.js';
 
 import Detail from './components/Detail.js'
 import TypeProduct from './components/TypeProduct.js'
+import Cart from './components/Cart.js'
 import {Link, Route, Routes, NavLink} from 'react-router-dom'
 
 function App() {
@@ -143,6 +144,7 @@ function App() {
           </Route>
           <Route path="/detail/:id" element={<Detail Shoes={Shoes} cart={cart} cartChange={cartChange}></Detail>}>
           </Route>
+          <Route path="/cart" element={<Cart></Cart>}></Route>
         </Routes>
       </div>
     </div>
