@@ -1,0 +1,49 @@
+.cart-background{
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.cart-container{
+  width: 100%;
+  height: 100%;
+}
+
+.cart-container-title{
+  width: 500px;
+  height: 150px;
+  margin: 0 auto;
+  line-height: 150px;
+  text-align: center;
+  font-size: 24px;
+}
+
+.cart-container-table{
+  margin: 0 auto;
+  width: 100%;
+}
+
+.cart-container-table-head{
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  background-color: #F8F8F8;
+  border-top: 1px solid rgb(85, 85, 85);
+  border-bottom: 1px solid rgb(85, 85, 85);
+}
+
+.cart-container-table-body tr{
+  height: 180px;
+  background-color: red;
+}
+
+.cart-container-table-body tr td{
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+
+.cart-container-table-body-img{
+  width: 100px;
+  height: 160px;
+  background-color: aqua;
+  margin-left: 100px;
+}

@@ -138,12 +138,9 @@ function App() {
       <hr className='app-hrTag'></hr>
       <div>
         <Routes>
-          <Route exact path="/" element={<Home WeeklyBestList={WeeklyBestList} QuickList={QuickList}></Home>}>
-          </Route>
-          <Route path="/shoes_type/:id" element={<TypeProduct typeProductList={typeProductList}></TypeProduct>}>
-          </Route>
-          <Route path="/detail/:id" element={<Detail Shoes={Shoes} cart={cart} cartChange={cartChange}></Detail>}>
-          </Route>
+          <Route exact path="/" element={<Home WeeklyBestList={WeeklyBestList} QuickList={QuickList}></Home>}></Route>
+          <Route path="/shoes_type/:id" element={<TypeProduct typeProductList={typeProductList}></TypeProduct>}></Route>
+          <Route path="/detail/:id" element={<Detail Shoes={Shoes} cart={cart} cartChange={cartChange}></Detail>}></Route>
           <Route path="/cart" element={<Cart></Cart>}></Route>
         </Routes>
       </div>
