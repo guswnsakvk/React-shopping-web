@@ -18,21 +18,37 @@
 }
 
 .cart-container-table{
-  margin: 0 auto;
   width: 100%;
 }
 
 .cart-container-table-head{
   height: 50px;
-  text-align: center;
   line-height: 50px;
+  text-align: center;
+  background-color: #F8F8F8;
+  border-top: 1px solid rgb(85, 85, 85);
+  border-bottom: 1px solid rgb(85, 85, 85);
+}
+
+.test{
+  width: 150px;
+  height: 250px;
+  background-color: red;
+}
+
+/* .cart-container-table{
+  margin: 0 auto;
+  width: 100%;
+}
+
+.cart-container-table-head{
+  text-align: center;
   background-color: #F8F8F8;
   border-top: 1px solid rgb(85, 85, 85);
   border-bottom: 1px solid rgb(85, 85, 85);
 }
 
 .cart-container-table-body tr{
-  height: 180px;
   background-color: red;
 }
 
@@ -46,4 +62,4 @@
   height: 160px;
   background-color: aqua;
   margin-left: 100px;
-}
+} */
