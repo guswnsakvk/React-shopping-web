@@ -8,11 +8,11 @@ function cart(){
         <table className='cart-container-table'>
           <thead className='cart-container-table-head'>
             <tr>
-              <th width={700}>상품 정보</th>
-              <th width={50}>수량</th>
-              <th width={150}>상품 금액</th>
-              <th width={150}>배송 정보</th>
-              <th width={150}>주문</th>
+              <th className='cart-container-table-head-product-info'>상품 정보</th>
+              <th className='cart-container-table-head-product-cnt'>수량</th>
+              <th className='cart-container-table-head-product-price'>상품 금액</th>
+              <th className='cart-container-table-head-product-delivery'>배송 정보</th>
+              <th className='cart-container-table-head-product-order'>주문</th>
             </tr>
           </thead>
           <tbody className='cart-container-table-body'>
@@ -27,7 +27,10 @@ function cart(){
               </td>
               <td>10000원</td>
               <td>기본배송</td>
-              <td>5</td>
+              <td>
+                <div className='cart-container-table-body-product-order'>주문하기</div>
+                <div className='cart-container-table-product-remove'>삭제하기</div>
+              </td>
             </tr>
             <tr>
               <td className='cart-container-table-body-product'>
@@ -40,7 +43,10 @@ function cart(){
               </td>
               <td>10000원</td>
               <td>기본배송</td>
-              <td>5</td>
+              <td>
+                <div className='cart-container-table-body-product-order'>주문하기</div>
+                <div className='cart-container-table-product-remove'>삭제하기</div>
+              </td>
             </tr>
           </tbody>
         </table>
