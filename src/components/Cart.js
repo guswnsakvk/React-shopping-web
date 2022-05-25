@@ -8,21 +8,38 @@ function cart(){
         <table className='cart-container-table'>
           <thead className='cart-container-table-head'>
             <tr>
-              <th  width={650}>상품 정보</th>
-              <th  width={100}>수량</th>
-              <th  width={150}>상품 금액</th>
-              <th  width={150}>배송 정보</th>
-              <th  width={150}>주문</th>
+              <th width={700}>상품 정보</th>
+              <th width={50}>수량</th>
+              <th width={150}>상품 금액</th>
+              <th width={150}>배송 정보</th>
+              <th width={150}>주문</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className='cart-container-table-body'>
             <tr>
-              <td>
-                <div className='test'></div>
+              <td className='cart-container-table-body-product'>
+                <input className='cart-container-table-body-product-checkBox' type={"checkbox"}></input>
+                <div className='cart-container-table-body-product-img' style={{backgroundImage: `url(${require(`../image/product2.jpg`)})`}}></div>
+                <p>[운동화] 운동화1<br></br>20000 → 10000</p>
               </td>
-              <td>2</td>
-              <td>3</td>
-              <td>4</td>
+              <td>
+                <input className='cart-container-table-body-product-cnt' min={1} type={"number"}></input>
+              </td>
+              <td>10000원</td>
+              <td>기본배송</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td className='cart-container-table-body-product'>
+                <input className='cart-container-table-body-product-checkBox' type={"checkbox"}></input>
+                <div className='cart-container-table-body-product-img' style={{backgroundImage: `url(${require(`../image/product2.jpg`)})`}}></div>
+                <p>[운동화] 운동화1<br></br>20000 → 10000</p>
+              </td>
+              <td>
+                <input className='cart-container-table-body-product-cnt' min={1} type={"number"}></input>
+              </td>
+              <td>10000원</td>
+              <td>기본배송</td>
               <td>5</td>
             </tr>
           </tbody>
