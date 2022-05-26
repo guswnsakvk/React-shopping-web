@@ -30,10 +30,12 @@ function Detail(props){
         if(findProduct.BlackFriday === 'O'){
           product_sum += findProduct.price / 2
           data.product_price = findProduct.price / 2
+          data.black_friday = 'O'
           sumChange(product_sum)
         } else{
           product_sum += findProduct.price
           data.product_price = findProduct.price
+          data.black_friday = 'X'
           sumChange(product_sum)
         }
         let product_count = cnt

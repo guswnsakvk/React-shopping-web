@@ -95,7 +95,7 @@ function App() {
           <ul className='myMenu'>
             <li className='myMenu-margin'>Login</li>
             <li className='myMenu-margin'>Join</li>
-            <li>Cart</li>
+            <li><Link to={"/cart"}>Cart</Link></li>
           </ul>
         </div>
         <div>
@@ -141,7 +141,7 @@ function App() {
           <Route exact path="/" element={<Home WeeklyBestList={WeeklyBestList} QuickList={QuickList}></Home>}></Route>
           <Route path="/shoes_type/:id" element={<TypeProduct typeProductList={typeProductList}></TypeProduct>}></Route>
           <Route path="/detail/:id" element={<Detail Shoes={Shoes} cart={cart} cartChange={cartChange}></Detail>}></Route>
-          <Route path="/cart" element={<Cart></Cart>}></Route>
+          <Route path="/cart" element={<Cart cart={cart}></Cart>}></Route>
         </Routes>
       </div>
     </div>

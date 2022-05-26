@@ -108,6 +108,10 @@
   cursor: pointer;
 }
 
+.test{
+  text-align: left;
+}
+
 @media screen and (max-width: 1200px){
   .cart-container{
     width: 760px;
