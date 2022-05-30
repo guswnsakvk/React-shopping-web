@@ -33,9 +33,15 @@ function Cart(props){
                     <td className='cart-container-table-body-product'>
                       <input className='cart-container-table-body-product-checkBox' type={"checkbox"}></input>
                       <div className='cart-container-table-body-product-img' style={{backgroundImage: `url(${require(`../image/product${parseInt(product.product_id)+1}.jpg`)})`}}></div>
-                      <div className='cart-container-table-body-product-sale'>
-                        <p>[{product.product_size}]운동화1</p>
-                        <p>20000 → 10000</p>
+                      <div className='cart-container-table-body-product-info'>
+                        <p>[{product.product_size}] {product.product_name}</p>
+                        {
+                          product.black_friday === 'O'
+                          ?
+                            <p><span className='cart-container-table-body-product-sale'>{product.product_price * 2}</span> → {product.product_price}</p>
+                          :
+                            <p>{product.product_price}</p>
+                        }
                       </div>
                     </td>
                     <td>
@@ -51,41 +57,6 @@ function Cart(props){
                 )
               })
             }
-            <tr>
-              <td className='cart-container-table-body-product'>
-                <input className='cart-container-table-body-product-checkBox' type={"checkbox"}></input>
-                <div className='cart-container-table-body-product-img' style={{backgroundImage: `url(${require(`../image/product2.jpg`)})`}}></div>
-                <p>[230] 운동화1<br></br>20000 → 10000</p>
-              </td>
-              <td>
-                <input className='cart-container-table-body-product-cnt' min={1} type={"number"}></input>
-              </td>
-              <td>10000원</td>
-              <td>기본배송</td>
-              <td>
-                <div className='cart-container-table-body-product-order'>주문하기</div>
-                <div className='cart-container-table-product-remove'>삭제하기</div>
-              </td>
-            </tr>
-            <tr>
-              <td className='cart-container-table-body-product'>
-                <input className='cart-container-table-body-product-checkBox' type={"checkbox"}></input>
-                <div className='cart-container-table-body-product-img' style={{backgroundImage: `url(${require(`../image/product2.jpg`)})`}}></div>
-                <div className='cart-container-table-body-product-sale'>
-                  <p>[230]운동화1</p>
-                  <p>20000 → 10000</p>
-                </div>
-              </td>
-              <td>
-                <input className='cart-container-table-body-product-cnt' min={1} type={"number"}></input>
-              </td>
-              <td>10000원</td>
-              <td>기본배송</td>
-              <td>
-                <div className='cart-container-table-body-product-order'>주문하기</div>
-                <div className='cart-container-table-product-remove'>삭제하기</div>
-              </td>
-            </tr>
           </tbody>
         </table>
       </div>

@@ -18,7 +18,7 @@ function Detail(props){
     if(e.target.value !== ""){
       let check = false
       let copy = [...select]
-      let data = {product_size : e.target.value, product_cnt : 1, product_id: id}
+      let data = {product_size : e.target.value, product_cnt : 1, product_id: id, product_name: findProduct.name}
       for(let i=0;i<select.length;i++){
         if(select[i].product_size === e.target.value){
           check = true
