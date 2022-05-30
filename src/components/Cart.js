@@ -11,6 +11,14 @@ function Cart(props){
     console.log(props.cart)
   }, [])
 
+  function set_cart_value(i, e){
+    console.log(e.target.value)
+    let copy = [...cartCopy]
+    copy[i].product_cnt = parseInt(e.target.value)
+    cartCopyChange(copy)
+    props.cartChang(cartCopy)
+  }
+
   return(
     <div className='cart-background'>
       <div className='cart-container'>
@@ -27,7 +35,7 @@ function Cart(props){
           </thead>
           <tbody className='cart-container-table-body'>
             {
-              cartCopy.map((product) => {
+              cartCopy.map((product, i) => {
                 return(
                   <tr>
                     <td className='cart-container-table-body-product'>
@@ -45,7 +53,7 @@ function Cart(props){
                       </div>
                     </td>
                     <td>
-                      <input className='cart-container-table-body-product-cnt' min={1} type={"number"} value={product.product_cnt}></input>
+                      <input className='cart-container-table-body-product-cnt' onChange={(e) => {set_cart_value(i, e)}} min={1} type={"number"} value={product.product_cnt}></input>
                     </td>
                     <td>{product.product_price}</td>
                     <td>기본배송</td>
