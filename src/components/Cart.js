@@ -33,7 +33,10 @@ function Cart(props){
                     <td className='cart-container-table-body-product'>
                       <input className='cart-container-table-body-product-checkBox' type={"checkbox"}></input>
                       <div className='cart-container-table-body-product-img' style={{backgroundImage: `url(${require(`../image/product${parseInt(product.product_id)+1}.jpg`)})`}}></div>
-                      <p>[230] 운동화1<br></br>20000 → 10000</p>
+                      <div className='cart-container-table-body-product-sale'>
+                        <p>[{product.product_size}]운동화1</p>
+                        <p>20000 → 10000</p>
+                      </div>
                     </td>
                     <td>
                       <input className='cart-container-table-body-product-cnt' min={1} type={"number"} value={product.product_cnt}></input>
@@ -68,7 +71,7 @@ function Cart(props){
               <td className='cart-container-table-body-product'>
                 <input className='cart-container-table-body-product-checkBox' type={"checkbox"}></input>
                 <div className='cart-container-table-body-product-img' style={{backgroundImage: `url(${require(`../image/product2.jpg`)})`}}></div>
-                <div className='test'>
+                <div className='cart-container-table-body-product-sale'>
                   <p>[230]운동화1</p>
                   <p>20000 → 10000</p>
                 </div>
