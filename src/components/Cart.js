@@ -19,6 +19,13 @@ function Cart(props){
     props.cartChang(cartCopy)
   }
 
+  function remove_cart_item(i){
+    let copy = [...cartCopy]
+    copy.splice(i, 1)
+    cartCopyChange(copy)
+    props.cartChang(cartCopy)
+  }
+
   return(
     <div className='cart-background'>
       <div className='cart-container'>
@@ -59,7 +66,7 @@ function Cart(props){
                     <td>기본배송</td>
                     <td>
                       <div className='cart-container-table-body-product-order'>주문하기</div>
-                      <div className='cart-container-table-product-remove'>삭제하기</div>
+                      <div className='cart-container-table-product-remove' onClick={() => {remove_cart_item(i)}}>삭제하기</div>
                     </td>
                   </tr>
                 )
