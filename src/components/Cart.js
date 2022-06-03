@@ -1,6 +1,7 @@
 /*eslint-disable*/
 
 import '../style/Cart.css'
+import Cart_Pc from './Cart_Pc';
 import React, { useEffect, useState } from 'react';
 
 function Cart(props){
@@ -15,22 +16,25 @@ function Cart(props){
     console.log(e.target.value)
     let copy = [...cartCopy]
     copy[i].product_cnt = parseInt(e.target.value)
+    console.log(copy)
     cartCopyChange(copy)
-    props.cartChang(cartCopy)
+    props.cartChang(copy)
   }
 
   function remove_cart_item(i){
     let copy = [...cartCopy]
     copy.splice(i, 1)
+    console.log(copy)
     cartCopyChange(copy)
-    props.cartChang(cartCopy)
+    props.cartChange(copy)
   }
 
   return(
     <div className='cart-background'>
       <div className='cart-container'>
         <div className='cart-container-title'>CART</div>
-        <table className='cart-container-table'>
+        <Cart_Pc cartCopy={cartCopy} set_cart_value={set_cart_value} remove_cart_item={remove_cart_item} cartChange={props.cartChang}></Cart_Pc>
+        {/* <table className='cart-container-table'>
           <thead className='cart-container-table-head'>
             <tr>
               <th className='cart-container-table-head-product-info'>상품 정보</th>
@@ -73,7 +77,7 @@ function Cart(props){
               })
             }
           </tbody>
-        </table>
+        </table> */}
       </div>
     </div>
   )
