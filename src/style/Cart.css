@@ -1,5 +1,5 @@
 .cart-background{
-
+  width: 100%;
 }
 
 .cart-container{
@@ -136,4 +136,15 @@
   .cart-container-table-head-product-order{
     width: 100px;
   } */
+}
+
+@media screen and (max-width: 768px){
+  .cart-container{
+    width: 95%;
+  }
+
+  .cart-container-title{
+    height: 100px;
+    line-height: 100px;
+  }
 }

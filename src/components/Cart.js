@@ -34,7 +34,7 @@ function Cart(props){
     <div className='cart-background'>
       <div className='cart-container'>
         <div className='cart-container-title'>CART</div>
-        <Cart_Pc cartCopy={cartCopy} set_cart_value={set_cart_value} remove_cart_item={remove_cart_item} cartChange={props.cartChang}></Cart_Pc>
+        {/* <Cart_Pc cartCopy={cartCopy} set_cart_value={set_cart_value} remove_cart_item={remove_cart_item} cartChange={props.cartChang}></Cart_Pc> */}
         <Cart_Mobile cartCopy={cartCopy} set_cart_value={set_cart_value} remove_cart_item={remove_cart_item} cartChange={props.cartChang}></Cart_Mobile>
         {/* <table className='cart-container-table'>
           <thead className='cart-container-table-head'>
