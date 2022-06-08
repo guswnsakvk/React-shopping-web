@@ -76,6 +76,11 @@
   width: 50px;
 }
 
+.cart-pc-container-table-body-date{
+  font-size: 12px;
+  margin-top: 4px;
+}
+
 .cart-pc-container-table-body-product-order{
   margin: 0 auto;
   line-height: 30px;

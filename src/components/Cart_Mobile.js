@@ -1,6 +1,12 @@
 import "../style/Cart_Mobile.css"
+  let today = new Date()
+  let tomorrow = new Date(today.setDate(today.getDate() + 1))
+  let month = tomorrow.getMonth() + 1
+  let date = tomorrow.getDate()
+  let day = tomorrow.getDay()
+  const week = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일']
 
-function Cart_Mobile(props){
+  function Cart_Mobile(props){
   function cart_list_btn(){
     const header_btn = document.querySelector(".cart-mobile-header-btn")
     const cart_product_list = document.querySelector(".cart-mobile-products-list")
@@ -33,7 +39,22 @@ function Cart_Mobile(props){
                 </div>
                 <div className="cart-mobile-products-list-product-body">
                   <div className="cart-mobile-products-list-product-body-img" style={{backgroundImage: `url(${require(`../image/product${parseInt(product.product_id)+1}.jpg`)})`}}></div>
-                  <div className="cart-mobile-products-list-product-body-info"></div>
+                  <div className="cart-mobile-products-list-product-body-info">
+                    <div className="cart-mobile-products-list-product-body-info-price">
+                      {
+                        product.black_friday === 'O'
+                        ? <p>{product.product_price}원(50%)할인</p>
+                        : <p>{product.product_price}원</p>
+                      }
+                    </div>
+                    <div className="cart-mobile-products-list-product-body-info-delivery">
+                      {
+                        product.product_quick === 'O'
+                        ? <p>내일({month}/{date}, {week[day]}) 도착예정</p>
+                        : <p>기본배송</p>
+                      }
+                    </div>
+                  </div>
                 </div>
                 <div className="cart-mobile-products-list-product-foot"></div>
               </div>

@@ -1,6 +1,13 @@
 import "../style/Cart_Pc.css"
 
 function Cart_Pc(props){
+  let today = new Date()
+  let tomorrow = new Date(today.setDate(today.getDate() + 1))
+  let month = tomorrow.getMonth() + 1
+  let date = tomorrow.getDate()
+  let day = tomorrow.getDay()
+  const week = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일']
+
   return(
     <table className='cart-pc-container-table'>
       <thead className='cart-pc-container-table-head'>
@@ -35,7 +42,16 @@ function Cart_Pc(props){
                   <input className='cart-pc-container-table-body-product-cnt' onChange={(e) => {props.set_cart_value(i, e)}} min={1} type={"number"} value={product.product_cnt}></input>
                 </td>
                 <td>{product.product_price}</td>
-                <td>기본배송</td>
+                {
+                  product.product_quick === 'O'
+                  ? <td>
+                      <p>내일</p>
+                      <p className="cart-pc-container-table-body-date">({month}/{date}, {week[day]})</p>
+                      <p className="cart-pc-container-table-body-date">도착예정</p>
+                    </td>
+                  : <td>기본배송</td>
+                }
+                {/* <td>기본배송</td> */}
                 <td>
                   <div className='cart-pc-container-table-body-product-order'>주문하기</div>
                   <div className='cart-pc-container-table-product-remove' onClick={() => {props.remove_cart_item(i)}}>삭제하기</div>
