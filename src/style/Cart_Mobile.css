@@ -83,6 +83,10 @@
   margin-bottom: 10px;
 }
 
+.cart-mobile-products-list-product-body-info-price-sale{
+  font-size: 12px;
+}
+
 .cart-mobile-products-list-product-body-info-delivery{
   font-size: 12px;
 }
@@ -92,4 +96,25 @@
   height: 60px;
   line-height: 40px;
   background-color: blue;
+  box-sizing: border-box;
+  padding: 10px 0;
+  position: relative;
+  display: flex;
+}
+
+.cart-mobile-products-list-product-foot-cnt{
+  display: flex;
+}
+
+.cart-mobile-products-list-product-foot-btn{
+  max-width: 80px;
+  width: 100%;
+  height: 40px;
+  background-color: #AD9377;
+  border-radius: 5px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  right: 2%;
 }

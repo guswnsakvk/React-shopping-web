@@ -53,6 +53,10 @@ function Detail(props){
     let product_count = cnt
     let product_sum = sum
 
+    if(e.target.value === ''){
+      e.target.value = 1
+    }
+
     if(findProduct.BlackFriday === 'O'){
       product_sum -= copy[index].product_cnt * (findProduct.price / 2)
       sumChange(product_sum)
@@ -60,7 +64,7 @@ function Detail(props){
       product_sum -= copy[index].product_cnt * findProduct.price
       sumChange(product_sum)
     }
-    product_count += e.target.value - copy[index].product_cnt
+    product_count += parseInt(e.target.value) - copy[index].product_cnt
     cntChange(product_count)
     copy[index].product_cnt = parseInt(e.target.value)
     selectChange(copy)

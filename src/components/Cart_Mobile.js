@@ -1,3 +1,5 @@
+/*eslint-disable*/
+
 import "../style/Cart_Mobile.css"
   let today = new Date()
   let tomorrow = new Date(today.setDate(today.getDate() + 1))
@@ -17,6 +19,11 @@ import "../style/Cart_Mobile.css"
       header_btn.innerText = "∨"
       cart_product_list.style.display = "none"
     }
+  }
+
+  function check_number(e){
+    e.value = e.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')
+    return true
   }
 
   return(
@@ -43,7 +50,7 @@ import "../style/Cart_Mobile.css"
                     <div className="cart-mobile-products-list-product-body-info-price">
                       {
                         product.black_friday === 'O'
-                        ? <p>{product.product_price}원(50%)할인</p>
+                        ? <p>{product.product_price}<span className="cart-mobile-products-list-product-body-info-price-sale">원(50%)할인</span></p>
                         : <p>{product.product_price}원</p>
                       }
                     </div>
@@ -56,7 +63,14 @@ import "../style/Cart_Mobile.css"
                     </div>
                   </div>
                 </div>
-                <div className="cart-mobile-products-list-product-foot"></div>
+                <div className="cart-mobile-products-list-product-foot">
+                  <div className="cart-mobile-products-list-product-foot-cnt">
+                    <div>-</div>
+                    <input type={"text"} value={product.product_cnt} min={1}></input>
+                    <div>+</div>
+                  </div>
+                  <div className="cart-mobile-products-list-product-foot-btn">주문</div>
+                </div>
               </div>
             )
           })
