@@ -7,14 +7,33 @@ import React, { useEffect, useState } from 'react';
 
 function Cart(props){
   let [cartCopy, cartCopyChange] = useState([])
+  let [pageWith, pageWithChange] = useState('pc')
 
   useEffect(() => {
     cartCopyChange([...props.cart])
     console.log(props.cart)
+    if(window.innerWidth < 768){
+      pageWithChange('mobile')
+    } else{
+      pageWithChange('pc')
+    }
+    console.log(window.innerWidth)
   }, [])
+
+  window.addEventListener('resize', () => {
+    if(window.innerWidth < 768){
+      pageWithChange('mobile')
+    }
+    else if(window.innerWidth > 768){
+      pageWithChange('pc')
+    }
+  })
 
   function set_cart_value(i, e){
     console.log(e.target.value)
+    if(e.target.value === ''){
+      e.target.value = 1
+    }
     let copy = [...cartCopy]
     copy[i].product_cnt = parseInt(e.target.value)
     console.log(copy)
@@ -30,56 +49,33 @@ function Cart(props){
     props.cartChange(copy)
   }
 
+  function plus_btn(i){
+    let copy = [...cartCopy]
+    copy[i].product_cnt += 1
+    cartCopyChange(copy)
+    props.cartChang(copy)
+  }
+
+  function minus_btn(i){
+    let copy = [...cartCopy]
+    if(copy[i].product_cnt !== 1){
+      copy[i].product_cnt -= 1
+    }
+    cartCopyChange(copy)
+    props.cartChang(copy)
+  }
+
   return(
     <div className='cart-background'>
       <div className='cart-container'>
         <div className='cart-container-title'>CART</div>
-        {/* <Cart_Pc cartCopy={cartCopy} set_cart_value={set_cart_value} remove_cart_item={remove_cart_item} cartChange={props.cartChang}></Cart_Pc> */}
-        <Cart_Mobile cartCopy={cartCopy} set_cart_value={set_cart_value} remove_cart_item={remove_cart_item} cartChange={props.cartChang}></Cart_Mobile>
-        {/* <table className='cart-container-table'>
-          <thead className='cart-container-table-head'>
-            <tr>
-              <th className='cart-container-table-head-product-info'>상품 정보</th>
-              <th className='cart-container-table-head-product-cnt'>수량</th>
-              <th className='cart-container-table-head-product-price'>상품 금액</th>
-              <th className='cart-container-table-head-product-delivery'>배송 정보</th>
-              <th className='cart-container-table-head-product-order'>주문</th>
-            </tr>
-          </thead>
-          <tbody className='cart-container-table-body'>
-            {
-              cartCopy.map((product, i) => {
-                return(
-                  <tr>
-                    <td className='cart-container-table-body-product'>
-                      <input className='cart-container-table-body-product-checkBox' type={"checkbox"}></input>
-                      <div className='cart-container-table-body-product-img' style={{backgroundImage: `url(${require(`../image/product${parseInt(product.product_id)+1}.jpg`)})`}}></div>
-                      <div className='cart-container-table-body-product-info'>
-                        <p>[{product.product_size}] {product.product_name}</p>
-                        {
-                          product.black_friday === 'O'
-                          ?
-                            <p><span className='cart-container-table-body-product-sale'>{product.product_price * 2}</span> → {product.product_price}</p>
-                          :
-                            <p>{product.product_price}</p>
-                        }
-                      </div>
-                    </td>
-                    <td>
-                      <input className='cart-container-table-body-product-cnt' onChange={(e) => {set_cart_value(i, e)}} min={1} type={"number"} value={product.product_cnt}></input>
-                    </td>
-                    <td>{product.product_price}</td>
-                    <td>기본배송</td>
-                    <td>
-                      <div className='cart-container-table-body-product-order'>주문하기</div>
-                      <div className='cart-container-table-product-remove' onClick={() => {remove_cart_item(i)}}>삭제하기</div>
-                    </td>
-                  </tr>
-                )
-              })
-            }
-          </tbody>
-        </table> */}
+        {
+          pageWith === 'pc'
+          ? <Cart_Pc cartCopy={cartCopy} set_cart_value={set_cart_value} remove_cart_item={remove_cart_item} cartChange={props.cartChang}></Cart_Pc>
+          : <Cart_Mobile cartCopy={cartCopy} set_cart_value={set_cart_value} remove_cart_item={remove_cart_item} cartChange={props.cartChang} plus_btn={plus_btn} minus_btn={minus_btn}></Cart_Mobile>
+        }
+        {/* <Cart_Pc cartCopy={cartCopy} set_cart_value={set_cart_value} remove_cart_item={remove_cart_item} cartChange={props.cartChang}></Cart_Pc>
+        <Cart_Mobile cartCopy={cartCopy} set_cart_value={set_cart_value} remove_cart_item={remove_cart_item} cartChange={props.cartChang} plus_btn={plus_btn} minus_btn={minus_btn}></Cart_Mobile> */}
       </div>
     </div>
   )

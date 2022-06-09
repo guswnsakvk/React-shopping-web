@@ -51,7 +51,6 @@ function Cart_Pc(props){
                     </td>
                   : <td>기본배송</td>
                 }
-                {/* <td>기본배송</td> */}
                 <td>
                   <div className='cart-pc-container-table-body-product-order'>주문하기</div>
                   <div className='cart-pc-container-table-product-remove' onClick={() => {props.remove_cart_item(i)}}>삭제하기</div>

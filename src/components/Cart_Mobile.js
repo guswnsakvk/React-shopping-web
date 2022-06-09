@@ -21,11 +21,6 @@ import "../style/Cart_Mobile.css"
     }
   }
 
-  function check_number(e){
-    e.value = e.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')
-    return true
-  }
-
   return(
     <>
       <div className="cart-mobile-header">
@@ -42,7 +37,7 @@ import "../style/Cart_Mobile.css"
                     <input className="cart-mobile-products-list-product-header-checkbox" type={"checkbox"}></input>
                     <span>[{product.product_size}] {product.product_name}</span>
                   </div>
-                  <div className="cart-mobile-products-list-product-header-remove-btn">X</div>
+                  <div onClick={() => {props.remove_cart_item(i)}} className="cart-mobile-products-list-product-header-remove-btn">X</div>
                 </div>
                 <div className="cart-mobile-products-list-product-body">
                   <div className="cart-mobile-products-list-product-body-img" style={{backgroundImage: `url(${require(`../image/product${parseInt(product.product_id)+1}.jpg`)})`}}></div>
@@ -65,9 +60,9 @@ import "../style/Cart_Mobile.css"
                 </div>
                 <div className="cart-mobile-products-list-product-foot">
                   <div className="cart-mobile-products-list-product-foot-cnt">
-                    <div>-</div>
-                    <input type={"text"} value={product.product_cnt} min={1}></input>
-                    <div>+</div>
+                    <div onClick={() => {props.minus_btn(i)}} className="cart-mobile-products-list-product-foot-cnt-btn border-left">-</div>
+                    <input className="cart-mobile-products-list-product-foot-cnt-input" type={"number"} value={product.product_cnt} onChange={(e) => {props.set_cart_value(i, e)}} min={1}></input>
+                    <div onClick={() => {props.plus_btn(i)}} className="cart-mobile-products-list-product-foot-cnt-btn border-right">+</div>
                   </div>
                   <div className="cart-mobile-products-list-product-foot-btn">주문</div>
                 </div>
