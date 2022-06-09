@@ -18,7 +18,7 @@ function Detail(props){
     if(e.target.value !== ""){
       let check = false
       let copy = [...select]
-      let data = {product_size : e.target.value, product_cnt : 1, product_id: id, product_name: findProduct.name, product_quick: findProduct.quick}
+      let data = {product_size : e.target.value, product_cnt : 1, product_id: id, product_name: findProduct.name, product_quick: findProduct.quick, product_select: false}
       for(let i=0;i<select.length;i++){
         if(select[i].product_size === e.target.value){
           check = true
@@ -172,10 +172,12 @@ function Detail(props){
             <hr className='detail-hrTag'></hr>
             <div className='container-item-info-detail'>
               <table>
-                <tr>
-                  <td className='container-item-info-detail-td-title'>신발 종류</td>
-                  <td>{findProduct.type}</td>
-                </tr>
+                <thead>
+                  <tr>
+                    <td className='container-item-info-detail-td-title'>신발 종류</td>
+                    <td>{findProduct.type}</td>
+                  </tr>
+                </thead>
                 {
                   findProduct.BlackFriday === 'O'
                   ? 
@@ -190,26 +192,31 @@ function Detail(props){
                     </tr>
                   </>
                   :
-                  <tr>
-                    <td className='container-item-info-detail-td-left'>판매가</td>
-                    <td>{findProduct.price}</td>
-                  </tr>
+                  <>
+                    <tr>
+                      <td className='container-item-info-detail-td-left'>판매가</td>
+                      <td>{findProduct.price}</td>
+                    </tr>
+                  </>
+
                 }
-                <tr>
-                  <td className='container-item-info-detail-td-left'>사이즈</td>
-                  <td>
-                    <select onChange={select_size} name='size' onInput={select_box_onchange} onFocus={select_box_focus} onBlur={select_box_onblur} className='container-item-info-detail-td-select'>
-                      <option value={""}>- [필수] 사이즈 선택 -</option>
-                      {
-                        findProduct.size.map((shoes_size) => {
-                          return(
-                            <option value={shoes_size} key={shoes_size}>{shoes_size}</option>
-                          )
-                        })
-                      }
-                    </select>
-                  </td>
-                </tr>
+                <tbody>
+                  <tr>
+                    <td className='container-item-info-detail-td-left'>사이즈</td>
+                    <td>
+                      <select onChange={select_size} name='size' onInput={select_box_onchange} onFocus={select_box_focus} onBlur={select_box_onblur} className='container-item-info-detail-td-select'>
+                        <option value={""}>- [필수] 사이즈 선택 -</option>
+                        {
+                          findProduct.size.map((shoes_size) => {
+                            return(
+                              <option value={shoes_size} key={shoes_size}>{shoes_size}</option>
+                            )
+                          })
+                        }
+                      </select>
+                    </td>
+                  </tr>
+                </tbody>
               </table>
             </div>
             <hr className='detail-selected-hrTag'></hr>
@@ -217,7 +224,7 @@ function Detail(props){
               select.map((selected, i) => {
                 return(
                   <>
-                    <table className='container-item-info-detail-selected'>
+                    <table className='container-item-info-detail-selected' key={i}>
                       <tr>
                         <td className='container-item-info-detail-selected-title'>
                           <p>{findProduct.name}</p>

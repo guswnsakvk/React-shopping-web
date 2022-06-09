@@ -47,11 +47,11 @@ function BestCarousel(props) {
         {
           props.WeeklyBestList.map((BestList) => {
             return (
-              <div className='best-carousel-items' key={BestList}>
+              <div className='best-carousel-items' key={BestList.id}>
                 {
                   BestList.map((Best) => {
                     return (
-                        <div className='best-carousel-item' key={Best}>
+                        <div className='best-carousel-item' key={Best.id + 1}>
                           <NavLink to={`/detail/${Best.id}`} className="link">
                             <div className='best-carousel-item-img' style={{ backgroundImage: `url(${require(`../image/product${Best.id + 1}.jpg`)})`}}>
                               <div className='best-carousel-item-info'>

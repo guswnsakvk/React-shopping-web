@@ -15,7 +15,7 @@ function TypeProduct(props){
           {
             props.typeProductList.map((product) => {
               return(
-                <div className='TypeProduct-container-item'>
+                <div className='TypeProduct-container-item' key={product.id}>
                   <NavLink to={`/detail/${product.id}`}>
                   <div className='TypeProduct-container-item-img' style={{ backgroundImage: `url(${require(`../image/product${product.id + 1}.jpg`)})`}}></div>
                   </NavLink>

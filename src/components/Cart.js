@@ -65,17 +65,26 @@ function Cart(props){
     props.cartChang(copy)
   }
 
+  function select_cart_product(i){
+    let copy = [...cartCopy]
+    if(!copy[i].product_select){
+      copy[i].product_select = true
+      console.log(copy)
+    } else{
+      copy[i].product_select = false
+      console.log(copy)
+    }
+  }
+
   return(
     <div className='cart-background'>
       <div className='cart-container'>
         <div className='cart-container-title'>CART</div>
         {
           pageWith === 'pc'
-          ? <Cart_Pc cartCopy={cartCopy} set_cart_value={set_cart_value} remove_cart_item={remove_cart_item} cartChange={props.cartChang}></Cart_Pc>
-          : <Cart_Mobile cartCopy={cartCopy} set_cart_value={set_cart_value} remove_cart_item={remove_cart_item} cartChange={props.cartChang} plus_btn={plus_btn} minus_btn={minus_btn}></Cart_Mobile>
+          ? <Cart_Pc cartCopy={cartCopy} set_cart_value={set_cart_value} remove_cart_item={remove_cart_item} cartChange={props.cartChang} select_cart_product={select_cart_product}></Cart_Pc>
+          : <Cart_Mobile cartCopy={cartCopy} set_cart_value={set_cart_value} remove_cart_item={remove_cart_item} cartChange={props.cartChang} plus_btn={plus_btn} minus_btn={minus_btn} select_cart_product={select_cart_product}></Cart_Mobile>
         }
-        {/* <Cart_Pc cartCopy={cartCopy} set_cart_value={set_cart_value} remove_cart_item={remove_cart_item} cartChange={props.cartChang}></Cart_Pc>
-        <Cart_Mobile cartCopy={cartCopy} set_cart_value={set_cart_value} remove_cart_item={remove_cart_item} cartChange={props.cartChang} plus_btn={plus_btn} minus_btn={minus_btn}></Cart_Mobile> */}
       </div>
     </div>
   )

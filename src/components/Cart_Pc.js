@@ -25,7 +25,7 @@ function Cart_Pc(props){
             return(
               <tr>
                 <td className='cart-pc-container-table-body-product'>
-                  <input className='cart-pc-container-table-body-product-checkBox' type={"checkbox"}></input>
+                  <input onClick={() => {props.select_cart_product(i)}} className='cart-pc-container-table-body-product-checkBox' type={"checkbox"}></input>
                   <div className='cart-pc-container-table-body-product-img' style={{backgroundImage: `url(${require(`../image/product${parseInt(product.product_id)+1}.jpg`)})`}}></div>
                   <div className='cart-pc-container-table-body-product-info'>
                     <p>[{product.product_size}] {product.product_name}</p>
