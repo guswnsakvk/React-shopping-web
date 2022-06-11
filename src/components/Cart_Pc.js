@@ -62,11 +62,6 @@ function Cart_Pc(props){
           }
         </tbody>
       </table>
-      {
-        props.cartCopy.length === 0
-        ? <div className="cart-pc-emtpy">장바구니가 비어 있습니다</div>
-        : null
-      }
     </>
   )
 }

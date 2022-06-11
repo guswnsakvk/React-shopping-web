@@ -103,12 +103,6 @@
   cursor: pointer;
 }
 
-.cart-pc-emtpy{
-  margin-top: 50px;
-  width: 100%;
-  text-align: center;
-}
-
 @media screen and (max-width: 1200px){
   .cart-pc-container-table-head-product-info{
     width: 410px;

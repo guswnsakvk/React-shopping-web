@@ -116,6 +116,12 @@
   cursor: pointer;
 } */
 
+.cart-emtpy{
+  margin-top: 50px;
+  width: 100%;
+  text-align: center;
+}
+
 @media screen and (max-width: 1200px){
   .cart-container{
     width: 760px;

@@ -85,6 +85,11 @@ function Cart(props){
           ? <Cart_Pc cartCopy={cartCopy} set_cart_value={set_cart_value} remove_cart_item={remove_cart_item} cartChange={props.cartChang} select_cart_product={select_cart_product}></Cart_Pc>
           : <Cart_Mobile cartCopy={cartCopy} set_cart_value={set_cart_value} remove_cart_item={remove_cart_item} cartChange={props.cartChang} plus_btn={plus_btn} minus_btn={minus_btn} select_cart_product={select_cart_product}></Cart_Mobile>
         }
+        {
+          cartCopy.length === 0
+          ? <div className="cart-emtpy">장바구니가 비어 있습니다</div>
+          : null
+        }
       </div>
     </div>
   )

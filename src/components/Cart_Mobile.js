@@ -71,11 +71,6 @@ import "../style/Cart_Mobile.css"
           })
         }
       </div>
-      {
-         props.cartCopy.length === 0
-         ? <div className="cart-mobile-empty">장바구니가 비어 있습니다</div>
-         : null
-      }
     </>
   )
 }
