@@ -91,19 +91,19 @@ function Cart(props){
           : <div className="cart-receipt">
               <div className="cart-receipt-content">
                 <p className="cart-receipt-content-title">총 상품금액</p>
-                <p className="cart-receipt-content-money">123</p>
+                <p className="cart-receipt-content-money">123원</p>
               </div>
               <div className="cart-receipt-content">
                 <p className="cart-receipt-content-title">총 배송비</p>
-                <p className="cart-receipt-content-money">123</p>
+                <p className="cart-receipt-content-money">123원</p>
               </div>
               <div className="cart-receipt-content">
                 <p className="cart-receipt-content-title">총 할인금액</p>
-                <p className="cart-receipt-content-money">123</p>
+                <p className="cart-receipt-content-money">123원</p>
               </div>
               <div className="cart-receipt-content">
                 <p className="cart-receipt-content-title">결제예정금액</p>
-                <p className="cart-receipt-content-money">123</p>
+                <p className="cart-receipt-content-money">123원</p>
               </div>
             </div>
         }
