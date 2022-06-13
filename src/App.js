@@ -98,10 +98,10 @@ function App() {
             <li><Link to={"/cart"}>Cart</Link></li>
           </ul>
         </div>
-        <div>
-          <NavLink to={"/"}>
-            <img src={logo} alt="#" className='logo'></img>
-          </NavLink>
+        <div className='logo-background'>
+          <Link to={"/"}>
+            <div style={{backgroundImage: `url(${logo})`}} className='logo'></div>
+          </Link>
         </div>
       </header>
       <div className='mobile-menu'>

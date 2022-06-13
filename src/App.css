@@ -26,10 +26,17 @@
   margin-right: 20px;
 }
 
-.logo{
-  display: block;
+.logo-background{
+  max-width: 200px;
+  width: 100%;
   margin: 0 auto;
+}
+
+.logo{
   cursor: pointer;
+  width: 200px;
+  height: 100px;
+  background-size: 100% 100%;
 }
 
 .menus{

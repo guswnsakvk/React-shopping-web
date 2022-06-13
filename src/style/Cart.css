@@ -122,6 +122,28 @@
   text-align: center;
 }
 
+.cart-receipt{
+  width: 100%;
+  margin-top: 50px;
+  height: 100px;
+  border: 1px solid #aaa;
+  display: flex;
+}
+
+.cart-receipt-content{
+  width: 25%;
+}
+
+.cart-receipt-content-title{
+  width: 100%;
+  text-align: center;
+}
+
+.cart-receipt-content-money{
+  width: 100%;
+  text-align: center;
+}
+
 @media screen and (max-width: 1200px){
   .cart-container{
     width: 760px;
