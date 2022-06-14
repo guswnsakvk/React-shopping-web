@@ -8,6 +8,10 @@ import React, { useEffect, useState } from 'react';
 function Cart(props){
   let [cartCopy, cartCopyChange] = useState([])
   let [pageWith, pageWithChange] = useState('pc')
+  let [totalPrice, totalPriceChange] = useState(0)
+  let [deliveryPrice, deliveryPriceChange] = useState(0)
+  let [salePrice, salePriceChange] = useState(0)
+  let [paymentPrice, paymentPriceChange] = useState(0)
 
   useEffect(() => {
     cartCopyChange([...props.cart])
@@ -70,9 +74,51 @@ function Cart(props){
     if(!copy[i].product_select){
       copy[i].product_select = true
       console.log(copy)
+      if(copy[i].black_friday = 'O'){
+        let total = totalPrice + ((copy[i].product_price * 2) * copy[i].product_cnt)
+        let sale = salePrice + (copy[i].product_price * copy[i].product_cnt)
+        let payment = paymentPrice + (copy[i].product_price * copy[i].product_cnt)
+        if(payment >= 30000){
+          deliveryPriceChange(0)
+        } else{
+          deliveryPriceChange(3000)
+        }
+        totalPriceChange(total)
+        salePriceChange(sale)
+        paymentPriceChange(payment)
+      } else{
+        let total = totalPrice + (copy[i].product_price * copy[i].product_cnt)
+        let sale = salePrice + (copy[i].product_price * copy[i].product_cnt)
+        let payment = paymentPrice + (copy[i].product_price * copy[i].product_cnt)
+        if(payment >= 30000){
+          deliveryPriceChange(0)
+        } else{
+          deliveryPriceChange(3000)
+        }
+        totalPriceChange(total)
+        salePriceChange(sale)
+        paymentPriceChange(payment)
+      }
     } else{
       copy[i].product_select = false
       console.log(copy)
+      if(copy[i].black_friday = 'O'){
+        let total = totalPrice - ((copy[i].product_price * 2) * copy[i].product_cnt)
+        let sale = salePrice - (copy[i].product_price * copy[i].product_cnt)
+        let payment = paymentPrice - (copy[i].product_price * copy[i].product_cnt)
+        deliveryPriceChange(0)
+        totalPriceChange(total)
+        salePriceChange(sale)
+        paymentPriceChange(payment)
+      } else{
+        let total = totalPrice - (copy[i].product_price * copy[i].product_cnt)
+        let sale = salePrice - (copy[i].product_price * copy[i].product_cnt)
+        let payment = paymentPrice - (copy[i].product_price * copy[i].product_cnt)
+        deliveryPriceChange(0)
+        totalPriceChange(total)
+        salePriceChange(sale)
+        paymentPriceChange(payment)
+      }
     }
   }
 
@@ -91,19 +137,19 @@ function Cart(props){
           : <div className="cart-receipt">
               <div className="cart-receipt-content">
                 <p className="cart-receipt-content-title">총 상품금액</p>
-                <p className="cart-receipt-content-money">123원</p>
+                <p className="cart-receipt-content-money">{totalPrice}원</p>
               </div>
               <div className="cart-receipt-content">
                 <p className="cart-receipt-content-title">총 배송비</p>
-                <p className="cart-receipt-content-money">123원</p>
+                <p className="cart-receipt-content-money">{deliveryPrice}원</p>
               </div>
               <div className="cart-receipt-content">
                 <p className="cart-receipt-content-title">총 할인금액</p>
-                <p className="cart-receipt-content-money">123원</p>
+                <p className="cart-receipt-content-money">{salePrice}원</p>
               </div>
               <div className="cart-receipt-content">
                 <p className="cart-receipt-content-title">결제예정금액</p>
-                <p className="cart-receipt-content-money">123원</p>
+                <p className="cart-receipt-content-money">{paymentPrice + deliveryPrice}원</p>
               </div>
             </div>
         }
