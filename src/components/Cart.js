@@ -35,10 +35,39 @@ function Cart(props){
 
   function set_cart_value(i, e){
     console.log(e.target.value)
+    console.log(cartCopy[i].product_cnt)
     if(e.target.value === ''){
       e.target.value = 1
     }
     let copy = [...cartCopy]
+    if(copy[i].product_select){
+      let error = e.target.value - cartCopy[i].product_cnt
+      if(copy[i].black_friday = 'O'){
+        let total = props.totalPrice + ((copy[i].product_price * 2) * error)
+        let sale = props.salePrice + (copy[i].product_price * error)
+        let payment = props.paymentPrice + (copy[i].product_price * error)
+        if(payment >= 30000){
+          props.deliveryPriceChange(0)
+        } else{
+          props.deliveryPriceChange(3000)
+        }
+        props.totalPriceChange(total)
+        props.salePriceChange(sale)
+        props.paymentPriceChange(payment)
+      } else{
+        let total = props.totalPrice + ((copy[i].product_price * 2) * error)
+        let sale = props.salePrice + (copy[i].product_price * error)
+        let payment = props.paymentPrice + (copy[i].product_price * error)
+        if(payment >= 30000){
+          props.deliveryPriceChange(0)
+        } else{
+          props.deliveryPriceChange(3000)
+        }
+        props.totalPriceChange(total)
+        props.salePriceChange(sale)
+        props.paymentPriceChange(payment)
+      }
+    }
     copy[i].product_cnt = parseInt(e.target.value)
     console.log(copy)
     cartCopyChange(copy)
@@ -47,6 +76,31 @@ function Cart(props){
 
   function remove_cart_item(i){
     let copy = [...cartCopy]
+    if(copy[i].black_friday = 'O'){
+      let total = props.totalPrice - ((copy[i].product_price * 2) * copy[i].product_cnt)
+      let sale = props.salePrice - (copy[i].product_price * copy[i].product_cnt)
+      let payment = props.paymentPrice - (copy[i].product_price * copy[i].product_cnt)
+      if(payment >= 30000){
+        props.deliveryPriceChange(0)
+      } else{
+        props.deliveryPriceChange(3000)
+      }
+      props.totalPriceChange(total)
+      props.salePriceChange(sale)
+      props.paymentPriceChange(payment)
+    } else{
+      let total = props.totalPrice - (copy[i].product_price * copy[i].product_cnt)
+      let sale = props.salePrice - (copy[i].product_price * copy[i].product_cnt)
+      let payment = props.paymentPrice - (copy[i].product_price * copy[i].product_cnt)
+      if(payment >= 30000){
+        props.deliveryPriceChange(0)
+      } else{
+        props.deliveryPriceChange(3000)
+      }
+      props.totalPriceChange(total)
+      props.salePriceChange(sale)
+      props.paymentPriceChange(payment)
+    }
     copy.splice(i, 1)
     console.log(copy)
     cartCopyChange(copy)
