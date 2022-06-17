@@ -34,7 +34,7 @@ import "../style/Cart_Mobile.css"
               <div className="cart-mobile-products-list-product">
                 <div className="cart-mobile-products-list-product-header">
                   <div className="cart-mobile-products-list-product-header-group">
-                    <input onClick={() => {props.select_cart_product(i)}} className="cart-mobile-products-list-product-header-checkbox" type={"checkbox"}></input>
+                    <input onClick={() => {props.select_cart_product(i)}} className="cart-mobile-products-list-product-header-checkbox" type={"checkbox"} checked={product.product_select} value={product.product_select}></input>
                     <span>[{product.product_size}] {product.product_name}</span>
                   </div>
                   <div onClick={() => {props.remove_cart_item(i)}} className="cart-mobile-products-list-product-header-remove-btn">X</div>

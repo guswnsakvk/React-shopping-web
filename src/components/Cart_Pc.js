@@ -1,11 +1,16 @@
+/*eslint-disable*/
+
 import "../style/Cart_Pc.css"
+import React, { useState } from 'react';
 
 function Cart_Pc(props){
+  let [inputList, inputListChange] = useState([])
   let today = new Date()
   let tomorrow = new Date(today.setDate(today.getDate() + 1))
   let month = tomorrow.getMonth() + 1
   let date = tomorrow.getDate()
   let day = tomorrow.getDay()
+  let test1 = document.querySelectorAll(".cart-pc-container-table-body-product-checkBox")
   const week = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일']
 
   return(
@@ -26,7 +31,7 @@ function Cart_Pc(props){
               return(
                 <tr>
                   <td className='cart-pc-container-table-body-product'>
-                    <input onClick={() => {props.select_cart_product(i)}} className='cart-pc-container-table-body-product-checkBox' type={"checkbox"}></input>
+                    <input onClick={() => {props.select_cart_product(i)}} className='cart-pc-container-table-body-product-checkBox' type={"checkbox"} checked={product.product_select} value={product.product_select}></input>
                     <div className='cart-pc-container-table-body-product-img' style={{backgroundImage: `url(${require(`../image/product${parseInt(product.product_id)+1}.jpg`)})`}}></div>
                     <div className='cart-pc-container-table-body-product-info'>
                       <p>[{product.product_size}] {product.product_name}</p>
