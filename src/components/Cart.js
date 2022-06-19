@@ -243,24 +243,27 @@ function Cart(props){
         {
           cartCopy.length === 0
           ? <div className="cart-emtpy">장바구니가 비어 있습니다</div>
-          : <div className="cart-receipt">
-              <div className="cart-receipt-content">
-                <p className="cart-receipt-content-title">총 상품금액</p>
-                <p className="cart-receipt-content-money">{props.totalPrice}원</p>
+          : <>
+              <div className="cart-receipt">
+                <div className="cart-receipt-content">
+                  <p className="cart-receipt-content-title">총 상품금액</p>
+                  <p className="cart-receipt-content-money">{props.totalPrice}원</p>
+                </div>
+                <div className="cart-receipt-content">
+                  <p className="cart-receipt-content-title">총 배송비</p>
+                  <p className="cart-receipt-content-money">{props.deliveryPrice}원</p>
+                </div>
+                <div className="cart-receipt-content">
+                  <p className="cart-receipt-content-title">총 할인금액</p>
+                  <p className="cart-receipt-content-money">{props.salePrice}원</p>
+                </div>
+                <div className="cart-receipt-content">
+                  <p className="cart-receipt-content-title">결제예정금액</p>
+                  <p className="cart-receipt-content-money">{props.paymentPrice + props.deliveryPrice}원</p>
+                </div>
               </div>
-              <div className="cart-receipt-content">
-                <p className="cart-receipt-content-title">총 배송비</p>
-                <p className="cart-receipt-content-money">{props.deliveryPrice}원</p>
-              </div>
-              <div className="cart-receipt-content">
-                <p className="cart-receipt-content-title">총 할인금액</p>
-                <p className="cart-receipt-content-money">{props.salePrice}원</p>
-              </div>
-              <div className="cart-receipt-content">
-                <p className="cart-receipt-content-title">결제예정금액</p>
-                <p className="cart-receipt-content-money">{props.paymentPrice + props.deliveryPrice}원</p>
-              </div>
-            </div>
+              <div className='purchase-btn'>주문하기</div>
+            </>
         }
       </div>
     </div>
