@@ -37,10 +37,8 @@ function Cart_Pc(props){
                       <p>[{product.product_size}] {product.product_name}</p>
                       {
                         product.black_friday === 'O'
-                        ?
-                          <p><span className='cart-pc-container-table-body-product-sale'>{product.product_price * 2}</span> → {product.product_price}</p>
-                        :
-                          <p>{product.product_price}</p>
+                        ? <p><span className='cart-pc-container-table-body-product-sale'>{product.product_price * 2}</span> → {product.product_price}</p>
+                        : <p>{product.product_price}</p>
                       }
                     </div>
                   </td>

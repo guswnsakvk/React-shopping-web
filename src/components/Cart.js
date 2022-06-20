@@ -42,7 +42,7 @@ function Cart(props){
     let copy = [...cartCopy]
     if(copy[i].product_select){
       let error = e.target.value - cartCopy[i].product_cnt
-      if(copy[i].black_friday = 'O'){
+      if(copy[i].black_friday === 'O'){
         let total = props.totalPrice + ((copy[i].product_price * 2) * error)
         let sale = props.salePrice + (copy[i].product_price * error)
         let payment = props.paymentPrice + (copy[i].product_price * error)
@@ -55,7 +55,7 @@ function Cart(props){
         props.salePriceChange(sale)
         props.paymentPriceChange(payment)
       } else{
-        let total = props.totalPrice + ((copy[i].product_price * 2) * error)
+        let total = props.totalPrice + (copy[i].product_price * error)
         let sale = props.salePrice + (copy[i].product_price * error)
         let payment = props.paymentPrice + (copy[i].product_price * error)
         if(payment >= 30000){
@@ -70,50 +70,83 @@ function Cart(props){
     }
     copy[i].product_cnt = parseInt(e.target.value)
     console.log(copy)
+    console.log(copy[i].product_id)
     cartCopyChange(copy)
-    props.cartChange(copy)
+    // cart 수정하는 부분
+    let list = [...props.cart]
+    for(let j=0;i<props.cart.length;j++){
+      if(list[j].product_id === copy[i].product_id){
+        list[j].product_cnt = parseInt(e.target.value)
+        break
+      }
+    }
+    console.log(list)
+    props.cartChange(list)
   }
 
   function remove_cart_item(i){
     let copy = [...cartCopy]
-    if(copy[i].black_friday = 'O'){
-      let total = props.totalPrice - ((copy[i].product_price * 2) * copy[i].product_cnt)
-      let sale = props.salePrice - (copy[i].product_price * copy[i].product_cnt)
-      let payment = props.paymentPrice - (copy[i].product_price * copy[i].product_cnt)
-      if(payment >= 30000){
-        props.deliveryPriceChange(0)
+    if(copy[i].product_select){
+      if(copy[i].black_friday === 'O'){
+        let total = props.totalPrice - ((copy[i].product_price * 2) * copy[i].product_cnt)
+        let sale = props.salePrice - (copy[i].product_price * copy[i].product_cnt)
+        let payment = props.paymentPrice - (copy[i].product_price * copy[i].product_cnt)
+        if(payment >= 30000){
+          props.deliveryPriceChange(0)
+        } else{
+          props.deliveryPriceChange(3000)
+        }
+        props.totalPriceChange(total)
+        props.salePriceChange(sale)
+        props.paymentPriceChange(payment)
       } else{
-        props.deliveryPriceChange(3000)
+        let total = props.totalPrice - (copy[i].product_price * copy[i].product_cnt)
+        let sale = props.salePrice - (copy[i].product_price * copy[i].product_cnt)
+        let payment = props.paymentPrice - (copy[i].product_price * copy[i].product_cnt)
+        if(payment >= 30000){
+          props.deliveryPriceChange(0)
+        } else{
+          props.deliveryPriceChange(3000)
+        }
+        props.totalPriceChange(total)
+        props.salePriceChange(sale)
+        props.paymentPriceChange(payment)
       }
-      props.totalPriceChange(total)
-      props.salePriceChange(sale)
-      props.paymentPriceChange(payment)
-    } else{
-      let total = props.totalPrice - (copy[i].product_price * copy[i].product_cnt)
-      let sale = props.salePrice - (copy[i].product_price * copy[i].product_cnt)
-      let payment = props.paymentPrice - (copy[i].product_price * copy[i].product_cnt)
-      if(payment >= 30000){
-        props.deliveryPriceChange(0)
-      } else{
-        props.deliveryPriceChange(3000)
-      }
-      props.totalPriceChange(total)
-      props.salePriceChange(sale)
-      props.paymentPriceChange(payment)
     }
+    // cart 수정하는 부분
+    let list = [...props.cart]
+    let place = 0
+    for(let j=0;i<props.cart.length;j++){
+      console.log(list[j].product_id)
+      if(list[j].product_id === copy[i].product_id){
+        place = j
+        break
+      }
+    }
+    list.splice(place, 1)
     copy.splice(i, 1)
-    console.log(copy)
     cartCopyChange(copy)
-    props.cartChange(copy)
+    console.log(list)
+    props.cartChange(list)
+    if(copy.length === 0){
+      props.deliveryPriceChange(0)
+    }
   }
 
   function plus_btn(i){
     let copy = [...cartCopy]
-    copy[i].product_cnt += 1
-    cartCopyChange(copy)
-    props.cartChange(copy)
+    // cart 수정하는 부분
+    let list = [...props.cart]
+    for(let j=0;i<props.cart.length;j++){
+      if(list[j].product_id === copy[i].product_id){
+        list[j].product_cnt += 1
+        break
+      }
+    }
+    console.log(list)
+    props.cartChange(list)
     if(copy[i].product_select){
-      if(copy[i].black_friday = 'O'){
+      if(copy[i].black_friday === 'O'){
         let total = props.totalPrice + (copy[i].product_price * 2)
         let sale = props.salePrice + copy[i].product_price
         let payment = props.paymentPrice + copy[i].product_price
@@ -143,9 +176,8 @@ function Cart(props){
 
   function minus_btn(i){
     let copy = [...cartCopy]
-
     if(copy[i].product_select & copy[i].product_cnt !== 1){
-      if(copy[i].black_friday = 'O'){
+      if(copy[i].black_friday === 'O'){
         let total = props.totalPrice - (copy[i].product_price * 2)
         let sale = props.salePrice - copy[i].product_price
         let payment = props.paymentPrice - copy[i].product_price
@@ -175,7 +207,16 @@ function Cart(props){
       copy[i].product_cnt -= 1
     }
     cartCopyChange(copy)
-    props.cartChange(copy)
+    // cart 수정하는 부분
+    let list = [...props.cart]
+    for(let j=0;i<props.cart.length;j++){
+      if(list[j].product_id === copy[i].product_id){
+        list[j].product_cnt = copy[i].product_cnt
+        break
+      }
+    }
+    console.log(list)
+    props.cartChange(list)
   }
 
   function select_cart_product(i){
@@ -183,7 +224,7 @@ function Cart(props){
     if(!copy[i].product_select){
       copy[i].product_select = true
       console.log(copy)
-      if(copy[i].black_friday = 'O'){
+      if(copy[i].black_friday === 'O'){
         let total = props.totalPrice + ((copy[i].product_price * 2) * copy[i].product_cnt)
         let sale = props.salePrice + (copy[i].product_price * copy[i].product_cnt)
         let payment = props.paymentPrice + (copy[i].product_price * copy[i].product_cnt)
@@ -211,7 +252,7 @@ function Cart(props){
     } else{
       copy[i].product_select = false
       console.log(copy)
-      if(copy[i].black_friday = 'O'){
+      if(copy[i].black_friday === 'O'){
         let total = props.totalPrice - ((copy[i].product_price * 2) * copy[i].product_cnt)
         let sale = props.salePrice - (copy[i].product_price * copy[i].product_cnt)
         let payment = props.paymentPrice - (copy[i].product_price * copy[i].product_cnt)
@@ -231,10 +272,32 @@ function Cart(props){
     }
   }
 
+  function all_select(){
+    let copy = [...cartCopy]
+  }
+
   return(
     <div className='cart-background'>
       <div className='cart-container'>
         <div className='cart-container-title'>CART</div>
+        {
+          cartCopy.length === 0
+          ? null
+          : <div className='cart-sort'>
+              <div className='cart-sort-left'>
+                <input className='cart-sort-left-checkbox' onClick={all_select} type={"checkbox"}></input>
+                <span> 전체선택</span>
+              </div>
+              <div className='cart-sort-right'>
+                <select name="sort" className='cart-sort-right-select'>
+                  <option>카트넣기순</option>
+                  <option>상품명순</option>
+                  <option>높은가격순</option>
+                  <option>낮은가격순</option>
+                </select>
+              </div>
+            </div>
+        }
         {
           pageWith === 'pc'
           ? <Cart_Pc cart={props.cart} cartCopy={cartCopy} set_cart_value={set_cart_value} remove_cart_item={remove_cart_item} cartChange={props.cartChange} select_cart_product={select_cart_product}></Cart_Pc>
