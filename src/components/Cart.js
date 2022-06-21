@@ -8,6 +8,7 @@ import React, { useEffect, useState } from 'react';
 function Cart(props){
   let [cartCopy, cartCopyChange] = useState([...props.cart])
   let [pageWith, pageWithChange] = useState('pc')
+  let [selectCnt, selectCntChange] = useState(0)
   // let [totalPrice, totalPriceChange] = useState(0)
   // let [deliveryPrice, deliveryPriceChange] = useState(0)
   // let [salePrice, salePriceChange] = useState(0)
@@ -33,6 +34,7 @@ function Cart(props){
     }
   })
 
+  // 상품의 갯수가 바뀔 때 작동
   function set_cart_value(i, e){
     console.log(e.target.value)
     console.log(cartCopy[i].product_cnt)
@@ -86,9 +88,13 @@ function Cart(props){
     props.cartChange(list)
   }
 
+  // 상품 삭제했을 때 작동
   function remove_cart_item(i){
     let copy = [...cartCopy]
+    let select_num = selectCnt
     if(copy[i].product_select){
+      select_num -= 1
+      selectCntChange(select_num)
       if(copy[i].black_friday === 'O'){
         let total = props.totalPrice - ((copy[i].product_price * 2) * copy[i].product_cnt)
         let sale = props.salePrice - (copy[i].product_price * copy[i].product_cnt)
@@ -137,6 +143,7 @@ function Cart(props){
     }
   }
 
+  // 핸드폰 일때 플러스 버튼 누르면 작동
   function plus_btn(i){
     let copy = [...cartCopy]
     // cart 수정하는 부분
@@ -180,6 +187,7 @@ function Cart(props){
     }
   }
 
+  // 핸드폰 일때 마이너스 버튼 누르면 작동
   function minus_btn(i){
     let copy = [...cartCopy]
     if(copy[i].product_select & copy[i].product_cnt !== 1){
@@ -227,10 +235,23 @@ function Cart(props){
     props.cartChange(list)
   }
 
+  // 상품 checkbox 선택시 작동
   function select_cart_product(i){
     let copy = [...cartCopy]
+    let list = [...props.cart]
+    let select_num = selectCnt
     if(!copy[i].product_select){
       copy[i].product_select = true
+      select_num += 1
+      selectCntChange(select_num)
+      // 선택한 상품 id로 찾아서 true로 바꾸기
+      for(let j=0;j<copy.length;j++){
+        if(list[j].product_id === copy[i].product_id){
+          list[j].product_select = true
+          break
+        }
+      }
+      props.cartChange(list)
       console.log(copy)
       if(copy[i].black_friday === 'O'){
         let total = props.totalPrice + ((copy[i].product_price * 2) * copy[i].product_cnt)
@@ -261,8 +282,18 @@ function Cart(props){
       }
     } else{
       copy[i].product_select = false
+      select_num -= 1
+      selectCntChange(select_num)
+      // 선택한 상품 id로 찾아서 false로 바꾸기
+      for(let j=0;j<copy.length;j++){
+        if(list[j].product_id === copy[i].product_id){
+          list[j].product_select = false
+          break
+        }
+      }
+      props.cartChange(list)
       console.log(copy)
-      let select_cnt = false
+      // let select_boolean = false
       if(copy[i].black_friday === 'O'){
         let total = props.totalPrice - ((copy[i].product_price * 2) * copy[i].product_cnt)
         let sale = props.salePrice - (copy[i].product_price * copy[i].product_cnt)
@@ -270,13 +301,15 @@ function Cart(props){
         props.totalPriceChange(total)
         props.salePriceChange(sale)
         props.paymentPriceChange(payment)
-        for(let j=0;j<copy.length;j++){
-          if(copy[j].product_select){
-            select_cnt = true
-            break
-          }
-        }
-        if(select_cnt){
+        // for(let j=0;j<copy.length;j++){
+        //   if(copy[j].product_select){
+        //     select_boolean = true
+        //     break
+        //   }
+        // }
+        // 선택한 상품의 개수가 0개이면 배송비 0원
+        // 아니면 가격에 따라 배송비 책정
+        if(select_num !== 0){
           if(payment >= 30000){
             props.deliveryPriceChange(0)
           } else{
@@ -292,13 +325,15 @@ function Cart(props){
         props.totalPriceChange(total)
         props.salePriceChange(sale)
         props.paymentPriceChange(payment)
-        for(let j=0;j<copy.length;j++){
-          if(copy[j].product_select){
-            select_cnt = true
-            break
-          }
-        }
-        if(select_cnt){
+        // for(let j=0;j<copy.length;j++){
+        //   if(copy[j].product_select){
+        //     select_boolean = true
+        //     break
+        //   }
+        // }
+        // 선택한 상품의 개수가 0개이면 배송비 0원
+        // 아니면 가격에 따라 배송비 책정
+        if(select_num !== 0){
           if(payment >= 30000){
             props.deliveryPriceChange(0)
           } else{
@@ -309,8 +344,11 @@ function Cart(props){
         }
       }
     }
+    console.log(select_num)
+    console.log(props.cart)
   }
 
+  // 결제할 가격에 따라 배송비 책정
   function set_price(total_price, sale_price, payment_price){
     if(payment_price >= 30000){
       props.deliveryPriceChange(0)
