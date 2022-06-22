@@ -22,6 +22,8 @@ function App() {
   let [deliveryPrice, deliveryPriceChange] = useState(0)
   let [salePrice, salePriceChange] = useState(0)
   let [paymentPrice, paymentPriceChange] = useState(0)
+  let [selectCnt, selectCntChange] = useState(0)
+  let [allSelect, allSelectChange] = useState(false)
 
   useEffect(() => {
     let weekly = [[],[],[],[],[],[]]
@@ -145,7 +147,7 @@ function App() {
           <Route exact path="/" element={<Home WeeklyBestList={WeeklyBestList} QuickList={QuickList}></Home>}></Route>
           <Route path="/shoes_type/:id" element={<TypeProduct typeProductList={typeProductList}></TypeProduct>}></Route>
           <Route path="/detail/:id" element={<Detail Shoes={Shoes} cart={cart} cartChange={cartChange}></Detail>}></Route>
-          <Route path="/cart" element={<Cart cart={cart} cartChange={cartChange} totalPrice={totalPrice} totalPriceChange={totalPriceChange} deliveryPrice={deliveryPrice} deliveryPriceChange={deliveryPriceChange} salePrice={salePrice} salePriceChange={salePriceChange} paymentPrice={paymentPrice} paymentPriceChange={paymentPriceChange}></Cart> }></Route>
+          <Route path="/cart" element={<Cart selectCnt={selectCnt} selectCntChange={selectCntChange} allSelect={allSelect} allSelectChange={allSelectChange} cart={cart} cartChange={cartChange} totalPrice={totalPrice} totalPriceChange={totalPriceChange} deliveryPrice={deliveryPrice} deliveryPriceChange={deliveryPriceChange} salePrice={salePrice} salePriceChange={salePriceChange} paymentPrice={paymentPrice} paymentPriceChange={paymentPriceChange}></Cart> }></Route>
         </Routes>
       </div>
     </div>

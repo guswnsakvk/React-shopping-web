@@ -208,6 +208,20 @@
   font-size: 14px;
 }
 
+.link-cart{
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+}
+
+.link-cart:link{
+  color: #fff;
+}
+
+.link-cart:visited{
+  color: #fff;
+}
+
 @media screen and (max-width: 1200px){
   .detail-container{
     width: 760px;

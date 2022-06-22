@@ -3,6 +3,7 @@
 import '../style/Detail.css'
 import {useParams} from 'react-router-dom'
 import React, { useState } from 'react';
+import {Link} from 'react-router-dom'
 
 function Detail(props){
   let {id} = useParams()
@@ -116,7 +117,7 @@ function Detail(props){
         if(duplicate !== -1){
           copy[duplicate].product_cnt += select[index].product_cnt
         } else{
-          copy.push(select[index])
+          copy.unshift(select[index])
         }
       })
       selectChange([])
@@ -271,7 +272,7 @@ function Detail(props){
             <p className='alert-box-info-ask'>바로 확인하시겠습니까?</p>
           </div>
           <div className='alert-box-btns'>
-            <div className='alert-box-btn alert-box-btn-yes'>예</div>
+            <div className='alert-box-btn alert-box-btn-yes'><Link to={"/cart"} className='link-cart'>예</Link></div>
             <div className='alert-box-btn alert-box-btn-no' onClick={alert_box_close}>아니요</div>
           </div>
         </div>

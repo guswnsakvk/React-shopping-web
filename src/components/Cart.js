@@ -8,14 +8,15 @@ import React, { useEffect, useState } from 'react';
 function Cart(props){
   let [cartCopy, cartCopyChange] = useState([...props.cart])
   let [pageWith, pageWithChange] = useState('pc')
-  let [selectCnt, selectCntChange] = useState(0)
+  // let [selectCnt, selectCntChange] = useState(0)
+  // let [allSelect, allSelectChange] = useState(false)
   // let [totalPrice, totalPriceChange] = useState(0)
   // let [deliveryPrice, deliveryPriceChange] = useState(0)
   // let [salePrice, salePriceChange] = useState(0)
   // let [paymentPrice, paymentPriceChange] = useState(0)
 
   useEffect(() => {
-    cartCopyChange([...props.cart])
+    // cartCopyChange([...props.cart])
     console.log(props.cart)
     if(window.innerWidth < 768){
       pageWithChange('mobile')
@@ -77,24 +78,24 @@ function Cart(props){
     console.log(copy[i].product_id)
     cartCopyChange(copy)
     // cart 수정하는 부분
-    let list = [...props.cart]
+    let cart_original = [...props.cart]
     for(let j=0;i<props.cart.length;j++){
-      if(list[j].product_id === copy[i].product_id){
-        list[j].product_cnt = parseInt(e.target.value)
+      if(cart_original[j].product_id === copy[i].product_id){
+        cart_original[j].product_cnt = parseInt(e.target.value)
         break
       }
     }
-    console.log(list)
-    props.cartChange(list)
+    console.log(cart_original)
+    props.cartChange(cart_original)
   }
 
   // 상품 삭제했을 때 작동
   function remove_cart_item(i){
     let copy = [...cartCopy]
-    let select_num = selectCnt
+    let select_num = props.selectCnt
     if(copy[i].product_select){
       select_num -= 1
-      selectCntChange(select_num)
+      props.selectCntChange(select_num)
       if(copy[i].black_friday === 'O'){
         let total = props.totalPrice - ((copy[i].product_price * 2) * copy[i].product_cnt)
         let sale = props.salePrice - (copy[i].product_price * copy[i].product_cnt)
@@ -124,21 +125,21 @@ function Cart(props){
       }
     }
     // cart 수정하는 부분
-    let list = [...props.cart]
+    let cart_original = [...props.cart]
     let place = 0
     for(let j=0;i<props.cart.length;j++){
-      console.log(list[j].product_id)
-      if(list[j].product_id === copy[i].product_id){
+      console.log(cart_original[j].product_id)
+      if(cart_original[j].product_id === copy[i].product_id){
         place = j
         break
       }
     }
-    list.splice(place, 1)
+    cart_original.splice(place, 1)
     copy.splice(i, 1)
     cartCopyChange(copy)
-    console.log(list)
-    props.cartChange(list)
-    if(copy.length === 0){
+    console.log(cart_original)
+    props.cartChange(cart_original)
+    if(copy.length === 0 || select_num === 0){
       props.deliveryPriceChange(0)
     }
   }
@@ -147,15 +148,15 @@ function Cart(props){
   function plus_btn(i){
     let copy = [...cartCopy]
     // cart 수정하는 부분
-    let list = [...props.cart]
+    let cart_original = [...props.cart]
     for(let j=0;i<props.cart.length;j++){
-      if(list[j].product_id === copy[i].product_id){
-        list[j].product_cnt += 1
+      if(cart_original[j].product_id === copy[i].product_id){
+        cart_original[j].product_cnt += 1
         break
       }
     }
-    console.log(list)
-    props.cartChange(list)
+    console.log(cart_original)
+    props.cartChange(cart_original)
     if(copy[i].product_select){
       if(copy[i].black_friday === 'O'){
         let total = props.totalPrice + (copy[i].product_price * 2)
@@ -224,34 +225,37 @@ function Cart(props){
     }
     cartCopyChange(copy)
     // cart 수정하는 부분
-    let list = [...props.cart]
+    let cart_original = [...props.cart]
     for(let j=0;i<props.cart.length;j++){
-      if(list[j].product_id === copy[i].product_id){
-        list[j].product_cnt = copy[i].product_cnt
+      if(cart_original[j].product_id === copy[i].product_id){
+        cart_original[j].product_cnt = copy[i].product_cnt
         break
       }
     }
-    console.log(list)
-    props.cartChange(list)
+    console.log(cart_original)
+    props.cartChange(cart_original)
   }
 
   // 상품 checkbox 선택시 작동
   function select_cart_product(i){
     let copy = [...cartCopy]
-    let list = [...props.cart]
-    let select_num = selectCnt
+    let cart_original = [...props.cart]
+    let select_num = props.selectCnt
     if(!copy[i].product_select){
       copy[i].product_select = true
       select_num += 1
-      selectCntChange(select_num)
+      if(select_num === copy.length){
+        props.allSelectChange(true)
+      }
+      props.selectCntChange(select_num)
       // 선택한 상품 id로 찾아서 true로 바꾸기
       for(let j=0;j<copy.length;j++){
-        if(list[j].product_id === copy[i].product_id){
-          list[j].product_select = true
+        if(cart_original[j].product_id === copy[i].product_id){
+          cart_original[j].product_select = true
           break
         }
       }
-      props.cartChange(list)
+      props.cartChange(cart_original)
       console.log(copy)
       if(copy[i].black_friday === 'O'){
         let total = props.totalPrice + ((copy[i].product_price * 2) * copy[i].product_cnt)
@@ -283,15 +287,18 @@ function Cart(props){
     } else{
       copy[i].product_select = false
       select_num -= 1
-      selectCntChange(select_num)
+      if(select_num !== copy.length){
+        props.allSelectChange(false)
+      }
+      props.selectCntChange(select_num)
       // 선택한 상품 id로 찾아서 false로 바꾸기
       for(let j=0;j<copy.length;j++){
-        if(list[j].product_id === copy[i].product_id){
-          list[j].product_select = false
+        if(cart_original[j].product_id === copy[i].product_id){
+          cart_original[j].product_select = false
           break
         }
       }
-      props.cartChange(list)
+      props.cartChange(cart_original)
       console.log(copy)
       // let select_boolean = false
       if(copy[i].black_friday === 'O'){
@@ -360,8 +367,57 @@ function Cart(props){
     props.paymentPriceChange(payment_price)
   }
 
+  // 전체선택 checkbox선택시 작동
   function all_select(){
     let copy = [...cartCopy]
+    let cart_original = [...props.cart]
+    let total = 0
+    let sale = 0
+    let payment = 0
+    if(props.allSelect){
+      props.allSelectChange(false)
+      for(let i=0;i<copy.length;i++){
+        copy[i].product_select = false
+      }
+
+      cartCopyChange(copy)
+      for(let i=0;i<cart_original.length;i++){
+        cart_original[i].product_select = false
+      }
+      props.cartChange(cart_original)
+      props.selectCntChange(0)
+
+      props.totalPriceChange(0)
+      props.salePriceChange(0)
+      props.paymentPriceChange(0)
+      props.deliveryPriceChange(0)
+    } else{
+      props.allSelectChange(true)
+
+      for(let i=0;i<copy.length;i++){
+        copy[i].product_select = true
+      }
+      cartCopyChange(copy)
+
+      for(let i=0;i<cart_original.length;i++){
+        cart_original[i].product_select = true
+      }
+      props.cartChange(cart_original)
+      props.selectCntChange(copy.length)
+
+      for(let i=0;i<copy.length;i++){
+        if(copy[i].black_friday === 'O'){
+          total += (copy[i].product_price * 2) * copy[i].product_cnt
+          sale += copy[i].product_price * copy[i].product_cnt
+          payment += copy[i].product_price * copy[i].product_cnt
+        } else{
+          total += copy[i].product_price * copy[i].product_cnt
+          sale += copy[i].product_price * copy[i].product_cnt
+          payment += copy[i].product_price * copy[i].product_cnt
+        }
+      }
+      set_price(total, sale, payment)
+    }
   }
 
   return(
@@ -370,7 +426,7 @@ function Cart(props){
         <div className='cart-container-title'>CART</div>
           <div className='cart-sort'>
             <div className='cart-sort-left'>
-              <input className='cart-sort-left-checkbox' onClick={all_select} type={"checkbox"}></input>
+              <input className='cart-sort-left-checkbox' onClick={all_select} type={"checkbox"} value={props.allSelect} checked={props.allSelect}></input>
               <span> 전체선택</span>
             </div>
             <div className='cart-sort-right'>
