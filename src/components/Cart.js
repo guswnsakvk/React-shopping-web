@@ -24,6 +24,8 @@ function Cart(props){
       pageWithChange('pc')
     }
     console.log(window.innerWidth)
+
+    if(props.selectCnt < cartCopy.length) props.allSelectChange(false)
   }, [])
 
   window.addEventListener('resize', () => {
@@ -142,6 +144,10 @@ function Cart(props){
     if(copy.length === 0 || select_num === 0){
       props.deliveryPriceChange(0)
     }
+    // 선택한 상품 갯수가 전부면 전체선택 true
+    // 아니면 false
+    if(props.selectCnt < copy.length) props.allSelectChange(false)
+    else if(props.selectCnt === copy.length) props.allSelectChange(true)
   }
 
   // 핸드폰 일때 플러스 버튼 누르면 작동
@@ -420,25 +426,88 @@ function Cart(props){
     }
   }
 
+  function cart_list_rearrangement(e){
+    const sort_way = e.target.value
+    console.log(e.target.value)
+    if(sort_way === "카트넣기순") cart_list_initialization_order()
+    else if(sort_way === "상품명순") cart_list_name_order()
+    else if(sort_way === "높은가격순") cart_list_descending_order()
+    else cart_list_ascending_order()
+  }
+
+  function cart_list_initialization_order(){
+    cartCopyChange(props.cart)
+  }
+
+  function cart_list_name_order(){
+    let copy = [...cartCopy]
+    copy.sort(function(a, b){
+      if(a.product_name > b.product_name) return 1
+      else if(a.product_name === b.product_name) return 0
+      else return -1
+    })
+    cartCopyChange(copy)
+    console.log(copy)
+  }
+
+  function cart_list_ascending_order(){
+    let copy = [...cartCopy]
+    copy.sort(function(a, b){
+      if(a.product_price > b.product_price) return 1
+      else if(a.product_price === b.product_price) return 0
+      else return -1
+    })
+    cartCopyChange(copy)
+    console.log(copy)
+  }
+
+  function cart_list_descending_order(){
+    let copy = [...cartCopy]
+    copy.sort(function(a, b){
+      if(a.product_price > b.product_price) return -1
+      else if(a.product_price === b.product_price) return 0
+      else return 1
+    })
+    cartCopyChange(copy)
+    console.log(copy)
+  }
+
   return(
     <div className='cart-background'>
       <div className='cart-container'>
         <div className='cart-container-title'>CART</div>
-          <div className='cart-sort'>
+          {
+            cartCopy.length === 0
+            ? null
+            : <div className='cart-sort'>
+                <div className='cart-sort-left'>
+                  <input className='cart-sort-left-checkbox' onClick={all_select} type={"checkbox"} value={props.allSelect} checked={props.allSelect}></input>
+                  <span> 전체선택</span>
+                </div>
+                <div className='cart-sort-right'>
+                  <select name="sort" className='cart-sort-right-select' onChange={(e) => {cart_list_rearrangement(e)}}>
+                    <option value={"카트넣기순"}>카트넣기순</option>
+                    <option value={"상품명순"}>상품명순</option>
+                    <option value={"높은가격순"}>높은가격순</option>
+                    <option value={"낮은가격순"}>낮은가격순</option>
+                  </select>
+                </div>
+              </div>
+          }
+          {/* <div className='cart-sort'>
             <div className='cart-sort-left'>
               <input className='cart-sort-left-checkbox' onClick={all_select} type={"checkbox"} value={props.allSelect} checked={props.allSelect}></input>
               <span> 전체선택</span>
             </div>
             <div className='cart-sort-right'>
-              <select name="sort" className='cart-sort-right-select'>
-                <option>카트넣기순</option>
-                <option>상품명순</option>
-                <option>높은가격순</option>
-                <option>낮은가격순</option>
+              <select name="sort" className='cart-sort-right-select' onChange={(e) => {cart_list_rearrangement(e)}}>
+                <option value={"카트넣기순"}>카트넣기순</option>
+                <option value={"상품명순"}>상품명순</option>
+                <option value={"높은가격순"}>높은가격순</option>
+                <option value={"낮은가격순"}>낮은가격순</option>
               </select>
             </div>
-          </div>
-        
+          </div> */}
         {
           pageWith === 'pc'
           ? <Cart_Pc cart={props.cart} cartCopy={cartCopy} set_cart_value={set_cart_value} remove_cart_item={remove_cart_item} cartChange={props.cartChange} select_cart_product={select_cart_product}></Cart_Pc>
