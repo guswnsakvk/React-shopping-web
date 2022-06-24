@@ -1,14 +1,16 @@
 /*eslint-disable*/
 
 import "../style/Cart_Mobile.css"
-  let today = new Date()
-  let tomorrow = new Date(today.setDate(today.getDate() + 1))
-  let month = tomorrow.getMonth() + 1
-  let date = tomorrow.getDate()
-  let day = tomorrow.getDay()
-  const week = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일']
-
+import {Link, Route, Routes, NavLink} from 'react-router-dom'
+  
   function Cart_Mobile(props){
+    let today = new Date()
+    let tomorrow = new Date(today.setDate(today.getDate() + 1))
+    let month = tomorrow.getMonth() + 1
+    let date = tomorrow.getDate()
+    let day = tomorrow.getDay()
+    const week = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일']
+
     function cart_list_btn(){
       const header_btn = document.querySelector(".cart-mobile-header-btn")
       const cart_product_list = document.querySelector(".cart-mobile-products-list")
@@ -64,7 +66,9 @@ import "../style/Cart_Mobile.css"
                       <input className="cart-mobile-products-list-product-foot-cnt-input" type={"number"} value={product.product_cnt} onChange={(e) => {props.set_cart_value(i, e)}} min={1}></input>
                       <div onClick={() => {props.plus_btn(i)}} className="cart-mobile-products-list-product-foot-cnt-btn border-right">+</div>
                     </div>
-                    <div className="cart-mobile-products-list-product-foot-btn">주문</div>
+                    <Link to={"/purchase"} className="cart-mobile-link-purchase">
+                      <div className="cart-mobile-products-list-product-foot-btn" onClick={() => {props.set_purchase_list_one(i)}}>주문</div>
+                    </Link>
                   </div>
                 </div>
               )

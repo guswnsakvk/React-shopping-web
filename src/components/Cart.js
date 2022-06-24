@@ -4,6 +4,7 @@ import '../style/Cart.css'
 import Cart_Pc from './Cart_Pc';
 import Cart_Mobile from './Cart_Mobile';
 import React, { useEffect, useState } from 'react';
+import {Link, Route, Routes, NavLink} from 'react-router-dom'
 
 function Cart(props){
   let [cartCopy, cartCopyChange] = useState([...props.cart])
@@ -472,6 +473,23 @@ function Cart(props){
     console.log(copy)
   }
 
+  function set_purchase_list(){
+    let check_cart_list = []
+    for(let i=0;i<cartCopy.length;i++){
+      console.log(cartCopy[i].product_select)
+      if(cartCopy[i].product_select === true){
+        check_cart_list.push(cartCopy[i])
+      }
+    }
+    props.purchaseListChange(check_cart_list)
+  }
+
+  function set_purchase_list_one(i){
+    let copy = [...cartCopy]
+    console.log(copy)
+    props.purchaseListChange(copy[i])
+  }
+
   return(
     <div className='cart-background'>
       <div className='cart-container'>
@@ -510,8 +528,8 @@ function Cart(props){
           </div> */}
         {
           pageWith === 'pc'
-          ? <Cart_Pc cart={props.cart} cartCopy={cartCopy} set_cart_value={set_cart_value} remove_cart_item={remove_cart_item} cartChange={props.cartChange} select_cart_product={select_cart_product}></Cart_Pc>
-          : <Cart_Mobile cartCopy={cartCopy} set_cart_value={set_cart_value} remove_cart_item={remove_cart_item} cartChange={props.cartChange} plus_btn={plus_btn} minus_btn={minus_btn} select_cart_product={select_cart_product}></Cart_Mobile>
+          ? <Cart_Pc set_purchase_list_one={set_purchase_list_one} cart={props.cart} cartCopy={cartCopy} set_cart_value={set_cart_value} remove_cart_item={remove_cart_item} cartChange={props.cartChange} select_cart_product={select_cart_product}></Cart_Pc>
+          : <Cart_Mobile set_purchase_list_one={set_purchase_list_one} cartCopy={cartCopy} set_cart_value={set_cart_value} remove_cart_item={remove_cart_item} cartChange={props.cartChange} plus_btn={plus_btn} minus_btn={minus_btn} select_cart_product={select_cart_product}></Cart_Mobile>
         }
         {
           cartCopy.length === 0
@@ -535,7 +553,9 @@ function Cart(props){
                   <p className="cart-receipt-content-money">{props.paymentPrice + props.deliveryPrice}원</p>
                 </div>
               </div>
-              <div className='purchase-btn'>주문하기</div>
+              <Link to={"/purchase"} className="cart-link-purchase">
+                <div className='purchase-btn' onClick={set_purchase_list}>주문하기</div>
+              </Link>
             </>
         }
       </div>

@@ -103,6 +103,19 @@
   cursor: pointer;
 }
 
+.cart-pc-link-purchase{
+  text-decoration: none;
+  color: #fff;
+}
+
+.cart-pc-link-purchase:link{
+  color: #fff;
+}
+
+.cart-pc-link-purchase:visited{
+  color: #fff;
+}
+
 @media screen and (max-width: 1200px){
   .cart-pc-container-table-head-product-info{
     width: 410px;

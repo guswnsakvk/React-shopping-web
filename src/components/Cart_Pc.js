@@ -2,6 +2,7 @@
 
 import "../style/Cart_Pc.css"
 import React, { useState } from 'react';
+import {Link, Route, Routes, NavLink} from 'react-router-dom'
 
 function Cart_Pc(props){
   let [inputList, inputListChange] = useState([])
@@ -56,7 +57,9 @@ function Cart_Pc(props){
                     : <td>기본배송</td>
                   }
                   <td>
-                    <div className='cart-pc-container-table-body-product-order'>주문하기</div>
+                    <Link to={"/purchase"} className="cart-pc-link-purchase">
+                      <div className='cart-pc-container-table-body-product-order' onClick={() => {props.set_purchase_list_one(i)}}>주문하기</div>
+                    </Link>
                     <div className='cart-pc-container-table-product-remove' onClick={() => {props.remove_cart_item(i)}}>삭제하기</div>
                   </td>
                 </tr>

@@ -10,6 +10,7 @@ import ShoesData from './data.js';
 import Detail from './components/Detail.js'
 import TypeProduct from './components/TypeProduct.js'
 import Cart from './components/Cart.js'
+import Purchase from './components/Purchase';
 import {Link, Route, Routes, NavLink} from 'react-router-dom'
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
   let [paymentPrice, paymentPriceChange] = useState(0)
   let [selectCnt, selectCntChange] = useState(0)
   let [allSelect, allSelectChange] = useState(false)
+  let [purchaseList, purchaseListChange] = useState([])
 
   useEffect(() => {
     let weekly = [[],[],[],[],[],[]]
@@ -147,7 +149,8 @@ function App() {
           <Route exact path="/" element={<Home WeeklyBestList={WeeklyBestList} QuickList={QuickList}></Home>}></Route>
           <Route path="/shoes_type/:id" element={<TypeProduct typeProductList={typeProductList}></TypeProduct>}></Route>
           <Route path="/detail/:id" element={<Detail Shoes={Shoes} cart={cart} cartChange={cartChange}></Detail>}></Route>
-          <Route path="/cart" element={<Cart selectCnt={selectCnt} selectCntChange={selectCntChange} allSelect={allSelect} allSelectChange={allSelectChange} cart={cart} cartChange={cartChange} totalPrice={totalPrice} totalPriceChange={totalPriceChange} deliveryPrice={deliveryPrice} deliveryPriceChange={deliveryPriceChange} salePrice={salePrice} salePriceChange={salePriceChange} paymentPrice={paymentPrice} paymentPriceChange={paymentPriceChange}></Cart> }></Route>
+          <Route path="/cart" element={<Cart purchaseListChange={purchaseListChange} selectCnt={selectCnt} selectCntChange={selectCntChange} allSelect={allSelect} allSelectChange={allSelectChange} cart={cart} cartChange={cartChange} totalPrice={totalPrice} totalPriceChange={totalPriceChange} deliveryPrice={deliveryPrice} deliveryPriceChange={deliveryPriceChange} salePrice={salePrice} salePriceChange={salePriceChange} paymentPrice={paymentPrice} paymentPriceChange={paymentPriceChange}></Cart> }></Route>
+          <Route path="/purchase" element={<Purchase purchaseList={purchaseList}></Purchase>}></Route>
         </Routes>
       </div>
     </div>

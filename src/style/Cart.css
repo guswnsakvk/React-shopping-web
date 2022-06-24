@@ -191,6 +191,19 @@
   cursor: pointer;
 }
 
+.cart-link-purchase{
+  text-decoration: none;
+  color: #fff;
+}
+
+.cart-link-purchase:link{
+  color: #fff;
+}
+
+.cart-link-purchase:visited{
+  color: #fff;
+}
+
 @media screen and (max-width: 1200px){
   .cart-container{
     width: 760px;

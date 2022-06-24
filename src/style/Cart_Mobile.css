@@ -146,3 +146,16 @@
   position: absolute;
   right: 2%;
 }
+
+.cart-mobile-link-purchase{
+  text-decoration: none;
+  color: #fff;
+}
+
+.cart-mobile-link-purchase:link{
+  color: #fff;
+}
+
+.cart-mobile-link-purchase:visited{
+  color: #fff;
+}
