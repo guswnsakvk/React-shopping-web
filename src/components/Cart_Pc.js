@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 import {Link, Route, Routes, NavLink} from 'react-router-dom'
 
 function Cart_Pc(props){
-  let [inputList, inputListChange] = useState([])
   let today = new Date()
   let tomorrow = new Date(today.setDate(today.getDate() + 1))
   let month = tomorrow.getMonth() + 1

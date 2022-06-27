@@ -8,7 +8,7 @@ import {Link, Route, Routes, NavLink} from 'react-router-dom'
 
 function Cart(props){
   let [cartCopy, cartCopyChange] = useState([...props.cart])
-  let [pageWith, pageWithChange] = useState('pc')
+  // let [pageWith, pageWithChange] = useState('pc')
   // let [selectCnt, selectCntChange] = useState(0)
   // let [allSelect, allSelectChange] = useState(false)
   // let [totalPrice, totalPriceChange] = useState(0)
@@ -20,9 +20,9 @@ function Cart(props){
     // cartCopyChange([...props.cart])
     console.log(props.cart)
     if(window.innerWidth < 768){
-      pageWithChange('mobile')
+      props.pageWithChange('mobile')
     } else{
-      pageWithChange('pc')
+      props.pageWithChange('pc')
     }
     console.log(window.innerWidth)
 
@@ -31,10 +31,10 @@ function Cart(props){
 
   window.addEventListener('resize', () => {
     if(window.innerWidth < 768){
-      pageWithChange('mobile')
+      props.pageWithChange('mobile')
     }
     else if(window.innerWidth > 768){
-      pageWithChange('pc')
+      props.pageWithChange('pc')
     }
   })
 
@@ -527,7 +527,7 @@ function Cart(props){
             </div>
           </div> */}
         {
-          pageWith === 'pc'
+          props.pageWith === 'pc'
           ? <Cart_Pc set_purchase_list_one={set_purchase_list_one} cart={props.cart} cartCopy={cartCopy} set_cart_value={set_cart_value} remove_cart_item={remove_cart_item} cartChange={props.cartChange} select_cart_product={select_cart_product}></Cart_Pc>
           : <Cart_Mobile set_purchase_list_one={set_purchase_list_one} cartCopy={cartCopy} set_cart_value={set_cart_value} remove_cart_item={remove_cart_item} cartChange={props.cartChange} plus_btn={plus_btn} minus_btn={minus_btn} select_cart_product={select_cart_product}></Cart_Mobile>
         }
