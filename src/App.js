@@ -151,7 +151,7 @@ function App() {
           <Route path="/shoes_type/:id" element={<TypeProduct typeProductList={typeProductList}></TypeProduct>}></Route>
           <Route path="/detail/:id" element={<Detail Shoes={Shoes} cart={cart} cartChange={cartChange}></Detail>}></Route>
           <Route path="/cart" element={<Cart pageWith={pageWith} pageWithChange={pageWithChange} purchaseListChange={purchaseListChange} selectCnt={selectCnt} selectCntChange={selectCntChange} allSelect={allSelect} allSelectChange={allSelectChange} cart={cart} cartChange={cartChange} totalPrice={totalPrice} totalPriceChange={totalPriceChange} deliveryPrice={deliveryPrice} deliveryPriceChange={deliveryPriceChange} salePrice={salePrice} salePriceChange={salePriceChange} paymentPrice={paymentPrice} paymentPriceChange={paymentPriceChange}></Cart> }></Route>
-          <Route path="/purchase" element={<Purchase purchaseList={purchaseList}></Purchase>}></Route>
+          <Route path="/purchase" element={<Purchase pageWith={pageWith} pageWithChange={pageWithChange} purchaseList={purchaseList} purchaseListChange={purchaseListChange}></Purchase>}></Route>
         </Routes>
       </div>
     </div>

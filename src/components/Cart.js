@@ -486,8 +486,10 @@ function Cart(props){
 
   function set_purchase_list_one(i){
     let copy = [...cartCopy]
-    console.log(copy)
-    props.purchaseListChange(copy[i])
+    let check_cart_list = copy[i]
+    console.log(copy[i])
+    console.log(check_cart_list)
+    props.purchaseListChange([check_cart_list])
   }
 
   return(
