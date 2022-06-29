@@ -485,11 +485,27 @@ function Cart(props){
   }
 
   function set_purchase_list_one(i){
+    let total = 0
+    let sale = 0
+    let payment = 0
     let copy = [...cartCopy]
     let check_cart_list = copy[i]
     console.log(copy[i])
     console.log(check_cart_list)
     props.purchaseListChange([check_cart_list])
+
+    
+    if(check_cart_list.black_friday === 'O'){
+      total = (check_cart_list.product_price * 2) * check_cart_list.product_cnt
+      sale = check_cart_list.product_price * check_cart_list.product_cnt
+      payment = check_cart_list.product_price * check_cart_list.product_cnt
+    } else{
+      total = check_cart_list.product_price  * check_cart_list.product_cnt
+      sale = check_cart_list.product_price * check_cart_list.product_cnt
+      payment = check_cart_list.product_price * check_cart_list.product_cnt
+    }
+    console.log(total, sale, payment)
+    set_price(total, sale, payment)
   }
 
   return(

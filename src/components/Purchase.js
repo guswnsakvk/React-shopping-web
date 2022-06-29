@@ -34,6 +34,24 @@ function Purchase(props){
             ? <Purchase_Pc purchaseList={props.purchaseList}></Purchase_Pc>
             : null
           }
+          <div className="purchase-receipt">
+            <div className="purchase-receipt-content">
+              <p className="purchase-receipt-content-title">총 상품금액</p>
+              <p className="purchase-receipt-content-money">{props.totalPrice}원</p>
+            </div>
+            <div className="purchase-receipt-content">
+              <p className="purchase-receipt-content-title">총 배송비</p>
+              <p className="purchase-receipt-content-money">{props.deliveryPrice}원</p>
+            </div>
+            <div className="purchase-receipt-content">
+              <p className="purchase-receipt-content-title">총 할인금액</p>
+              <p className="purchase-receipt-content-money">{props.salePrice}원</p>
+            </div>
+            <div className="purchase-receipt-content">
+              <p className="purchase-receipt-content-title">결제예정금액</p>
+              <p className="purchase-receipt-content-money">{props.paymentPrice + props.deliveryPrice}원</p>
+            </div>
+          </div>
       </div>
     </div>
   )
