@@ -7,8 +7,8 @@
   line-height: 50px;
   text-align: center;
   background-color: #F8F8F8;
-  border-top: 1px solid #aaa;
-  border-bottom: 1px solid #aaa;
+  border-top: .5px solid #aaa;
+  border-bottom: .5px solid #aaa;
 }
 
 .purchase-pc-container-table-head-product-name{
@@ -32,7 +32,43 @@
 }
 
 .purchase-pc-container-table-body tr{
-  border-bottom: 1px solid #aaa;
+  border-bottom: .5px solid #aaa;
+}
+
+.purchase-pc-container-table-body tr td{
+  padding: 20px 0;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.purchase-pc-container-table-body-product{
+  display: flex;
+  align-items : center;
+}
+
+.purchase-pc-container-table-body-product-img{
+  width: 100px;
+  height: 140px;
+  background-color: red;
+  margin: 0 25px;
+  background-size: 100% 100%;
+}
+
+.purchase-pc-container-table-body-product-info{
+  text-align: left
+}
+
+.purchase-pc-container-table-body-product-sale{
+  text-decoration: line-through;
+}
+
+.purchase-pc-container-table-body-text{
+  text-align: center;
+}
+
+.purchase-pc-container-table-body-date{
+  font-size: 12px;
+  margin-top: 4px;
 }
 
 @media screen and (max-width: 1200px){

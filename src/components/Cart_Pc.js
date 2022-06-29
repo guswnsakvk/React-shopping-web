@@ -10,7 +10,6 @@ function Cart_Pc(props){
   let month = tomorrow.getMonth() + 1
   let date = tomorrow.getDate()
   let day = tomorrow.getDay()
-  let test1 = document.querySelectorAll(".cart-pc-container-table-body-product-checkBox")
   const week = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일']
 
   return(
