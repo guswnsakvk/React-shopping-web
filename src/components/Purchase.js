@@ -4,6 +4,7 @@ import '../style/Purchase.css'
 import React, { useEffect, useState } from 'react';
 import {Link, Route, Routes, NavLink} from 'react-router-dom'
 import Purchase_Pc from './Purchase_Pc';
+import Purchase_Mobile from './Purchase_Moblie';
 
 function Purchase(props){
 
@@ -32,7 +33,7 @@ function Purchase(props){
           {
             props.pageWith === 'pc'
             ? <Purchase_Pc purchaseList={props.purchaseList}></Purchase_Pc>
-            : null
+            : <Purchase_Mobile purchaseList={props.purchaseList}></Purchase_Mobile>
           }
           <div className="purchase-receipt">
             <div className="purchase-receipt-content">
