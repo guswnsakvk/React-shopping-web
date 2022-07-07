@@ -7,6 +7,9 @@ import Purchase_Pc from './Purchase_Pc';
 import Purchase_Mobile from './Purchase_Moblie';
 
 function Purchase(props){
+  let [phoneMiddleNumber, phoneMiddleNumberChange] = useState("")
+  let [phoneLastNumber, phoneLastNumberChange] = useState("")
+  let [siteName, siteNameChange] = useState("")
 
   useEffect(() => {
     if(window.innerWidth < 768){
@@ -25,6 +28,20 @@ function Purchase(props){
       props.pageWithChange('pc')
     }
   })
+
+  function check_number(place, e){
+    const value = e.target.value
+    const only_number = value.replace(/[^0-9]/g, '')
+    if(place === "middle"){
+      phoneMiddleNumberChange(only_number)
+    } else{
+      phoneLastNumberChange(only_number)
+    }
+  }
+
+  function select_site(e){
+    siteNameChange(e.target.value)
+  }
 
   return(
     <div className='purchase-background'>
@@ -57,36 +74,45 @@ function Purchase(props){
           <div className='purchase-container-shipping-information-header'>배송정보</div>
           <div className='purchase-container-shipping-information-body'>
             <div className='purchase-container-shipping-information-body-address'>
-              <div className='delivery-method'>
-                <div className='delivery-method-left'>배송방법</div>
-                <div>1</div>
-              </div>
               <div className='info-name'>
                 <div className='info-name-left'>이름</div>
-                <div>2</div>
+                <div className='info-name-right'>
+                  <input className='info-name-right-input'></input>
+                </div>
               </div>
               <div className='shipping-address'>
                 <div className='shipping-address-left'>배송주소</div>
-                <div>3</div>
+                <div className='shipping-address-right'>3</div>
               </div>
               <div className='info-phone-number'>
                 <div className='info-phone-number-left'>휴대폰</div>
-                <div>4</div>
+                <div className='info-phone-number-right'>
+                  <select name="first-number">
+                    <option value={"010"}>010</option>
+                    <option value={"011"}>011</option>
+                  </select>
+                  <span>-</span>
+                  <input className='info-phone-number-right-input' type={"text"} value={phoneMiddleNumber} maxLength='4' minLength='4' onChange={(e) => {check_number("middle", e)}} required></input>
+                  <span>-</span>
+                  <input className='info-phone-number-right-input' type={"text"} required value={phoneLastNumber} maxLength='4' minLength='4' onChange={(e) => {check_number("last",e)}}></input>
+                </div>
               </div>
-            </div>
-            <div className='purchase-container-shipping-information-body-shopper'>
-              <div>주문고객</div>
-              <div>이름</div>
-              <div>휴대폰</div>
-              <div>이메일</div>
+              <div className='email'>
+                <div className='email-left'>이메일</div>
+                <div className='email-right'>
+                  <input className='email-right-input-address'></input>
+                  <span>@</span>
+                  <input className='email-right-input-site' placeholder='직접입력' value={siteName}></input>
+                  <select name="site" onChange={(e) => {select_site(e)}}>
+                    <option value={"naver.com"}>naver.com</option>
+                    <option value={"daum.com"}>daum.com</option>
+                    <option value={"google.com"}>gmail.com</option>
+                  </select>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        {/* {
-          props.pageWith === 'pc'
-          ? <div className='purchase-container-shipping-address'></div>
-          : null
-        } */}
       </div>
     </div>
   )
