@@ -7,23 +7,18 @@
   height: 30px;
   width: 100%;
   line-height: 30px;
-  position: relative;
   margin-bottom: 15px;
+  text-align: right;
+  box-sizing: border-box;
 }
 
-.myMenu{
-  position: absolute;
-  display: flex;
-  right: 0;
-}
-
-.myMenu li{
+.headerTop-myMenu{
   cursor: pointer;
   color: #aaa;
 }
 
-.myMenu-margin{
-  margin-right: 20px;
+.headerTop-myMenu-margin{
+  margin-left: 10px;
 }
 
 .logo-background{
@@ -66,21 +61,38 @@
   height: .1px;
 }
 
-.link{
+.link-to-cart{
+  color: #aaa;
+  text-decoration: none;
+}
+
+.link-to-cart:link{
+  color: #aaa;
+}
+
+.link-to-cart:visited{
+  color: #aaa;
+}
+
+.link-to-products{
   cursor: pointer;
   text-decoration: none;
   color: #555;
 }
 
-.link:link{
+.link-to-products:link{
   color: #000;
 }
 
-.link:visited{
+.link-to-products:visited{
   color: #000;
 }
 
 @media screen and (max-width: 1200px){
+  .header{
+    width: 740px;
+  }
+
   .menus{
     width: 740px;
   }
@@ -92,6 +104,10 @@
 }
 
 @media screen and (max-width: 768px){
+  .header{
+    width: 100%;
+  }
+
   .menus{
     flex-wrap: nowrap;
   }

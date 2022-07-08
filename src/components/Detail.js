@@ -157,7 +157,7 @@ function Detail(props){
     select_box.size = 1
   }
 
-  function select_box_onchange(){
+  function select_box_input(){
     const select_box = document.querySelector(".container-item-info-detail-td-select")
     select_box.size = 1
     select_box.blur()
@@ -205,7 +205,7 @@ function Detail(props){
                   <tr>
                     <td className='container-item-info-detail-td-left'>사이즈</td>
                     <td>
-                      <select onChange={select_size} name='size' onInput={select_box_onchange} onFocus={select_box_focus} onBlur={select_box_onblur} className='container-item-info-detail-td-select'>
+                      <select onChange={select_size} name='size' onInput={select_box_input} onFocus={select_box_focus} onBlur={select_box_onblur} className='container-item-info-detail-td-select'>
                         <option value={""}>- [필수] 사이즈 선택 -</option>
                         {
                           findProduct.size.map((shoes_size) => {

@@ -38,6 +38,7 @@
   height: 40px;
   line-height: 40px;
   padding-left: 20px;
+  box-sizing: border-box;
 }
 
 .purchase-mobile-products-list-product-body{

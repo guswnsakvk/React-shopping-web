@@ -139,6 +139,11 @@
   display: flex;
   height: 25px;
   width: 100%;
+  flex-wrap: wrap;
+}
+
+.info-phone-number-right-input{
+  width: 35px;
 }
 
 .email{
@@ -159,6 +164,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  line-height: 20px;
 }
 
 .email-right-input-site{
@@ -170,6 +176,14 @@
   height: 100px;
   box-sizing: border-box;
   margin-top: 15px;
+}
+
+.email-right-input-address{
+  height: 20px;
+}
+
+.email-right-input-site{
+  height: 20px;
 }
 
 @media screen and (max-width: 1200px){
@@ -251,10 +265,6 @@
   .info-phone-number-left{
     width: 80px;
     font-size: 14px;
-  }
-
-  .info-phone-number-right-input{
-    width: 35px;
   }
 
   .email-left{

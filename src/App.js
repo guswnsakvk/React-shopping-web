@@ -101,11 +101,14 @@ function App() {
       <Reset />
       <header className='header'>
         <div className='headerTop'>
-          <ul className='myMenu'>
+          <span className='headerTop-myMenu'>Login</span>
+          <span className='headerTop-myMenu headerTop-myMenu-margin'>Join</span>
+          <span className='headerTop-myMenu headerTop-myMenu-margin'><Link className='link-to-cart' to={"/cart"}>Cart</Link></span>
+          {/* <ul className='myMenu'>
             <li className='myMenu-margin'>Login</li>
             <li className='myMenu-margin'>Join</li>
             <li><Link to={"/cart"}>Cart</Link></li>
-          </ul>
+          </ul> */}
         </div>
         <div className='logo-background'>
           <Link to={"/"}>
@@ -116,31 +119,31 @@ function App() {
       <div className='mobile-menu'>
       <div className='menus'>
         <ul>
-          <li onClick={set_typeList}><Link to={"/shoes_type/Black_Friday"} className="link">Black Friday</Link></li>
+          <li onClick={set_typeList}><Link to={"/shoes_type/Black_Friday"} className="link-to-products">Black Friday</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}><Link to={"/shoes_type/Best_Product"} className="link">Best</Link></li>
+          <li onClick={set_typeList}><Link to={"/shoes_type/Best_Product"} className="link-to-products">Best</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}><Link to={"/shoes_type/Quick_Product"} className="link">당일 배송</Link></li>
+          <li onClick={set_typeList}><Link to={"/shoes_type/Quick_Product"} className="link-to-products">당일 배송</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}><Link to={"/shoes_type/운동화"} className="link">운동화</Link></li>
+          <li onClick={set_typeList}><Link to={"/shoes_type/운동화"} className="link-to-products">운동화</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}><Link to={"/shoes_type/캔버스"} className="link">캔버스</Link></li>
+          <li onClick={set_typeList}><Link to={"/shoes_type/캔버스"} className="link-to-products">캔버스</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}><Link to={"/shoes_type/워킹화"} className="link">워킹화</Link></li>
+          <li onClick={set_typeList}><Link to={"/shoes_type/워킹화"} className="link-to-products">워킹화</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}><Link to={"/shoes_type/부츠"} className="link">부츠</Link></li>
+          <li onClick={set_typeList}><Link to={"/shoes_type/부츠"} className="link-to-products">부츠</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}><Link to={"/shoes_type/구두"} className="link">구두</Link></li>
+          <li onClick={set_typeList}><Link to={"/shoes_type/구두"} className="link-to-products">구두</Link></li>
         </ul>
         <ul>
-          <li onClick={set_typeList}><Link to={"/shoes_type/샌들"} className="link">샌들</Link></li>
+          <li onClick={set_typeList}><Link to={"/shoes_type/샌들"} className="link-to-products">샌들</Link></li>
         </ul>
       </div>
       </div>

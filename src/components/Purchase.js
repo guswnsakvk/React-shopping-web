@@ -39,8 +39,32 @@ function Purchase(props){
     }
   }
 
+  function dat_com(e){
+    siteNameChange(e.target.value)
+    if(e.target.value === ""){
+      const site_reset = document.querySelector(".site")
+      site_reset[0].selected = true;
+    }
+  }
+
   function select_site(e){
     siteNameChange(e.target.value)
+  }
+
+  function select_site_input(){
+    const site_reset = document.querySelector(".site")
+    site_reset.size = 1
+    select_box.blur()
+  }
+
+  function select_site_onblur(){
+    const site_reset = document.querySelector(".site")
+    site_reset.size = 1
+  }
+
+  function select_site_focus(){
+    const site_reset = document.querySelector(".site")
+    site_reset.size = 2
   }
 
   return(
@@ -102,8 +126,9 @@ function Purchase(props){
                 <div className='email-right'>
                   <input className='email-right-input-address'></input>
                   <span>@</span>
-                  <input className='email-right-input-site' placeholder='직접입력' value={siteName}></input>
-                  <select name="site" onChange={(e) => {select_site(e)}}>
+                  <input className='email-right-input-site' placeholder='직접입력' value={siteName} onChange={(e) => {dat_com(e)}}></input>
+                  <select name="site" className='site' onChange={(e) => {select_site(e)}} onInput={select_site_input} onBlur={select_site_onblur} onFocus={select_site_focus}>
+                    <option value={""}>직접입력</option>
                     <option value={"naver.com"}>naver.com</option>
                     <option value={"daum.com"}>daum.com</option>
                     <option value={"google.com"}>gmail.com</option>
