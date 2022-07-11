@@ -138,6 +138,9 @@ function Purchase(props){
             </div>
           </div>
         </div>
+        <form>
+          <input required minLength={4}></input>
+        </form>
       </div>
     </div>
   )
