@@ -102,11 +102,24 @@ function Purchase(props){
                 <div className='info-name-left'>이름</div>
                 <div className='info-name-right'>
                   <input className='info-name-right-input'></input>
+                  <p className='info-name-right-alert-text mobile-font-size'>예금주 이름과 같게 입력해주세요</p>
                 </div>
               </div>
               <div className='shipping-address'>
                 <div className='shipping-address-left'>배송주소</div>
-                <div className='shipping-address-right'>3</div>
+                <div className='shipping-address-right'>
+                  <div className='shipping-address-right-postal-code'>
+                    <input className='shipping-address-right-postal-code-input' type={"text"} placeholder='우편번호'></input>
+                    <p className='mobile-font-size'>우편번호를 입력해주세요</p>
+                  </div>
+                  <div className='shipping-address-right-address'>
+                    <input className='shipping-address-right-address-input' placeholder='주소'></input>
+                    <p className='mobile-font-size'>주소를 입력해주세요</p>
+                  </div>
+                  <div className='shipping-address-right-detail-address'>
+                    <input className='shipping-address-right-detail-address-input' placeholder='상세주소'></input>
+                  </div>
+                </div>
               </div>
               <div className='info-phone-number'>
                 <div className='info-phone-number-left'>휴대폰</div>
@@ -116,9 +129,10 @@ function Purchase(props){
                     <option value={"011"}>011</option>
                   </select>
                   <span>-</span>
-                  <input className='info-phone-number-right-input' type={"text"} value={phoneMiddleNumber} maxLength='4' minLength='4' onChange={(e) => {check_number("middle", e)}} required></input>
+                  <input className='info-phone-number-right-input' type={"text"} value={phoneMiddleNumber} maxLength='4' minLength='4' onChange={(e) => {check_number("middle", e)}}></input>
                   <span>-</span>
-                  <input className='info-phone-number-right-input' type={"text"} required value={phoneLastNumber} maxLength='4' minLength='4' onChange={(e) => {check_number("last",e)}}></input>
+                  <input className='info-phone-number-right-input' type={"text"} value={phoneLastNumber} maxLength='4' minLength='4' onChange={(e) => {check_number("last",e)}}></input>
+                  <p className='info-phone-number-right-alert-text mobile-font-size'>핸드폰 번호를 적어주세요</p>
                 </div>
               </div>
               <div className='email'>
@@ -133,14 +147,12 @@ function Purchase(props){
                     <option value={"daum.com"}>daum.com</option>
                     <option value={"google.com"}>gmail.com</option>
                   </select>
+                  <p className='email-right-alert-text mobile-font-size'>이메일을 다시 적어주세요</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <form>
-          <input required minLength={4}></input>
-        </form>
       </div>
     </div>
   )
