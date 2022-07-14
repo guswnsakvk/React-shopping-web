@@ -140,8 +140,8 @@
 }
 
 .shipping-address-right-postal-code-input{
-  margin-right: 10px;
   margin-bottom: 7px;
+  margin-right: 10px;
 }
 
 .shipping-address-right-address{
@@ -150,7 +150,15 @@
 }
 
 .shipping-address-right-address-input{
+  margin-bottom: 7px;
   margin-right: 10px;
+}
+
+.shipping-address-right-postal-code-text{
+  margin-bottom: 7px;
+}
+
+.shipping-address-right-address-text{
   margin-bottom: 7px;
 }
 
@@ -178,13 +186,21 @@
   flex-wrap: wrap;
 }
 
+.info-phone-number-right-first-number{
+  height: 22px;
+}
+
 .info-phone-number-right-input{
   width: 35px;
+  margin-bottom: 7px;
+}
+
+.margin-right{
+  margin-right: 10px;
 }
 
 .info-phone-number-right-alert-text{
   line-height: 20px;
-  margin-left: 10px;
 }
 
 .email{
@@ -313,10 +329,13 @@
   }
   
   .shipping-address-right-postal-code-input{
-    margin-right: 10px;
     margin-bottom: 7px;
     width: 70px;
   }
+
+  /* .shipping-address-right-postal-code-text{
+    margin-left: 0px;
+  } */
   
   .shipping-address-right-address{
     display: flex;
@@ -330,6 +349,10 @@
   .shipping-address-right-detail-address-input{
     width: 70px;
   }  
+
+  /* .shipping-address-right-address-text{
+    margin-left: 0px;
+  } */
 
   .info-phone-number-left{
     width: 80px;
