@@ -61,7 +61,7 @@ function Purchase(props){
   function select_site_input(){
     const site_reset = document.querySelector(".site")
     site_reset.size = 1
-    select_box.blur()
+    site_reset.blur()
   }
 
   function select_site_onblur(){
@@ -84,6 +84,28 @@ function Purchase(props){
     } else if(value === "email"){
       emailChange(e.target.value)
     }
+  }
+
+  function data_check(){
+    if(name !== "") {const nameCheck = true}
+    else {const nameCheck = false}
+
+    if(postAddress.length === 5) {const postAddressCheck = true} 
+    else {const postAddressCheck = false}
+
+    if(address !== "") {const addressCheck = true}
+    else {const addressCheck = false}
+
+    if(phoneMiddleNumber.length === 4) {const phoneMiddleNumberCheck = true}
+    else {const phoneMiddleNumberCheck = false}
+    
+    if(phoneLastNumber.length === 4) {const phoneLastNumberCheck = true}
+    else {const phoneLastNumberCheck = false}
+    
+    if(email !== "") {const emailCheck = true}
+    else {const emailCheck = false}
+    
+    // siteName
   }
 
   return(
@@ -172,6 +194,7 @@ function Purchase(props){
             </div>
           </div>
         </div>
+        <div className='purchase-btn' onClick={data_check}>결제하기</div>
       </div>
     </div>
   )

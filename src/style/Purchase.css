@@ -45,6 +45,7 @@
 }
 
 .purchase-container-shipping-information{
+  height: 325px;
   margin-top: 70px;
   width: 100%;
 }
@@ -88,7 +89,7 @@
 
 .info-name{
   width: 100%;
-  height: 60px;
+  height: 75px;
   display: flex;
 }
 
@@ -119,7 +120,7 @@
 
 .shipping-address{
   width: 100%;
-  height: 120px;
+  height: 140px;
   display: flex;
 }
 
@@ -162,13 +163,9 @@
   margin-bottom: 7px;
 }
 
-.shipping-address-right-detail-address-input{
-
-}
-
 .info-phone-number{
   width: 100%;
-  height: 60px;
+  height: 75px;
   display: flex;
 }
 
@@ -247,6 +244,19 @@
   margin-right: 10px;
 }
 
+.purchase-btn{
+  margin: 50px auto;
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
+  background-color: #AD9377;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1200px){
   .purchase-container{
     width: 760px;
@@ -294,7 +304,7 @@
   .purchase-container-shipping-information{
     margin-top: 100px;
     width: 100%;
-    height: 20px;
+    height: 250px;
   }
 
   .purchase-container-shipping-information-body-address{
@@ -374,5 +384,14 @@
 
   .mobile-font-size{
     font-size: 14px;
+  }
+
+  .purchase-btn{
+    margin-top: 150px;
+    width: 100%;
+  }
+
+  .mobile-font-size{
+    font-size: 12px;
   }
 }
