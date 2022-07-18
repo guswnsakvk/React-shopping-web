@@ -157,10 +157,12 @@
 
 .shipping-address-right-postal-code-text{
   margin-bottom: 7px;
+  display: none;
 }
 
 .shipping-address-right-address-text{
   margin-bottom: 7px;
+  display: none;
 }
 
 .info-phone-number{
@@ -198,6 +200,7 @@
 
 .info-phone-number-right-alert-text{
   line-height: 20px;
+  display: none;
 }
 
 .email{
@@ -242,6 +245,10 @@
 
 .site{
   margin-right: 10px;
+}
+
+.email-right-alert-text{
+  display: none;
 }
 
 .purchase-btn{

@@ -87,25 +87,46 @@ function Purchase(props){
   }
 
   function data_check(){
-    if(name !== "") {const nameCheck = true}
-    else {const nameCheck = false}
+    let nameCheck = false
+    let postAddressCheck = false
+    let addressCheck = false
+    let phoneMiddleNumberCheck = false
+    let phoneLastNumberCheck = false
+    let emailCheck = false
+    let siteNameCheck = false
 
-    if(postAddress.length === 5) {const postAddressCheck = true} 
-    else {const postAddressCheck = false}
+    const shipping_address_postal_text = document.querySelector(".shipping-address-right-postal-code-text")
+    const shipping_address_text = document.querySelector(".shipping-address-right-address-text")
+    const phone_number_text = document.querySelector(".info-phone-number-right-alert-text")
+    const email_text = document.querySelector(".email-right-alert-text")
 
-    if(address !== "") {const addressCheck = true}
-    else {const addressCheck = false}
+    if(name !== "") nameCheck = true
 
-    if(phoneMiddleNumber.length === 4) {const phoneMiddleNumberCheck = true}
-    else {const phoneMiddleNumberCheck = false}
+    if(postAddress.length === 5) postAddressCheck = true
+    else shipping_address_postal_text.style.display = "block"
+
+    if(address !== "") addressCheck = true
+    else shipping_address_text.style.display = "block"
+
+    if(phoneMiddleNumber.length === 4) phoneMiddleNumberCheck = true
+    else phone_number_text.style.display = "block"
     
-    if(phoneLastNumber.length === 4) {const phoneLastNumberCheck = true}
-    else {const phoneLastNumberCheck = false}
+    if(phoneLastNumber.length === 4) phoneLastNumberCheck = true
+    else phone_number_text.style.display = "block"
     
-    if(email !== "") {const emailCheck = true}
-    else {const emailCheck = false}
+    if(email !== "") emailCheck = true
+    else email_text.style.display = "block"
+
+    if(siteName.length !== 0 && siteName.substr(-4) === ".com") siteNameCheck = true
+    else email_text.style.display = "block"
     
-    // siteName
+    console.log(nameCheck)
+    console.log(postAddressCheck)
+    console.log(addressCheck)
+    console.log(phoneMiddleNumberCheck)
+    console.log(phoneLastNumberCheck)
+    console.log(emailCheck)
+    console.log(siteNameCheck)
   }
 
   return(
