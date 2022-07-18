@@ -15,6 +15,21 @@ function Purchase(props){
   let [address, addressChange] = useState("")
   let [detailAddress, detailAddressChange] = useState("")
   let [email, emailChange] = useState("")
+  let [nameCheck, nameCheckChange] = useState(false)
+  let [postAddressCheck, postAddressCheckChange] = useState(false)
+  let [addressCheck, addressCheckChange] = useState(false)
+  let [phoneMiddleNumberCheck, phoneMiddleNumberCheckChange] = useState(false)
+  let [phoneLastNumberCheck, phoneLastNumberCheckChange] = useState(false)
+  let [emailCheck, emailCheckChange] = useState(false)
+  let [siteNameCheck, siteNameCheckChange] = useState(false)
+
+  // let nameCheck = false
+  // let postAddressCheck = false
+  // let addressCheck = false
+  // let phoneMiddleNumberCheck = false
+  // let phoneLastNumberCheck = false
+  // let emailCheck = false
+  // let siteNameCheck = false
 
   useEffect(() => {
     if(window.innerWidth < 768){
@@ -39,10 +54,16 @@ function Purchase(props){
     const only_number = value.replace(/[^0-9]/g, '')
     if(place === "middle"){
       phoneMiddleNumberChange(only_number)
+      if(e.target.value.length === 4) phoneMiddleNumberCheckChange(true)
+      else phoneMiddleNumberCheckChange(false)
     } else if(place === "post"){
       postAddressChange(only_number)
+      if(e.target.value.length === 5) postAddressCheckChange(true)
+      else postAddressCheckChange(false)
     } else{
       phoneLastNumberChange(only_number)
+      if(e.target.value.length === 4) phoneLastNumberCheckChange(true)
+      else phoneLastNumberCheckChange(false)
     } 
   }
 
@@ -52,10 +73,14 @@ function Purchase(props){
       const site_reset = document.querySelector(".site")
       site_reset[0].selected = true;
     }
+    if(e.target.value.length !== 0 && e.target.value.substr(-4) === ".com") siteNameCheckChange(true)
+    else siteNameCheckChange(false)
   }
 
   function select_site(e){
     siteNameChange(e.target.value)
+    if(e.target.value.length !== 0 && e.target.value.substr(-4) === ".com") siteNameCheckChange(true)
+    else siteNameCheckChange(false)
   }
 
   function select_site_input(){
@@ -77,48 +102,54 @@ function Purchase(props){
   function set_value(value,e){
     if (value === "name"){
       nameChange(e.target.value)
+      if(e.target.value !== "") nameCheckChange(true)
+      else nameCheckChange(false)
     } else if(value === "address"){
       addressChange(e.target.value)
+      if(e.target.value !== "") addressCheckChange(true)
+      else addressCheckChange(false)
     } else if(value === "detail"){
       detailAddressChange(e.target.value)
     } else if(value === "email"){
       emailChange(e.target.value)
+      if(e.target.value !== "") emailCheckChange(true)
+      else emailCheckChange(false)
     }
   }
 
   function data_check(){
-    let nameCheck = false
-    let postAddressCheck = false
-    let addressCheck = false
-    let phoneMiddleNumberCheck = false
-    let phoneLastNumberCheck = false
-    let emailCheck = false
-    let siteNameCheck = false
+    // let nameCheck = false
+    // let postAddressCheck = false
+    // let addressCheck = false
+    // let phoneMiddleNumberCheck = false
+    // let phoneLastNumberCheck = false
+    // let emailCheck = false
+    // let siteNameCheck = false
 
-    const shipping_address_postal_text = document.querySelector(".shipping-address-right-postal-code-text")
-    const shipping_address_text = document.querySelector(".shipping-address-right-address-text")
-    const phone_number_text = document.querySelector(".info-phone-number-right-alert-text")
-    const email_text = document.querySelector(".email-right-alert-text")
+    // const shipping_address_postal_text = document.querySelector(".shipping-address-right-postal-code-text")
+    // const shipping_address_text = document.querySelector(".shipping-address-right-address-text")
+    // const phone_number_text = document.querySelector(".info-phone-number-right-alert-text")
+    // const email_text = document.querySelector(".email-right-alert-text")
 
-    if(name !== "") nameCheck = true
+    // if(name !== "") nameCheck = true
 
-    if(postAddress.length === 5) postAddressCheck = true
-    else shipping_address_postal_text.style.display = "block"
+    // if(postAddress.length === 5) postAddressCheck = true
+    // else shipping_address_postal_text.style.display = "block"
 
-    if(address !== "") addressCheck = true
-    else shipping_address_text.style.display = "block"
+    // if(address !== "") addressCheck = true
+    // else shipping_address_text.style.display = "block"
 
-    if(phoneMiddleNumber.length === 4) phoneMiddleNumberCheck = true
-    else phone_number_text.style.display = "block"
+    // if(phoneMiddleNumber.length === 4) phoneMiddleNumberCheck = true
+    // else phone_number_text.style.display = "block"
     
-    if(phoneLastNumber.length === 4) phoneLastNumberCheck = true
-    else phone_number_text.style.display = "block"
+    // if(phoneLastNumber.length === 4) phoneLastNumberCheck = true
+    // else phone_number_text.style.display = "block"
     
-    if(email !== "") emailCheck = true
-    else email_text.style.display = "block"
+    // if(email !== "") emailCheck = true
+    // else email_text.style.display = "block"
 
-    if(siteName.length !== 0 && siteName.substr(-4) === ".com") siteNameCheck = true
-    else email_text.style.display = "block"
+    // if(siteName.length !== 0 && siteName.substr(-4) === ".com") siteNameCheck = true
+    // else email_text.style.display = "block"
     
     console.log(nameCheck)
     console.log(postAddressCheck)
