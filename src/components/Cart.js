@@ -571,7 +571,7 @@ function Cart(props){
                   <p className="cart-receipt-content-money">{props.paymentPrice + props.deliveryPrice}원</p>
                 </div>
               </div>
-              <div className='purchase-btn' onClick={set_purchase_list}>
+              <div className='cart-purchase-btn' onClick={set_purchase_list}>
                 {
                   props.selectCnt !== 0
                   ? <Link to={"/purchase"} className="cart-link-purchase">주문하기</Link>

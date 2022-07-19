@@ -178,7 +178,7 @@
   line-height: 60px;
 }
 
-.purchase-btn{
+.cart-purchase-btn{
   margin: 50px auto;
   width: 150px;
   height: 50px;
@@ -269,7 +269,7 @@
     padding-right: 10px;
   }
 
-  .purchase-btn{
+  .cart-purchase-btn{
     margin-top: 100px;
     width: 100%;
   }

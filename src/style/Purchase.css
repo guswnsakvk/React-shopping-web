@@ -116,6 +116,7 @@
 .info-name-right-alert-text{
   height: 20px;
   line-height: 20px;
+  display: none;
 }
 
 .shipping-address{
@@ -252,8 +253,9 @@
 }
 
 .purchase-btn{
-  margin: 50px auto;
-  width: 150px;
+  margin: 70px auto;
+  width: 95%;
+  max-width: 150px;
   height: 50px;
   line-height: 50px;
   background-color: #AD9377;
@@ -331,6 +333,10 @@
     font-size: 14px;
   }
 
+  .info-name-right{
+    display: block;
+  }
+
   .info-name-right-input{
     width: 70px;
   }
@@ -341,8 +347,9 @@
   }
 
   .shipping-address-right-postal-code{
-    display: flex;
-    flex-wrap: wrap;
+    display: block;
+    /* display: flex;
+    flex-wrap: wrap; */
   }
   
   .shipping-address-right-postal-code-input{
@@ -355,8 +362,9 @@
   } */
   
   .shipping-address-right-address{
-    display: flex;
-    flex-wrap: wrap;
+    display: block;
+    /* display: flex;
+    flex-wrap: wrap; */
   }
   
   .shipping-address-right-address-input{
@@ -374,6 +382,10 @@
   .info-phone-number-left{
     width: 80px;
     font-size: 14px;
+  }
+
+  .email{
+    height: 85px;
   }
 
   .email-left{
@@ -394,7 +406,7 @@
   }
 
   .purchase-btn{
-    margin-top: 150px;
+    margin-top: 170px;
     width: 100%;
   }
 

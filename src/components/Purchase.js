@@ -117,7 +117,7 @@ function Purchase(props){
     }
   }
 
-  function data_check(){
+  function alert_text(){
     // let nameCheck = false
     // let postAddressCheck = false
     // let addressCheck = false
@@ -125,11 +125,6 @@ function Purchase(props){
     // let phoneLastNumberCheck = false
     // let emailCheck = false
     // let siteNameCheck = false
-
-    // const shipping_address_postal_text = document.querySelector(".shipping-address-right-postal-code-text")
-    // const shipping_address_text = document.querySelector(".shipping-address-right-address-text")
-    // const phone_number_text = document.querySelector(".info-phone-number-right-alert-text")
-    // const email_text = document.querySelector(".email-right-alert-text")
 
     // if(name !== "") nameCheck = true
 
@@ -150,7 +145,29 @@ function Purchase(props){
 
     // if(siteName.length !== 0 && siteName.substr(-4) === ".com") siteNameCheck = true
     // else email_text.style.display = "block"
+
+    const name_text = document.querySelector(".info-name-right-alert-text")
+    const shipping_address_postal_text = document.querySelector(".shipping-address-right-postal-code-text")
+    const shipping_address_text = document.querySelector(".shipping-address-right-address-text")
+    const phone_number_text = document.querySelector(".info-phone-number-right-alert-text")
+    const email_text = document.querySelector(".email-right-alert-text")
+
+    if(!nameCheck) name_text.style.display = "block"
+
+    if(!postAddressCheck) shipping_address_postal_text.style.display = "block"
+
+    if(!addressCheck) shipping_address_text.style.display = "block"
+
+    if(!phoneMiddleNumberCheck) phone_number_text.style.display = "block"
+
+    if(!phoneLastNumberCheck) phone_number_text.style.display = "block"
+
+    if(!emailCheck) email_text.style.display = "block"
+
+    if(!siteNameCheck) email_text.style.display = "block"
     
+    alert('정보를 다시 입력해주세요')
+
     console.log(nameCheck)
     console.log(postAddressCheck)
     console.log(addressCheck)
@@ -161,6 +178,7 @@ function Purchase(props){
   }
 
   return(
+    <>
     <div className='purchase-background'>
       <div className='purchase-container'>
         <div className='purchase-container-title'>구매하기</div>
@@ -243,12 +261,17 @@ function Purchase(props){
                   <p className='email-right-alert-text mobile-font-size'>이메일을 다시 적어주세요</p>
                 </div>
               </div>
-            </div>
           </div>
         </div>
-        <div className='purchase-btn' onClick={data_check}>결제하기</div>
-      </div>
     </div>
+    </div>
+      {
+        nameCheck & postAddressCheck & addressCheck & phoneMiddleNumberCheck & phoneLastNumberCheck & emailCheck & siteNameCheck
+        ? <div className='purchase-btn'>결제하기</div>
+        : <div className='purchase-btn' onClick={alert_text}>결제하기</div>
+      }
+    </div>
+    </>
   )
 }
 
