@@ -189,7 +189,9 @@ function App() {
               salePrice={salePrice} 
               salePriceChange={salePriceChange} 
               paymentPrice={paymentPrice} 
-              paymentPriceChange={paymentPriceChange}>
+              paymentPriceChange={paymentPriceChange}
+              cart={cart}
+              cartChange={cartChange}>
               </Purchase>}>
           </Route>
         </Routes>

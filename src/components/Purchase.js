@@ -177,6 +177,22 @@ function Purchase(props){
     console.log(siteNameCheck)
   }
 
+  function purchase_confirmation(){
+    let copy = [...props.cart]
+    for(let i=0;i<props.purchaseList.length;i++){
+      for(let j=0;j<props.cart.length;j++){
+        if(props.purchaseList[i].product_id === props.cart[j].product_id){
+          copy.splice(j, 1)
+        }
+      }
+    }
+    props.cartChange(copy)
+    props.totalPriceChange(0)
+    props.deliveryPriceChange(0)
+    props.salePriceChange(0)
+    props.paymentPriceChange(0)
+  }
+
   return(
     <>
     <div className='purchase-background'>
@@ -275,7 +291,7 @@ function Purchase(props){
     </div>
       {
         nameCheck & postAddressCheck & addressCheck & phoneMiddleNumberCheck & phoneLastNumberCheck & emailCheck & siteNameCheck
-        ? <div className='purchase-btn'>결제하기</div>
+        ? <div className='purchase-btn' onClick={purchase_confirmation}>결제하기</div>
         : <div className='purchase-btn' onClick={alert_text}>결제하기</div>
       }
     </div>
