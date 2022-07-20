@@ -186,6 +186,11 @@
   flex-wrap: wrap;
 }
 
+.phone-number{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .info-phone-number-right-first-number{
   height: 22px;
 }
@@ -223,6 +228,11 @@
   flex-wrap: wrap;
   width: 100%;
   line-height: 25px;
+}
+
+.email-input{
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .email-right-input-site{
@@ -338,7 +348,8 @@
   }
 
   .info-name-right-input{
-    width: 70px;
+    max-width: 120px;
+    width: 100%;
   }
 
   .shipping-address-left{
@@ -368,7 +379,8 @@
   }
   
   .shipping-address-right-address-input{
-    width: 70px;
+    max-width: 150px;
+    width: 100%;
   }
   
   .shipping-address-right-detail-address-input{
@@ -378,6 +390,10 @@
   /* .shipping-address-right-address-text{
     margin-left: 0px;
   } */
+
+  .info-phone-number-right{
+    display: block;
+  }
 
   .info-phone-number-left{
     width: 80px;
@@ -393,8 +409,12 @@
     font-size: 14px;
   }
 
+  .email-right{
+    display: block;
+  }
+
   .email-right-input-address{
-    width: 70px;
+    width: 100px;
   }
 
   .email-right-input-site{

@@ -235,30 +235,38 @@ function Purchase(props){
               <div className='info-phone-number'>
                 <div className='info-phone-number-left'>휴대폰</div>
                 <div className='info-phone-number-right'>
-                  <select name="first-number" className='info-phone-number-right-first-number'>
-                    <option value={"010"}>010</option>
-                    <option value={"011"}>011</option>
-                  </select>
-                  <span>-</span>
-                  <input className='info-phone-number-right-input' type={"text"} value={phoneMiddleNumber} maxLength='4' minLength='4' onChange={(e) => {check_number("middle", e)}}></input>
-                  <span>-</span>
-                  <input className='info-phone-number-right-input margin-right' type={"text"} value={phoneLastNumber} maxLength='4' minLength='4' onChange={(e) => {check_number("last",e)}}></input>
-                  <p className='info-phone-number-right-alert-text mobile-font-size'>핸드폰 번호를 적어주세요</p>
+                  <div className='phone-number'>
+                    <select name="first-number" className='info-phone-number-right-first-number'>
+                      <option value={"010"}>010</option>
+                      <option value={"011"}>011</option>
+                    </select>
+                    <span>-</span>
+                    <input className='info-phone-number-right-input' type={"text"} value={phoneMiddleNumber} maxLength='4' minLength='4' onChange={(e) => {check_number("middle", e)}}></input>
+                    <span>-</span>
+                    <input className='info-phone-number-right-input margin-right' type={"text"} value={phoneLastNumber} maxLength='4' minLength='4' onChange={(e) => {check_number("last",e)}}></input>
+                    </div>
+                  <div className='phone-number-alert'>
+                    <p className='info-phone-number-right-alert-text mobile-font-size'>핸드폰 번호를 적어주세요</p>
+                  </div>
                 </div>
               </div>
               <div className='email'>
                 <div className='email-left'>이메일</div>
                 <div className='email-right'>
-                  <input className='email-right-input-address' value={email} onChange={(e) => {set_value("email",e)}}></input>
-                  <span>@</span>
-                  <input className='email-right-input-site' placeholder='직접입력' value={siteName} onChange={(e) => {dat_com(e)}}></input>
-                  <select name="site" className='site' onChange={(e) => {select_site(e)}} onInput={select_site_input} onBlur={select_site_onblur} onFocus={select_site_focus}>
-                    <option value={""}>직접입력</option>
-                    <option value={"naver.com"}>naver.com</option>
-                    <option value={"daum.com"}>daum.com</option>
-                    <option value={"google.com"}>gmail.com</option>
-                  </select>
-                  <p className='email-right-alert-text mobile-font-size'>이메일을 다시 적어주세요</p>
+                  <div className='email-input'>
+                    <input className='email-right-input-address' value={email} onChange={(e) => {set_value("email",e)}}></input>
+                    <span>@</span>
+                    <input className='email-right-input-site' placeholder='직접입력' value={siteName} onChange={(e) => {dat_com(e)}}></input>
+                    <select name="site" className='site' onChange={(e) => {select_site(e)}} onInput={select_site_input} onBlur={select_site_onblur} onFocus={select_site_focus}>
+                      <option value={""}>직접입력</option>
+                      <option value={"naver.com"}>naver.com</option>
+                      <option value={"daum.com"}>daum.com</option>
+                      <option value={"google.com"}>gmail.com</option>
+                    </select>
+                  </div>
+                  <div className='email-alert'>
+                    <p className='email-right-alert-text mobile-font-size'>이메일을 다시 적어주세요</p>
+                  </div>
                 </div>
               </div>
           </div>
