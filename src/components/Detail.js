@@ -14,6 +14,7 @@ function Detail(props){
   let [select, selectChange] = useState([])
   let [sum, sumChange] = useState(0)
   let [pushBtn, pushBtnChange] = useState(0)
+  let [selectBtn, selectBtnChange] = useState("")
 
   function select_size(e){
     if(e.target.value !== ""){
@@ -97,7 +98,7 @@ function Detail(props){
     cntChange(product_count)
   }
 
-  function push_data_to_cart(){
+  function push_data_to_cart(type){
     if(pushBtn === 0){
       const select_List = document.querySelector(".container-item-info-detail-td-select")
       let copy = [...props.cart]
@@ -126,21 +127,32 @@ function Detail(props){
       console.log(check)
       console.log(copy)
       props.cartChange(copy)
-      alert_box_open()
+      alert_box_open(type)
+      selectBtnChange(type)
       select_List.children[0].selected = true
       pushBtnChange(1)
     }
   }
 
-  function alert_box_open(){
-    const alert_box = document.querySelector(".alert-box-container")
+  function emtpy_select(){
+
+  }
+
+  function alert_box_open(type){
+    let alert_box = null
+    if(type === "cart"){
+      alert_box = document.querySelector(".to_cart_alert-box-container")
+    }
     const select_size_list = document.querySelector(".container-item-info-detail-td-select")
     select_size_list.disabled = true
     alert_box.style.display = "block"
   }
 
   function alert_box_close(){
-    const alert_box = document.querySelector(".alert-box-container")
+    let alert_box = null
+    if(selectBtn === "cart"){
+      alert_box = document.querySelector(".to_cart_alert-box-container")
+    }
     const select_size_list = document.querySelector(".container-item-info-detail-td-select")
     select_size_list.disabled = false
     alert_box.style.display = "none"
@@ -256,12 +268,17 @@ function Detail(props){
             <p className='container-item-info-total'>total: {sum}({cnt})</p>
             <div className='container-item-info-btns'>
               <div className='container-item-info-btns-buy'>BUY NOW</div>
-              <div className='container-item-info-btns-cart' onClick={push_data_to_cart}>ADD TO CART</div>
+              {
+                select.length !== 0
+                ? <div className='container-item-info-btns-cart' onClick={() => {push_data_to_cart("cart")}}>ADD TO CART</div>
+                : <div className='container-item-info-btns-cart'>ADD TO CART</div>
+              }
+              {/* <div className='container-item-info-btns-cart' onClick={push_data_to_cart}>ADD TO CART</div> */}
             </div>
           </div>
         </div>
       </div>
-      <div className='alert-box-container'>
+      <div className='to_cart_alert-box-container'>
         <div className='alert-box'>
           <div className='alert-box-title'>
             <span className='alert-box-title-text'>ADD TO CART</span>

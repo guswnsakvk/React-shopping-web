@@ -179,6 +179,7 @@ function Purchase(props){
 
   function purchase_confirmation(){
     let copy = [...props.cart]
+    console.log(copy)
     for(let i=0;i<props.purchaseList.length;i++){
       for(let j=0;j<props.cart.length;j++){
         if(props.purchaseList[i].product_id === props.cart[j].product_id){
@@ -191,6 +192,7 @@ function Purchase(props){
     props.deliveryPriceChange(0)
     props.salePriceChange(0)
     props.paymentPriceChange(0)
+    console.log(copy)
   }
 
   return(
