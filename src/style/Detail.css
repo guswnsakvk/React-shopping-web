@@ -130,7 +130,15 @@
   cursor: pointer;
 }
 
-.to_cart_alert-box-container{
+.to-cart-alert-box-container{
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  top: 200px;
+  display: none;
+}
+
+.select-size-alert_box-container{
   position: absolute;
   width: 100%;
   height: 200px;

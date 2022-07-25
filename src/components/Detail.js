@@ -141,7 +141,9 @@ function Detail(props){
   function alert_box_open(type){
     let alert_box = null
     if(type === "cart"){
-      alert_box = document.querySelector(".to_cart_alert-box-container")
+      alert_box = document.querySelector(".to-cart-alert-box-container")
+    } else if(type === "noSelect"){
+      alert_box = document.querySelector(".select-size-alert_box-container")
     }
     const select_size_list = document.querySelector(".container-item-info-detail-td-select")
     select_size_list.disabled = true
@@ -151,7 +153,9 @@ function Detail(props){
   function alert_box_close(){
     let alert_box = null
     if(selectBtn === "cart"){
-      alert_box = document.querySelector(".to_cart_alert-box-container")
+      alert_box = document.querySelector(".to-cart-alert-box-container")
+    } else if(selectBtn === "noSelect"){
+      alert_box = document.querySelector(".select-size-alert_box-container")
     }
     const select_size_list = document.querySelector(".container-item-info-detail-td-select")
     select_size_list.disabled = false
@@ -271,14 +275,14 @@ function Detail(props){
               {
                 select.length !== 0
                 ? <div className='container-item-info-btns-cart' onClick={() => {push_data_to_cart("cart")}}>ADD TO CART</div>
-                : <div className='container-item-info-btns-cart'>ADD TO CART</div>
+                : <div className='container-item-info-btns-cart' onClick={() => {push_data_to_cart("noSelect")}}>ADD TO CART</div>
               }
               {/* <div className='container-item-info-btns-cart' onClick={push_data_to_cart}>ADD TO CART</div> */}
             </div>
           </div>
         </div>
       </div>
-      <div className='to_cart_alert-box-container'>
+      <div className='to-cart-alert-box-container'>
         <div className='alert-box'>
           <div className='alert-box-title'>
             <span className='alert-box-title-text'>ADD TO CART</span>
@@ -291,6 +295,22 @@ function Detail(props){
           <div className='alert-box-btns'>
             <div className='alert-box-btn alert-box-btn-yes'><Link to={"/cart"} className='link-cart'>예</Link></div>
             <div className='alert-box-btn alert-box-btn-no' onClick={alert_box_close}>아니요</div>
+          </div>
+        </div>
+      </div>
+      <div className='select-size-alert_box-container'>
+        <div className='alert-box'>
+          <div className='alert-box-title'>
+            <span className='alert-box-title-text'>SELECT SHOSE SIZE</span>
+            <span className='alert-box-X-btn' onClick={alert_box_close}>X</span>
+          </div>
+          <div className='alert-box-info'>
+            <p className='alert-box-info-state'>상품의 사이즈를 선택하지 않았습니다.</p>
+            <p className='alert-box-info-ask'>사이즈를 선택해주세요</p>
+          </div>
+          <div className='alert-box-btns'>
+            {/* <div className='alert-box-btn alert-box-btn-yes'><Link to={"/cart"} className='link-cart'>예</Link></div> */}
+            <div className='alert-box-btn alert-box-btn-no' onClick={alert_box_close}>닫기</div>
           </div>
         </div>
       </div>
