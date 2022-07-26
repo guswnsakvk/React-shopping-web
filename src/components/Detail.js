@@ -134,10 +134,6 @@ function Detail(props){
     }
   }
 
-  function emtpy_select(){
-
-  }
-
   function alert_box_open(type){
     let alert_box = null
     if(type === "cart"){
@@ -177,6 +173,29 @@ function Detail(props){
     const select_box = document.querySelector(".container-item-info-detail-td-select")
     select_box.size = 1
     select_box.blur()
+  }
+
+  function buy_now(){
+    props.purchaseListChange(select)
+    console.log(select.length)
+    let total = 0
+    let sale = 0
+    let payment = 0
+
+    for(let i=0;i<select.length;i++){
+      if(select[i].black_friday === 'O'){
+        total += (select[i].product_price * 2) * select[i].product_cnt
+        sale += select[i].product_price * select[i].product_cnt
+        payment += select[i].product_price * select[i].product_cnt
+      } else{
+        total += select[i].product_price  * select[i].product_cnt
+        sale += select[i].product_price * select[i].product_cnt
+        payment += select[i].product_price * select[i].product_cnt
+      }
+    }
+
+    console.log(total, sale, payment)
+    props.set_price(total, sale, payment)
   }
 
   return(
@@ -271,7 +290,12 @@ function Detail(props){
             }
             <p className='container-item-info-total'>total: {sum}({cnt})</p>
             <div className='container-item-info-btns'>
-              <div className='container-item-info-btns-buy'>BUY NOW</div>
+              {
+                select.length !== 0
+                ? <div className='container-item-info-btns-buy' onClick={buy_now}><Link to={"/purchase"} className="link-purchase">BUY NOW</Link></div>
+                : <div className='container-item-info-btns-buy' onClick={() => {push_data_to_cart("noSelect")}}>BUY NOW</div>
+              }
+              
               {
                 select.length !== 0
                 ? <div className='container-item-info-btns-cart' onClick={() => {push_data_to_cart("cart")}}>ADD TO CART</div>
@@ -305,12 +329,12 @@ function Detail(props){
             <span className='alert-box-X-btn' onClick={alert_box_close}>X</span>
           </div>
           <div className='alert-box-info'>
-            <p className='alert-box-info-state'>상품의 사이즈를 선택하지 않았습니다.</p>
+            <p className='alert-box-info-state'>사이즈를 선택하지 않았습니다.</p>
             <p className='alert-box-info-ask'>사이즈를 선택해주세요</p>
           </div>
           <div className='alert-box-btns'>
-            {/* <div className='alert-box-btn alert-box-btn-yes'><Link to={"/cart"} className='link-cart'>예</Link></div> */}
-            <div className='alert-box-btn alert-box-btn-no' onClick={alert_box_close}>닫기</div>
+            {/* <div className='alert-box-btn alert-box-btn-yes alert-box-btn-no'><Link to={"/cart"} className='link-cart'>예</Link></div> */}
+            <div className='alert-box-btn alert-box-btn-no-select alert-box-btn-no' onClick={alert_box_close}>닫기</div>
           </div>
         </div>
       </div>

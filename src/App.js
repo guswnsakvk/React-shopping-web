@@ -96,6 +96,19 @@ function App() {
     console.log(typeProductList)
   }
 
+    // 결제할 가격에 따라 배송비 책정
+    // 결제할 가격 저장
+    function set_price(total_price, sale_price, payment_price){
+      if(payment_price >= 30000){
+        deliveryPriceChange(0)
+      } else{
+        deliveryPriceChange(3000)
+      }
+      totalPriceChange(total_price)
+      salePriceChange(sale_price)
+      paymentPriceChange(payment_price)
+    }
+
   return (
     <div>
       <Reset />
@@ -152,7 +165,20 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home WeeklyBestList={WeeklyBestList} QuickList={QuickList}></Home>}></Route>
           <Route path="/shoes_type/:id" element={<TypeProduct typeProductList={typeProductList}></TypeProduct>}></Route>
-          <Route path="/detail/:id" element={<Detail Shoes={Shoes} cart={cart} cartChange={cartChange}></Detail>}></Route>
+          <Route 
+            path="/detail/:id" 
+            element={<Detail 
+              Shoes={Shoes} 
+              cart={cart} 
+              cartChange={cartChange}
+              totalPriceChange={totalPriceChange}
+              deliveryPriceChange={deliveryPriceChange}
+              salePriceChange={salePriceChange}
+              paymentPriceChange={paymentPriceChange}
+              purchaseListChange={purchaseListChange}
+              set_price={set_price}>
+            </Detail>}>
+          </Route>
           <Route 
             path="/cart" 
             element={<Cart 
@@ -172,7 +198,8 @@ function App() {
               salePrice={salePrice} 
               salePriceChange={salePriceChange} 
               paymentPrice={paymentPrice} 
-              paymentPriceChange={paymentPriceChange}>
+              paymentPriceChange={paymentPriceChange}
+              set_price={set_price}>
               </Cart>}>
           </Route>
           <Route 

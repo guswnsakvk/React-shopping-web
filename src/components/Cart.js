@@ -52,7 +52,7 @@ function Cart(props){
         let total = props.totalPrice + ((copy[i].product_price * 2) * error)
         let sale = props.salePrice + (copy[i].product_price * error)
         let payment = props.paymentPrice + (copy[i].product_price * error)
-        set_price(total, sale, payment)
+        props.set_price(total, sale, payment)
         // if(payment >= 30000){
         //   props.deliveryPriceChange(0)
         // } else{
@@ -65,7 +65,7 @@ function Cart(props){
         let total = props.totalPrice + (copy[i].product_price * error)
         let sale = props.salePrice + (copy[i].product_price * error)
         let payment = props.paymentPrice + (copy[i].product_price * error)
-        set_price(total, sale, payment)
+        props.set_price(total, sale, payment)
         // if(payment >= 30000){
         //   props.deliveryPriceChange(0)
         // } else{
@@ -103,7 +103,7 @@ function Cart(props){
         let total = props.totalPrice - ((copy[i].product_price * 2) * copy[i].product_cnt)
         let sale = props.salePrice - (copy[i].product_price * copy[i].product_cnt)
         let payment = props.paymentPrice - (copy[i].product_price * copy[i].product_cnt)
-        set_price(total, sale, payment)
+        props.set_price(total, sale, payment)
         // if(payment >= 30000){
         //   props.deliveryPriceChange(0)
         // } else{
@@ -116,7 +116,7 @@ function Cart(props){
         let total = props.totalPrice - (copy[i].product_price * copy[i].product_cnt)
         let sale = props.salePrice - (copy[i].product_price * copy[i].product_cnt)
         let payment = props.paymentPrice - (copy[i].product_price * copy[i].product_cnt)
-        set_price(total, sale, payment)
+        props.set_price(total, sale, payment)
         // if(payment >= 30000){
         //   props.deliveryPriceChange(0)
         // } else{
@@ -169,7 +169,7 @@ function Cart(props){
         let total = props.totalPrice + (copy[i].product_price * 2)
         let sale = props.salePrice + copy[i].product_price
         let payment = props.paymentPrice + copy[i].product_price
-        set_price(total, sale, payment)
+        props.set_price(total, sale, payment)
         // if(payment >= 30000){
         //   props.deliveryPriceChange(0)
         // } else{
@@ -182,7 +182,7 @@ function Cart(props){
         let total = props.totalPrice + copy[i].product_price
         let sale = props.salePrice + copy[i].product_price
         let payment = props.paymentPrice + copy[i].product_price
-        set_price(total, sale, payment)
+        props.set_price(total, sale, payment)
         // if(payment >= 30000){
         //   props.deliveryPriceChange(0)
         // } else{
@@ -203,7 +203,7 @@ function Cart(props){
         let total = props.totalPrice - (copy[i].product_price * 2)
         let sale = props.salePrice - copy[i].product_price
         let payment = props.paymentPrice - copy[i].product_price
-        set_price(total, sale, payment)
+        props.set_price(total, sale, payment)
         // if(payment >= 30000){
         //   props.deliveryPriceChange(0)
         // } else{
@@ -216,7 +216,7 @@ function Cart(props){
         let total = props.totalPrice - copy[i].product_price
         let sale = props.salePrice - copy[i].product_price
         let payment = props.paymentPrice - copy[i].product_price
-        set_price(total, sale, payment)
+        props.set_price(total, sale, payment)
         // if(payment >= 30000){
         //   props.deliveryPriceChange(0)
         // } else{
@@ -268,7 +268,7 @@ function Cart(props){
         let total = props.totalPrice + ((copy[i].product_price * 2) * copy[i].product_cnt)
         let sale = props.salePrice + (copy[i].product_price * copy[i].product_cnt)
         let payment = props.paymentPrice + (copy[i].product_price * copy[i].product_cnt)
-        set_price(total, sale, payment)
+        props.set_price(total, sale, payment)
         // if(payment >= 30000){
         //   props.deliveryPriceChange(0)
         // } else{
@@ -281,7 +281,7 @@ function Cart(props){
         let total = props.totalPrice + (copy[i].product_price * copy[i].product_cnt)
         let sale = props.salePrice + (copy[i].product_price * copy[i].product_cnt)
         let payment = props.paymentPrice + (copy[i].product_price * copy[i].product_cnt)
-        set_price(total, sale, payment)
+        props.set_price(total, sale, payment)
         // if(payment >= 30000){
         //   props.deliveryPriceChange(0)
         // } else{
@@ -363,16 +363,16 @@ function Cart(props){
   }
 
   // 결제할 가격에 따라 배송비 책정
-  function set_price(total_price, sale_price, payment_price){
-    if(payment_price >= 30000){
-      props.deliveryPriceChange(0)
-    } else{
-      props.deliveryPriceChange(3000)
-    }
-    props.totalPriceChange(total_price)
-    props.salePriceChange(sale_price)
-    props.paymentPriceChange(payment_price)
-  }
+  // function set_price(total_price, sale_price, payment_price){
+  //   if(payment_price >= 30000){
+  //     props.deliveryPriceChange(0)
+  //   } else{
+  //     props.deliveryPriceChange(3000)
+  //   }
+  //   props.totalPriceChange(total_price)
+  //   props.salePriceChange(sale_price)
+  //   props.paymentPriceChange(payment_price)
+  // }
 
   // 전체선택 checkbox선택시 작동
   function all_select(){
@@ -423,7 +423,7 @@ function Cart(props){
           payment += copy[i].product_price * copy[i].product_cnt
         }
       }
-      set_price(total, sale, payment)
+      props.set_price(total, sale, payment)
     }
   }
 
@@ -493,7 +493,6 @@ function Cart(props){
     console.log(copy[i])
     console.log(check_cart_list)
     props.purchaseListChange([check_cart_list])
-
     
     if(check_cart_list.black_friday === 'O'){
       total = (check_cart_list.product_price * 2) * check_cart_list.product_cnt
@@ -505,7 +504,7 @@ function Cart(props){
       payment = check_cart_list.product_price * check_cart_list.product_cnt
     }
     console.log(total, sale, payment)
-    set_price(total, sale, payment)
+    props.set_price(total, sale, payment)
   }
 
   return(
