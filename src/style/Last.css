@@ -1,0 +1,59 @@
+.last-background{
+  width: 100%;
+}
+
+.last-container{
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.last-container-info{
+  width: 500px;
+  height: 200px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 120px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding-top: 35px;
+}
+
+.last-container-info-text{
+  margin-bottom: 10px;
+}
+
+.last-container-info-bank{
+  margin-bottom: 10px;
+}
+
+.last-container-info-bank-count-number{
+  margin-bottom: 10px;
+}
+
+.last-container-info-price{
+  margin-bottom: 12px;
+}
+
+.last-container-info-btn{
+  width: 70px;
+  height: 30px;
+  background-color: red;
+  margin: 0 auto;
+  line-height: 30px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.link-home{
+  text-decoration: none;
+  color: #fff;
+}
+
+.link-home:link{
+  color: #fff;
+}
+
+.link-home:visited{
+  color: #fff;
+}

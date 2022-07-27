@@ -3,14 +3,15 @@
 import './App.css';
 import { Reset } from 'styled-reset';
 import logo from './image/logo.png';
-import Home from './components/Home.js';
 import React, { useEffect, useState } from 'react';
-import ShoesData from './data.js';
 
+import Home from './components/Home.js';
+import ShoesData from './data.js';
 import Detail from './components/Detail.js'
 import TypeProduct from './components/TypeProduct.js'
 import Cart from './components/Cart.js'
 import Purchase from './components/Purchase';
+import Last from './components/Last.js'
 import {Link, Route, Routes, NavLink} from 'react-router-dom'
 
 function App() {
@@ -221,6 +222,7 @@ function App() {
               cartChange={cartChange}>
               </Purchase>}>
           </Route>
+          <Route path="/last" element={<Last paymentPrice={paymentPrice}></Last>}></Route>
         </Routes>
       </div>
     </div>
