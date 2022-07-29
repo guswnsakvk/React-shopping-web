@@ -293,7 +293,7 @@ function Purchase(props){
     </div>
       {
         nameCheck & postAddressCheck & addressCheck & phoneMiddleNumberCheck & phoneLastNumberCheck & emailCheck & siteNameCheck
-        ? <div className='purchase-btn' onClick={purchase_confirmation}>결제하기</div>
+        ? <div className='purchase-btn' onClick={purchase_confirmation}><Link to={"/last"} className="link-last">결제하기</Link></div>
         : <div className='purchase-btn' onClick={alert_text}>결제하기</div>
       }
     </div>

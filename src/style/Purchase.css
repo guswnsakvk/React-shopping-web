@@ -276,6 +276,19 @@
   cursor: pointer;
 }
 
+.link-last{
+  text-decoration: none;
+  color: #fff;
+}
+
+.link-last:link{
+  color: #fff;
+}
+
+.link-last:visited{
+  color: #fff;
+}
+
 @media screen and (max-width: 1200px){
   .purchase-container{
     width: 760px;
