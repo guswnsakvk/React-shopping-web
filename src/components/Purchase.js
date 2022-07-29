@@ -7,13 +7,13 @@ import Purchase_Pc from './Purchase_Pc';
 import Purchase_Mobile from './Purchase_Moblie';
 
 function Purchase(props){
-  let [phoneMiddleNumber, phoneMiddleNumberChange] = useState("")
-  let [phoneLastNumber, phoneLastNumberChange] = useState("")
-  let [siteName, siteNameChange] = useState("")
-  let [name, nameChange] = useState("")
-  let [postAddress, postAddressChange] = useState("")
-  let [address, addressChange] = useState("")
-  let [detailAddress, detailAddressChange] = useState("")
+  let [phoneMiddleNumber, phoneMiddleNumberChange] = useState("") // 휴대전화 중간 부분
+  let [phoneLastNumber, phoneLastNumberChange] = useState("") // 휴대전화 마지막 부분
+  let [siteName, siteNameChange] = useState("") // 사이트 이름 ex) naver.com, daum.com
+  let [name, nameChange] = useState("") // 사용자 이름
+  let [postAddress, postAddressChange] = useState("") // 우편 번호
+  let [address, addressChange] = useState("") // 주소
+  let [detailAddress, detailAddressChange] = useState("") // 상세 주소
   let [email, emailChange] = useState("")
   let [nameCheck, nameCheckChange] = useState(false)
   let [postAddressCheck, postAddressCheckChange] = useState(false)
@@ -49,6 +49,7 @@ function Purchase(props){
     }
   })
 
+  // input 박스에 숫자만 입력할 수 있게 하는 기능
   function check_number(place, e){
     const value = e.target.value
     const only_number = value.replace(/[^0-9]/g, '')
@@ -67,6 +68,7 @@ function Purchase(props){
     } 
   }
 
+  // 이메일 끝이 .com으로 끝나는 지 확인
   function dat_com(e){
     siteNameChange(e.target.value)
     if(e.target.value === ""){
@@ -99,6 +101,7 @@ function Purchase(props){
     site_reset.size = 2
   }
 
+  // value에 따른 변수 저장
   function set_value(value,e){
     if (value === "name"){
       nameChange(e.target.value)
@@ -117,6 +120,7 @@ function Purchase(props){
     }
   }
 
+  // 정보를 제대로 입력안한 곳에 알림 텍스트 띄우기
   function alert_text(){
     // let nameCheck = false
     // let postAddressCheck = false
@@ -177,6 +181,7 @@ function Purchase(props){
     console.log(siteNameCheck)
   }
 
+  // 상품 구매 버튼 누른후 카트에 있는 상품 삭제
   function purchase_confirmation(){
     let copy = [...props.cart]
     console.log(copy)

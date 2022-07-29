@@ -13,10 +13,12 @@ function Detail(props){
   let [cnt, cntChange] = useState(0)
   let [select, selectChange] = useState([])
   let [sum, sumChange] = useState(0)
-  let [pushBtn, pushBtnChange] = useState(0)
+  let [pushBtn, pushBtnChange] = useState(false) // 알람창이 떠있는 상태를 확인하는 변수
   let [selectBtn, selectBtnChange] = useState("")
 
+  // 신발 사이즈를 선택시 작동
   function select_size(e){
+    // select태그에서 선택한 값이 ""가 아닐경우 작동
     if(e.target.value !== ""){
       let check = false
       let copy = [...select]
@@ -24,9 +26,11 @@ function Detail(props){
       for(let i=0;i<select.length;i++){
         if(select[i].product_size === e.target.value){
           check = true
+          console.log(check)
           break
         }
       }
+      // 사이즈를 중복선택한 경우 추가되는 테이블을 막는 기능
       if(!check){
         let product_sum = sum
         if(findProduct.BlackFriday === 'O'){
@@ -50,7 +54,8 @@ function Detail(props){
     }
   }
 
-  function setValue(index, e){
+  // 선택한 사이즈 신발 갯수 변경하는 기능
+  function set_product_cnt(index, e){
     let copy = [...select]
     let product_count = cnt
     let product_sum = sum
@@ -81,6 +86,7 @@ function Detail(props){
     console.log(select)
   }
 
+  // 선택한 사이즈 삭제하는 기능
   function delete_select(index){
     let copy = [...select]
     let product_count = cnt
@@ -98,8 +104,9 @@ function Detail(props){
     cntChange(product_count)
   }
 
+  // 선택한 사이즈 제품 정보를 카트에 넣는 기능
   function push_data_to_cart(type){
-    if(pushBtn === 0){
+    if(!pushBtn){
       const select_List = document.querySelector(".container-item-info-detail-td-select")
       let copy = [...props.cart]
       let check = []
@@ -130,15 +137,17 @@ function Detail(props){
       alert_box_open(type)
       selectBtnChange(type)
       select_List.children[0].selected = true
-      pushBtnChange(1)
+      pushBtnChange(true)
     }
   }
 
+  // 알림창을 여는 기능
   function alert_box_open(type){
     let alert_box = null
+    // 사이즈를 선택한 경우
     if(type === "cart"){
       alert_box = document.querySelector(".to-cart-alert-box-container")
-    } else if(type === "noSelect"){
+    } else if(type === "noSelect"){ // 아무것도 선택하지 않았을 경우 경고 알림
       alert_box = document.querySelector(".select-size-alert_box-container")
     }
     const select_size_list = document.querySelector(".container-item-info-detail-td-select")
@@ -146,21 +155,24 @@ function Detail(props){
     alert_box.style.display = "block"
   }
 
+  // 알림창을 닫는 기능
   function alert_box_close(){
     let alert_box = null
+    // 사이즈를 선택하고 알림창을 나왔을 경우
     if(selectBtn === "cart"){
       alert_box = document.querySelector(".to-cart-alert-box-container")
-    } else if(selectBtn === "noSelect"){
+    } else if(selectBtn === "noSelect"){ // 아무것도 선택을 안하고 알림창이 나왔을 경우
       alert_box = document.querySelector(".select-size-alert_box-container")
     }
     const select_size_list = document.querySelector(".container-item-info-detail-td-select")
     select_size_list.disabled = false
     alert_box.style.display = "none"
-    pushBtnChange(0)
+    pushBtnChange(false)
   }
 
   function select_box_focus(){
     const select_box = document.querySelector(".container-item-info-detail-td-select")
+    // select box 사이즈를 조정하여 스크롤 바 생기게 함
     select_box.size = 5
   }
 
@@ -175,6 +187,7 @@ function Detail(props){
     select_box.blur()
   }
 
+  // BUY NOW를 눌렀을 경우 작동
   function buy_now(){
     props.purchaseListChange(select)
     console.log(select.length)
@@ -267,7 +280,7 @@ function Detail(props){
                           <p>{selected.product_size}</p>
                         </td>
                         <td className='container-item-info-detail-td-selected-cnt'>
-                          <input onChange={(e) => {setValue(i, e)}} type={"number"} min={1} value={selected.product_cnt}></input>
+                          <input onChange={(e) => {set_product_cnt(i, e)}} type={"number"} min={1} value={selected.product_cnt}></input>
                           <span onClick={() => {delete_select(i)}}>X</span>
                         </td>
                         {

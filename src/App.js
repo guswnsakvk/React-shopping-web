@@ -16,22 +16,23 @@ import {Link, Route, Routes, NavLink} from 'react-router-dom'
 
 function App() {
   let [Shoes, ShoesChange] = useState(ShoesData)
-  let [WeeklyBestList, WeeklyBestListChange] = useState([])
-  let [QuickList, QuickListChange] = useState([])
+  let [WeeklyBestList, WeeklyBestListChange] = useState([]) // 주말 베스트 상품 저장하는 배열
+  let [QuickList, QuickListChange] = useState([]) // 당일 배송 되는 상품 저장하는 배열
   let [cart, cartChange] = useState([])
-  let [typeProductList, typeProductListChange] = useState([])
-  let [totalPrice, totalPriceChange] = useState(0)
-  let [deliveryPrice, deliveryPriceChange] = useState(0)
-  let [salePrice, salePriceChange] = useState(0)
-  let [paymentPrice, paymentPriceChange] = useState(0)
-  let [selectCnt, selectCntChange] = useState(0)
-  let [allSelect, allSelectChange] = useState(false)
-  let [purchaseList, purchaseListChange] = useState([])
+  let [typeProductList, typeProductListChange] = useState([]) // 신발 종류에 따른 상품 저장하는 배열
+  let [totalPrice, totalPriceChange] = useState(0) // 세일 전 금액
+  let [deliveryPrice, deliveryPriceChange] = useState(0) // 배달금액
+  let [salePrice, salePriceChange] = useState(0) // 세일금액
+  let [paymentPrice, paymentPriceChange] = useState(0) // 결제해야 할 금액
+  let [selectCnt, selectCntChange] = useState(0) // detail 페이지에서 선택한 상품 갯수
+  let [allSelect, allSelectChange] = useState(false) // 카트에서 전체 선택하는 값
+  let [purchaseList, purchaseListChange] = useState([]) // 구매할 상품 저장하는 배열
   let [pageWith, pageWithChange] = useState('pc')
 
   useEffect(() => {
     let weekly = [[],[],[],[],[],[]]
     let quick = []
+    // 상품들을 종류별로 나눠서 저장
     Shoes.forEach((product)=>{
       if(product.best === 'O'){
         if(product.type === '운동화'){
@@ -55,6 +56,7 @@ function App() {
       }
     })
 
+    // 당일 배송 제품 저장
     Shoes.forEach((product) => {
       if(product.quick === 'O'){
         quick.push(product)
