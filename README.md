@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# React-shopping-web
+## 메인페이지
+![pc화면 메인](https://user-images.githubusercontent.com/94600999/182101943-c47cd820-1018-4186-87f2-39ab7768f2f5.PNG)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 핸드폰 화면
+![모바일화면 메인](https://user-images.githubusercontent.com/94600999/182102037-47b08bfb-c6be-4c56-9aa3-b7d6a9e5def1.PNG)
 
-## Available Scripts
++ Demo [star shose](https://ornate-zuccutto-f67dc4.netlify.app/)
 
-In the project directory, you can run:
+# 목차
++ React와 Vue를 쓰면서 느낀점
++ 문제해결한 부분
++ 문제점
++ 마치며
 
-### `npm start`
+# 1. React와 Vue를 쓰면서 느낀점
+쇼핑몰 프로젝트를 진행할 때에 React와 Vue 중에 무엇을 먼저 할지 고민을 많이 했습니다. React와 Vue 둘다 프레임워크이기에 크게 차이가 있겠나?라고 생각했지만 둘다 해보니 차이점이 보였습니다.
+## 1.1 공부량
+Vue가 확실히 React보다 공부량이 적다는 느낌을 받았습니다. 상태관리 부분에서 React는 Redux, MobX 등등 + 중간에 미들웨어(회사마다 사용하는 것이 다르다고 생각됨) Vue는 Vuex 하나로 하는 것 같아 Vue가 공뷰량이 더 적은 거 같다고 느꼈습니다.   
+## 1.2 props
+React는 useState를 통해서 만든 걸 이용해서 자식 컴포넌트에서 쉽게 값을 변경할 수 있었지만 Vue에서는 emit이라는 것을 활용해야 하다보니 작업할 것이 더 많다고 느껴졌습니다.
+## 1.3 정보량
+정보량은 확실히 React가 더 많았습니다. 인력시장에서 React를 더 선호해서 그런지 Vue보다 정보를 얻기 더 쉬웠습니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# 문제해결한 부분
+## 1. checkbox 체크여부
+카트에 담은 상품을 사려고 선택하고 다른 페이지로 이동하면 체크한 것이 없어지는 현상을 ref로 해결하려고 했으나 검색해보니 checked라는 걸로 쉽게 해결할 수 있었습니다.   
+ref 코드
+```
+useEffect(() => {
+  inputListChange([...props.cart])
+  for(let i=0;i<props.cartCopy.length;i++){
+    if(props.cart[i].product_select === true){
+      inputRefList[i].current.checked = true
+    }
+  }
+})
+```
+checked 코드
+```
+<input checked="product.product.product_select">
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 2. select 태그에 스크롤 바 생성
+select에 사이즈를 설정해줘서 스크롤 바 생성
+```
+select.size = 2
+```
 
-### `npm test`
+# 3. 문제점
+## 1. 핸드폰 화면일 때 상품화면이 이상함
+[러블리슈즈](https://lovelyshoes.co.kr/)의 디자인을 클론코딩해서 디자인을 했는데 css 능력부족으로 핸드폰 화면일 때 꽉 안차고 공간이 생김
+![모바일화면 상품배열](https://user-images.githubusercontent.com/94600999/182102337-6528a6e2-3ec9-461a-9f74-1163040a18ea.PNG)
+## 2. 주소가 존재하는 지 확인 불가
+주소, 우편번호를 찾아주는 api를 찾았으나 적용이 제대로 안됨. api를 이해하고 다음 프로젝트에 도입할 예정
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# 4. 마치며
+프로젝트를 진행하면서 기본기를 잘 만들어놓고 조바심내지 말고 조금씩 하나를 배우더라도 제대로 배워야겠다고 느꼈습니다. 프로젝트를 진행하면서 css에서 막히는 것이 많았습니다. 이렇게하면 되겠지?라고 생각했는데 막상하니 안되서 삽질을 많이해서 기본기를 쌓는 시간을 만들어야 겠다고 느꼈습니다.   
